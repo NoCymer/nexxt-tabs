@@ -54,8 +54,8 @@ npm run build
 ## Licenses
 
 ### Backgrounds
-NEXXT Tabs is not proprietary of any of the backgrounds used in the project, and claims no rights on any them.
-Huge thanks to @polart_graph for providing the beautiful backgrounds used in the project.
+NEXXT Tabs is not proprietary of any of the backgrounds used in the project, and claims no rights on any them.<br>
+Huge thanks to [@polart_graph](https://www.instagram.com/polart_graph) for providing the beautiful backgrounds used in the project.
 
 ### Code
 
