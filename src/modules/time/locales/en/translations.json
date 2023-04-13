@@ -1,0 +1,22 @@
+{
+    "none": "None",
+    "clock": "Clock",
+    "countdown": "Countdown",
+    "time-module-title": "TIME DISPLAY",
+    "upper-display-title": "Upper Display",
+    "upper-display-subtitle": "SELECT UPPER SCREEN DISPLAY",
+    "lower-display-title": "Lower Display",
+    "lower-display-subtitle": "SELECT LOWER SCREEN DISPLAY",
+    "time-module-countdown-section-title": "Countdown Settings",
+    "time-module-countdown-section-subtitle": "CONFIGURE COUNTDOWN",
+    "label": "Label",
+    "countdown-label-desc": "Choose a label",
+    "date": "Date",
+    "countdown-date-desc": "Pick a date",
+    "time-format": "Time Format",
+    "time-format-desc": "Choose a time format",
+    "clock-title": "Clock Settings",
+    "clock-desc": "CONFIGURE CLOCK",
+    "time-module" : "Time Module",
+    "time-module-desc" : "Activates time module"
+}

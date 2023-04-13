@@ -1,0 +1,53 @@
+@import "Styles/base";
+
+.slider-container{
+    height: min-content;
+    .slider{
+        position: relative;
+        display: inline-block;
+        height: 1.7rem;
+        aspect-ratio: 15/8 ;
+        border-radius: 3rem;
+        background-color: #ccc;
+
+        input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+            &:checked + span{
+                background-color: var(--accent-secondary-color);
+                filter: drop-shadow(0px 0px 3px var(--accent-secondary-color));
+                &::before{
+                    transform: translateX(calc(1.7rem / 1.275));
+                }
+            }
+        }
+
+        span{
+            position: absolute;
+            cursor: pointer;
+            border-radius: 3rem;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $button-unselected-color;
+            transition: .4s;
+
+            &::before{
+                position: absolute;
+                border-radius: 34px;
+                content: "";
+                top:20.5%;
+                left: 0.4rem;
+                height: 1rem;
+                width: 1rem;
+                background-color: white;
+                transition: .4s;
+            }
+        }
+
+        
+    }
+}

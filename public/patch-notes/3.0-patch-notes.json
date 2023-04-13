@@ -1,0 +1,31 @@
+{
+    "title": "V3.0 Patch Notes",
+    "thumbnail" : {
+        "type": "image",
+        "url": "https://i.ytimg.com/vi/Vu_2iXYbwXE/maxresdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC-P--_NKSUoz9IF1CmY9HDXgwlpg"
+    },
+    "content": [
+        {
+            "type":"paragraph",
+            "title":"Customization update",
+            "content":"In this spring update we're bringing NEXXT Tabs into a new era of customization, with the addition of custom backgrounds you can now decide for yourself what you want your browser to look like !"
+        },
+        {
+            "type":"paragraph",
+            "title":"What's new ?"
+        },
+        {
+            "type":"list",
+            "content": [
+                "Custom Backgrounds",
+                "Compatibility with other browsers enhanced",
+                "Graphical enhancements",
+                "Reduced drastically schedule loading time",
+                "Schedule now refreshes data more frequently",
+                "Fixing visual artefacts in schedule",
+                "Project is now under an MIT License",
+                "Project Icons are now under a Creative Commons Attribution 4.0 International License"
+            ]
+        }
+    ]
+}

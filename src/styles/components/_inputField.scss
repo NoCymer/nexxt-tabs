@@ -1,0 +1,33 @@
+@import "Styles/base";
+
+.input-field {
+    border: 0.1rem solid $accent-primary-color;
+    color: $accent-primary-color;
+    min-width: 5ch;
+    width: 5ch;
+    padding: .2rem 1rem;
+    border-radius: .6rem;
+    text-align: center;
+    background-color: transparent;
+    transition: border .2s;
+    height: 1.1rem;
+    font-size: 1rem;
+    &:hover{
+        border: 0.1rem solid var(--accent-secondary-color);
+        box-shadow: 0 0 1px var(--accent-secondary-color);
+    }
+}
+.feature-option {
+    .input-field {
+        margin: 0 .25rem;
+        &:nth-child(1) {
+            margin-left: 1.5rem;
+        }
+        &:nth-child(2) {
+            margin-left: auto;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}

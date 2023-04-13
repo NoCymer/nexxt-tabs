@@ -1,0 +1,36 @@
+@import "Styles/base";
+
+.inline-multiple-selector {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    margin-left: 10px;
+    user-select: none;
+    .multiple-selector-entry {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: 2px;
+        transition: .25s;
+        border: 0.1rem solid transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem;
+        border-radius: 0.8rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover{
+            background-color: $panel-secondary-color-hover;
+            border: 0.1rem solid var(--accent-secondary-color);
+        }
+        &.active {
+            background-color: var(--accent-secondary-color);
+            color: $panel-primary-color;
+            cursor: default;
+        }
+    }
+}

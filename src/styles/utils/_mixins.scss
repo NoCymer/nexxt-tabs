@@ -1,0 +1,118 @@
+@mixin hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    cursor: default;
+}
+
+@mixin visible {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+}
+
+@mixin interactable {
+    cursor: pointer;
+    user-select: none;
+}
+@mixin non-interactable {
+    pointer-events: none;
+    cursor: default;
+    user-select: none;
+}
+
+@mixin flexCenter($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+@mixin flexLeft($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    @if ($direction == "column") {
+        align-items: left;
+        justify-content: center;
+    } @else if ($direction == "row") {
+        align-items: center;
+        justify-content: left;
+    }
+    flex-direction: $direction;
+}
+
+@mixin flexRight($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    @if ($direction == "column") {
+        align-items: right;
+        justify-content: center;
+    } @else if ($direction == "row") {
+        align-items: center;
+        justify-content: right;
+    }
+    flex-direction: $direction;
+}
+@mixin flexStart($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    @if ($direction == "column") {
+        align-items: flex-start;
+        justify-content: center;
+    } @else if ($direction == "row") {
+        align-items: center;
+        justify-content: flex-start;
+    }
+    flex-direction: $direction;
+}
+@mixin flexEnd($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    @if ($direction == "column") {
+        align-items: flex-end;
+        justify-content: center;
+    } @else if ($direction == "row") {
+        align-items: center;
+        justify-content: flex-end;
+    }
+    flex-direction: $direction;
+}
+
+@mixin flexTop($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    @if ($direction == "column") {
+        align-items: center;
+        justify-content: flex-start;
+    } @else if ($direction == "row") {
+        align-items: flex-start;
+        justify-content: center;
+    }
+    flex-direction: $direction;
+}
+
+@mixin flexBottom($direction: row) {
+    display: flex;
+    flex-wrap: wrap;
+    @if ($direction == "column") {
+        align-items: center;
+        justify-content: flex-end;
+    } @else if ($direction == "row") {
+        align-items: flex-end;
+        justify-content: center;
+    }
+    flex-direction: $direction;
+}
+
+///Centered-non repeated background image
+@mixin centerNoRepImg($fill-mode: contain) {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $fill-mode;
+}
+
+@mixin noDragImg {
+    user-select: none;
+    -webkit-user-drag: none;
+}

@@ -1,0 +1,115 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+.button-wrapper {
+    $margin-between-buttons: 1rem;
+    $vertical-margin-between-buttons: 0.8rem;
+    margin: 0 0 $vertical-margin-between-buttons 0;
+    width: 90%;
+    &.stacked {
+        @include flexLeft(column);
+        .button {
+            margin-top: $vertical-margin-between-buttons * 0.5;
+            margin-bottom: $vertical-margin-between-buttons * 0.5;
+            width: 100%;
+        }
+        > :first-child {
+            margin-bottom: $vertical-margin-between-buttons * 0.5;
+            margin-top: 0%;
+        }
+        > :last-child {
+            margin-top: $vertical-margin-between-buttons * 0.5;
+            margin-bottom: 0%;
+        }
+    }
+    &.inline {
+        @include flexLeft(row);
+        flex-wrap: nowrap;
+        .button {
+            margin-left: $margin-between-buttons * 0.5;
+            margin-right: $margin-between-buttons * 0.5;
+        }
+        > :first-child {
+            margin-right: $margin-between-buttons * 0.5;
+            margin-left: 0%;
+        }
+        > :last-child {
+            margin-left: $margin-between-buttons * 0.5;
+            margin-right: 0%;
+        }
+    }
+
+    &.fit {
+        .button {
+            width: 100%;
+        }
+    }
+}
+
+.button {
+    @include interactable;
+    @include flexCenter;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 13rem;
+    height: 3.5rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 0.1rem solid transparent;
+    transition: 
+        transform 0.12s,
+        background-color 0.25s,
+        color 0.25s,
+        visibility 0.25s,
+        opacity 0.25s,
+        filter 0.25s;
+    background-color: transparent;
+    &.hidden {
+        @include hidden;
+    }
+    &:active {
+        transform: scale(95%);
+    }
+    &.primary {
+        border-color: var(--accent-secondary-color);
+        color: var(--accent-secondary-color);
+        &:hover {
+            background-color: var(--accent-secondary-color);
+            color: $panel-secondary-color;
+        }
+    }
+    &.danger {
+        border-color: $accent-ternary-color;
+        color: $accent-ternary-color;
+        &:hover {
+            background-color: $accent-ternary-color;
+            color: $panel-secondary-color;
+        }
+    }
+    &.success {
+        border-color: $accent-quaternary-color;
+        color: $accent-quaternary-color;
+        &:hover {
+            background-color: $accent-quaternary-color;
+            color: $panel-secondary-color;
+        }
+    }
+    &.filled {
+        border: none;
+        &.primary {
+            color: $panel-secondary-color;
+            background-color: var(--accent-secondary-color);
+        }
+        &.danger {
+            color: $panel-secondary-color;
+            background-color: $accent-ternary-color;
+        }
+        &.success {
+            color: $panel-secondary-color;
+            background-color: $accent-quaternary-color;
+        }
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}

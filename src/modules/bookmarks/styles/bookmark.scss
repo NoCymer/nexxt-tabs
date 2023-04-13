@@ -1,0 +1,165 @@
+@import "Styles/base";
+@import "Styles/utils";
+.bookmark{
+    @include interactable;
+    @include flexCenter;
+    transform: translateZ(0);
+    position: relative;
+    min-width: 70px;
+    width: 4.5rem;
+    aspect-ratio: 1/1;
+    margin: 0 10px 20px 10px;
+    border-radius: 39% 61% 66% 34% / 36% 48% 52% 64% ;
+    border: 0.15rem solid transparent;
+    transition: .25s, transform .2s;
+    span{
+        @include non-interactable;
+        @include hidden;
+        @include centerNoRepImg;
+        @include noDragImg;
+        background-image: url("./app-ressources/close-symbol.svg");
+        transition: .25s;
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        z-index: 2;
+        top: -1rem;
+        right: -1rem;
+        border: 0.5rem solid transparent;
+        &:hover{
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px $accent-ternary-color);
+        }
+        &:active{
+            transform: scale(0.98);
+        }
+    }
+    &::after{
+        transition: .25s;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.92;
+        border-radius: 39% 61% 66% 34% / 36% 48% 52% 64% ;
+        background: $panel-secondary-color;
+    }
+    &:hover{
+        border: 0.15rem solid  var(--accent-secondary-color);
+        &::after{
+            opacity: 1;
+        }
+        span{
+            @include visible;
+            @include interactable;
+            padding: .2rem;
+        }
+    }
+    &:active{
+        transform: scale(0.92) translateZ(0);
+    }
+    img{
+        @include non-interactable;
+        position: absolute;
+        content: "";
+        width: 45%;
+        height: 45%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-55%) translateY(-52%);
+        z-index: 1;
+    }
+}
+
+#bookmark-container{
+    position: absolute;
+    width: 45%;
+    top: 52%;
+    left: 50%;
+    transform: translateX(-50%);
+    @include flexCenter;
+    z-index: 3;
+}
+
+.bookmark-popup{
+    &::before, &::after{
+        display: none;
+    }
+    h1{
+        margin-bottom: 1rem;
+    }
+    h2{
+        margin-left: 1rem;
+        margin-right: auto;
+    }
+    form{
+        @include flexCenter(column);
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+    .bookmark-input-section{
+        width: 100%;
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        input{
+            height: 3rem;
+            width: 58%;
+            margin-left: 25px;
+            background-color: transparent;
+            font-weight: 400;
+            font-size: 1.1rem;
+            border: none;
+            z-index: 5;
+            color: $accent-primary-color;
+            &:focus-within ~ .input-header,
+            &:not(:placeholder-shown) ~ .input-header{
+                top: .6rem;
+                padding: 5px;
+                font-size: 0.9rem;
+            }
+            &:not(:placeholder-shown) ~ .input-background,
+            .bookmark-input-section:hover
+            input:not(:placeholder-shown) ~ .input-background{
+                border: 0.1rem solid $accent-quaternary-color;
+                filter: drop-shadow(0px 0px 1px $accent-quaternary-color);
+            }
+        }
+        .input-background {
+            position: absolute;
+            content: "";
+            height: 3rem;
+            user-select: none;
+            pointer-events: none;
+            transition: border-color .5s, filter .5s;
+            width: 70%;
+            border-radius: 2rem;
+            border: 0.1rem solid $separator-secondary-color;
+            background-color: $panel-secondary-color;
+            filter: none;
+        }
+        .input-header {
+            position: absolute;
+            left: 5rem;
+            font-weight: 400;
+            color: $separator-secondary-color;
+            user-select: none;
+            pointer-events: none;
+            background-color: $panel-secondary-color;
+            transition: .15s;
+            top: 2.2rem;
+            font-size: 1rem;
+        }
+        &:hover .input-background,
+        .bookmark-input-section:focus-within::before{
+            border: 0.1rem solid var(--accent-secondary-color);
+            filter: drop-shadow(0px 0px 1px var(--accent-secondary-color));
+        }
+    }
+    .button-wrapper{
+        margin-top: 1.5rem;
+        width: 70%;
+    }
+}

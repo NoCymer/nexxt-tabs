@@ -1,0 +1,14 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+.browser-selector {
+    @include flexLeft;
+    margin-top: 1rem;
+    img{
+        height: 3rem;
+        margin-left: 1rem;
+    }
+    .drop-down-list {
+        margin-left: .75rem;
+    }
+}

@@ -1,0 +1,63 @@
+@import "Styles/utils";
+@import "Styles/base";
+.side-Panel-option-list {
+    $margin-between-options: 0.5rem;
+    width: 100%;
+    .side-Panel-select-option {
+        @include flexLeft;
+        @include interactable;
+        margin-top: $margin-between-options * 0.5;
+        margin-bottom: $margin-between-options * 0.5;
+        height: 5.2rem;
+        width: 98%;
+        border-radius: 1.8rem;
+        position: relative;
+        transition: background-color 0.25s, border 0.25s, transform 0.15s;
+        background-color: $panel-secondary-color;
+        border: 0.1rem solid transparent;
+        &:hover {
+            border: 0.1rem solid var(--accent-secondary-color);
+            background-color: $panel-secondary-color-hover;
+        }
+        &:active {
+            transform: scale(0.95);
+        }
+        &.active {
+            background-color: var(--accent-secondary-color);
+            color: $panel-secondary-color;
+            @include non-interactable;
+            &::after {
+                @include centerNoRepImg;
+                background-image: url(
+                    "./app-ressources/checkmark-symbol.svg"
+                );
+                position: absolute;
+                content: "";
+                width: 2rem;
+                height: 2rem;
+                right: 1.2rem;
+            }
+        }
+        p {
+            max-width: 13ch;
+            margin-left: 0.05rem;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.8rem;
+        }
+        img {
+            @include centerNoRepImg;
+            margin-left: 1.5rem;
+            margin-right: 1rem;
+            width: 3.2rem;
+        }
+    }
+    > :first-child {
+        margin-bottom: $margin-between-options * 0.5;
+        margin-top: 0%;
+    }
+    > :last-child {
+        margin-top: $margin-between-options * 0.5;
+        margin-bottom: 0%;
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "time-module-title": "VISUALIZACI\u00d3N DE LA HORA",
+    "upper-display-title": "Pantalla Superior",
+    "upper-display-subtitle": "SELECCIONE LA PANTALLA SUPERIOR",
+    "lower-display-title": "Pantalla Inferior",
+    "lower-display-subtitle": "SELECCIONE LA PANTALLA INFERIOR",
+    "none": "Ninguno",
+    "clock": "Reloj",
+    "countdown": "Cuenta Regresiva",
+    "time-module-countdown-section-title": "Cuenta Regresiva",
+    "time-module-countdown-section-subtitle": "CONFIGURAR CUENTA REGRESIVA",
+    "label": "Etiqueta",
+    "countdown-label-desc": "Elige una etiqueta",
+    "date": "Fecha",
+    "countdown-date-desc": "Selecciona una fecha",
+    "time-format": "Formato de tiempo",
+    "time-format-desc": "Elige un formato de hora",
+    "clock-title": "Configuración Del Reloj",
+    "clock-desc": "CONFIGURAR RELOJ",
+    "time-module" : "Time Module",
+    "time-module-desc" : "Activates time module"
+}

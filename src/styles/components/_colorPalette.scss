@@ -1,0 +1,168 @@
+@import "Styles/utils";
+@import "Styles/base";
+
+.color-palette{
+    @include flexStart(column);
+    user-select: none;
+    margin: 0.8rem 0px 0.8rem 0.95rem;
+    padding-left: 0.95rem;
+    width: 95%;
+    border-left: 0.05rem solid $separator-secondary-color;
+    h1{
+        font-weight: 700;
+        font-size: 1rem;
+    }
+    h2{
+        font-weight: 300;
+        font-size: 0.9rem;
+    }
+    h3{
+        margin-top: 0.95rem;
+        margin-bottom: 0.2rem;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    .color-display-title{
+        @include flexLeft;
+        h1,h2{
+            width: fit-content;
+        }
+        svg{
+            *{
+                transition: 250ms;
+            }
+            filter: drop-shadow(0 0 0.13rem var(--accent-secondary-color));
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.95rem;
+        }
+    }
+    .color-container{
+        @include flexStart;
+        width: 100%;
+    }
+    .color-entry{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0.2rem 0.5rem 0.2rem 0;
+        transition: .15s;
+        background-color: var(--color-var);
+        border-radius: 0.35rem 0.9rem;
+        box-sizing: border-box;
+        position: relative;
+        cursor: pointer;
+        &.custom{
+            span{
+                @include non-interactable;
+                @include hidden;
+                content: "";
+                position: absolute;
+                transition: .25s;
+                width: 0.7rem;
+                height: 0.7rem;
+                right: -0.7rem;
+                top: -0.7rem;
+                border: .35rem solid transparent;
+                @include centerNoRepImg;
+                background-image: url("app-ressources/close-symbol.svg");
+                &:hover{
+                    transform: scale(1.2);
+                    filter: drop-shadow(0 0 .1rem $accent-ternary-color);
+                }
+                &:active{
+                    transform: scale(0.95);
+                    filter: drop-shadow(0 0 .1rem $accent-ternary-color);
+                }
+            }
+            &:hover{
+                span{
+                    @include interactable;
+                    @include visible;
+                }
+            }
+        }
+        &.add{
+            position: relative;
+            background-color: transparent;
+            border-radius: 0;
+            &::before{
+                content: "";
+                width: 70%;
+                height: 70%;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                position: absolute;
+                @include centerNoRepImg;
+                background-image: url("app-ressources/pen-symbol.svg");
+            }
+        }
+        &::after{
+            position: absolute;
+            @include hidden;
+            transition: opacity .12s;
+            content: "";
+            width: 70%;
+            height: 70%;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            @include centerNoRepImg;
+            background-image: url("app-ressources/checkmark-symbol.svg");
+            opacity: 0;
+        }
+        &.active{
+            &::after{
+                @include visible;
+            }
+        }
+    }
+}
+
+.color-picker-popup{
+    padding: 3rem 1rem;
+    .color-picker{
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border: none;
+        outline: none;
+        transition: 250ms;
+        background-color: var(--color-picked);
+        input{
+            @include interactable;
+            text-align: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: transparent;
+            position: absolute;
+            opacity: 0;
+        }
+        &::before {
+            @include non-interactable;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            @include centerNoRepImg;
+            background-image: url("app-ressources/pen-symbol.svg");
+            opacity: 1;
+        }
+        &:hover{
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 .3rem black);
+        }
+        &:active{
+            transform: scale(0.98);
+            filter: drop-shadow(0 0 .3rem black);
+        }
+    }
+}

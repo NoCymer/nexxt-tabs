@@ -1,0 +1,128 @@
+@import "Styles/utils";
+@import "Styles/base";
+
+.info-section {
+    h1{
+        @include flexStart;
+        position: relative;
+        margin-bottom: 1.8rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 2.5rem;
+        margin-left: .4rem;
+        padding-left: 3.5rem;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            @include centerNoRepImg;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            width: 5rem;
+            height: .08rem;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,0) 0%,
+                var(--accent-secondary-color) 10%,
+                var(--accent-secondary-color) 50%,
+                rgba(0,0,0,0) 99%
+            );
+            border-radius: 1rem;
+            bottom: -0.95rem;
+            left: -0.5rem;
+        }
+    }
+    p{
+        width: 77%;
+        margin-left: 1.6rem;
+        margin-top: .8rem;
+        text-indent: 1.8rem;
+        line-height: 1.5rem;
+        text-align: justify;
+        font-weight: 300;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: "";
+            width: 1.3rem;
+            height: 1.3rem;
+            left: 0;
+            top: .08rem;
+            @include centerNoRepImg;
+            background-image: url("app-ressources/arrow-right-symbol.svg");
+        }
+    }
+    .button-wrapper {
+        margin-left: 1.2rem;
+        margin-top: .8rem;
+    }
+    &#backgrounds-info{
+        h1{
+            &::after{
+                background-image: url(
+                    "app-ressources/background-copyright-symbol.svg"
+                );
+            }
+        }
+    }
+    &#icons-info{
+        h1{
+            &::after{
+                background-image: url(
+                    "app-ressources/icon-copyright-symbol.svg"
+                );
+            }
+        }
+    }
+    &#codebase-info{
+        h1{
+            &::after{
+                background-image: url(
+                    "app-ressources/codebase-copyright-symbol.svg"
+                );
+            }
+        }
+    }
+    &#feedback-info{
+        h1{
+            &::after{
+                background-image: url(
+                    "app-ressources/feedback-symbol.svg"
+                );
+            }
+        }
+    }
+    &#contact-info{
+        h1{
+            &::after{
+                background-image: url(
+                    "app-ressources/contact-symbol.svg"
+                );
+            }
+        }
+    }
+    &+.separator{
+        width: 75%;
+    }
+
+    ul{
+        @include flexCenter;
+        margin: 0;
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+        list-style: none;
+        li{
+            position: relative;
+            font-size: 1.1rem;
+            margin-bottom: 0.9rem;
+            display: inline-block;
+            margin: 0 1rem;
+        }
+    }
+}

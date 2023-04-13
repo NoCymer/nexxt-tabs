@@ -1,0 +1,101 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+#modules-list{
+    padding: 0;
+    margin: 0;
+    .module-settings-section{
+        position: relative;
+        width: 100%;
+    }
+    .modules-settings-button {
+        position: absolute;
+        top: 0.4rem;
+        right: .5rem;
+        height: 2rem;
+        width: 2rem;
+        transition: .22s;
+        @include centerNoRepImg;
+        @include interactable;
+        background-image: url("app-ressources/parameters-symbol.svg");
+        &:hover{
+            transform: scale(1.1);
+            filter: drop-shadow(0px 0px 4px var(--accent-secondary-color));
+        }
+        &:active{
+            transform: scale(.98);
+        }
+    }
+}
+
+.modules-settings-back-button{
+    position: absolute;
+    top: .7rem;
+    left: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    transition: .22s;
+    @include interactable;
+    border: 0.15rem solid $accent-ternary-color;
+    border-radius: 25rem;
+    filter: drop-shadow(0px 0px 3px $accent-ternary-color);
+    &::before{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-55%) translateY(-50%);
+        content: "";
+        height: 1.5rem;
+        width: 1.5rem;
+        @include centerNoRepImg;
+        background-image: url("app-ressources/arrow-left-symbol.svg");
+    }
+    &:hover{
+        transform: scale(1.1);
+        filter: drop-shadow(0px 0px 4px $accent-ternary-color);
+    }
+    &:active{
+        transform: scale(.98);
+    }
+}
+
+
+#modules-tab-small-pane {
+    >.side-slider-section{
+        width: 100%;
+        >.side-slider-section-entry{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        >.side-slider-section-entry.active{
+            margin: 0;
+            padding: 0;
+            .module-title{
+                text-transform: uppercase;
+                margin-top: .75rem;
+                margin-left: 1rem;
+                margin-bottom: 0rem;
+                font-size: 2rem;
+                text-align: center;
+                width: 58%;
+            }
+            section{
+                width: 80%;
+                >h2{
+                    margin-left: .8rem;
+                    margin-bottom: .85rem;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                }
+                >h3{
+                    margin-left: .8rem;
+                    margin-bottom: .65rem;
+                    font-weight: 300;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

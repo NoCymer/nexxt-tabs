@@ -1,0 +1,47 @@
+{
+    "language-string" : {
+        "defaultValue": "en"
+    },
+    "search-opens-new-page-boolean" : {
+        "defaultValue": false
+    },
+    "background-id-current-integer": {
+        "defaultValue": 0
+    },
+    "background-id-selected-array" : {
+        "defaultValue": []
+    },
+    "background-id-cycle-history-array" : {
+        "defaultValue": []
+    },
+    "background-ids-array" : {
+        "defaultValue": []
+    },
+    "background-cycle-interval-integer" : {
+        "defaultValue": 20
+    },
+    "background-cycle-interval-unit-string" : {
+        "defaultValue": "sec"
+    },
+    "background-cycle-boolean" : {
+        "defaultValue": true
+    },
+    "background-shuffle-boolean" : {
+        "defaultValue": true
+    },
+    "search-engine-string" : {
+        "defaultValue": "google"
+    },
+    "time-format-string" : {
+        "defaultValue": "24h"
+    },
+    "customization-color-list" : {
+        "defaultValue" : []
+    },
+    "main-accent" : {
+        "defaultValue" : "#68B6FF"
+    },
+    "last-version-showcased-string" : {
+        "defaultValue" : "none"
+    }
+}

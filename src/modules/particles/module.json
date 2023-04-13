@@ -1,0 +1,14 @@
+{
+    "name": "particles",
+    "title": "particles-module-title",
+    "desc": "particles-module-desc",
+    "iconURL": "app-ressources/particles-symbol.svg",
+    "supported-languages": "inherit",
+    "status-setting" : {
+        "key": "particles-activated-boolean",
+        "defaultValue": true
+    },
+    "settings" : {
+        
+    }
+}

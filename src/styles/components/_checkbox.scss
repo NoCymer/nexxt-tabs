@@ -1,0 +1,63 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+.checkbox-container {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    height: min-content;
+    .checkbox {
+        border-radius: 0.3rem;
+        position: relative;
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: rgba(204, 204, 204, 0);
+        input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            &:checked ~ span {
+                background-color: var(--accent-secondary-color);
+                filter: drop-shadow(0 0 2px var(--accent-secondary-color));
+            }
+            &:checked ~ span::after {
+                @include centerNoRepImg;
+                content: "";
+                position: absolute;
+                width: 1.2rem;
+                height: 1.2rem;
+                background-image: url(
+                    "./app-ressources/checkmark-white-symbol.svg"
+                );
+            }
+        }
+
+        :hover input ~ span {
+            transition: 0.25s;
+            transform: scale(1.1);
+            background-color: $separator-secondary-color;
+            border: none;
+            outline: none;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        span {
+            box-sizing: border-box;
+            border-radius: 0.3rem;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: $button-unselected-color;
+            border: 0.1rem transparent solid;
+            transition: 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

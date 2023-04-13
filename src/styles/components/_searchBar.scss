@@ -1,0 +1,95 @@
+@import "Styles/base";
+
+#search-bar-wrapper {
+    width: 40%;
+    height: 2.8rem;
+    margin-bottom: 2.5rem;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    input {
+        color: white;
+        font-family: "roboto", sans-serif;
+        font-weight: 300;
+        font-size: 1.2rem;
+        margin-left: 3.5rem;
+        width: 90%;
+        z-index: 1;
+        height: 80%;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        user-select: text;
+        &:placeholder-shown{
+            user-select: none;
+        }
+    }
+    ::before{
+        position: absolute;
+        content: "";
+        width: 85%;
+        height: 1px;
+        bottom: 5px;
+        left: 30px;
+        border-radius: 0px;
+        z-index: 1;
+        transition: .25s;
+    }
+    &:hover{
+        &::after{
+            filter: brightness(1.2);
+        }
+    }
+    &:focus-within{
+        &::after{
+            filter: brightness(1.2);
+            opacity: 1;
+        }
+        &::before{
+            background: linear-gradient(
+                90deg,
+                transparent, 
+                var(--accent-secondary-color) 10%, 
+                var(--accent-secondary-color) 80%, 
+                transparent 100%
+            );
+        }
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        background-color: $panel-secondary-color;
+        border-radius: 1.8rem;
+        transition: .25s;
+        opacity: .92;
+        width: 100%;
+        height: 100%;
+    }
+    span {
+        transform: scale(1) translateZ(0);
+        content: "";
+        height: 1.8rem;
+        width: 1.8rem;
+        position: absolute;
+        transition: .25s, filter .3s;
+        z-index: 1;
+        transform-origin: center;
+        backface-visibility: hidden;
+        left: 1rem;
+        background: url("./app-ressources/lens-symbol.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.2) translateZ(0);
+            filter: drop-shadow(0 0 2px var(--accent-secondary-color));
+        }
+        &:active{
+            transform: scale(0.98) translateZ(0);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "time-module-title": "AFFICHAGE DE L'HEURE",
+    "upper-display-title": "Affichage Sup\u00e9rieur",
+    "upper-display-subtitle": "S\u00c9LECTIONNER L'AFFICHAGE DE L'\u00c9CRAN SUP\u00c9RIEUR",
+    "lower-display-title": "Affichage Inf\u00e9rieur",
+    "lower-display-subtitle": "S\u00c9LECTIONNER L'AFFICHAGE DE L'\u00c9CRAN INF\u00c9RIEUR",
+    "none": "Aucun",
+    "clock": "Horloge",
+    "countdown": "Compte \u00e0 rebours",
+    "time-module-countdown-section-title": "Compte \u00e0 rebours",
+    "time-module-countdown-section-subtitle": "CONFIGURER COMTE A REBOURS",
+    "label": "Libell\u00e9",
+    "countdown-label-desc": "Choisissez un libell\u00e9",
+    "date": "Date",
+    "countdown-date-desc": "Choisissez une date",
+    "time-format": "Format d'heure",
+    "time-format-desc": "Choisissez un format d'heure",
+    "clock-title": "Param\u00e9tre De l'Horloge",
+    "clock-desc": "CONFIGURER HORLOGE",
+    "time-module" : "Module de temps",
+    "time-module-desc" : "Active le module temps"
+}

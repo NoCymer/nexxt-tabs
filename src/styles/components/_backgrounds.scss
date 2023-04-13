@@ -1,0 +1,159 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+.background-entry {
+    @include interactable;
+    opacity: 0;
+    background: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform 0.5s, z-index 0.2s, opacity .4s;
+    position: relative;
+    z-index: 0;
+    border-radius: 0.7rem;
+    min-width: 12rem;
+    max-width: 30rem;
+    width: 31%;
+    aspect-ratio: 16/9;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin: 10px 1%;
+    >span{
+        @include non-interactable;
+        @include hidden;
+        @include centerNoRepImg;
+        @include noDragImg;
+        background-image: url("./app-ressources/close-symbol.svg");
+        transition: .25s;
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        z-index: 2;
+        top: -1rem;
+        right: -1rem;
+        border: 0.35rem solid transparent;
+        &:hover{
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px $accent-ternary-color);
+        }
+        &:active{
+            transform: scale(0.98);
+        }
+    }
+    .checkbox-container{
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        .checkbox{
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            span {
+                border-radius: 0.7rem 0 0.7rem 0;
+                width: 2rem;
+                height: 2rem;
+                ::before{
+                    width: 1.7rem;
+                    height: 1.7rem;
+                }
+            }
+        }
+        input{
+            @include interactable;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &:hover{
+        transform: scale(1.2);
+        z-index: 2;
+        >span{
+            @include visible;
+            @include interactable;
+            padding: .2rem;
+        }
+    }
+    &:active{
+        transform: scale(0.9);
+        z-index: 2;
+    }
+}
+.backgrounds-container {
+    @include flexCenter;
+    width: 90%;
+}
+
+.add-background-popup{
+    width: 30%;
+    .input-button{
+        width: 70%;
+        height: 3.5rem;
+        border-radius: 0.5rem;
+        position: relative;
+        background-color: var(--accent-secondary-color);
+        transition: transform 0.12s;
+        @include flexCenter;
+        h1{
+            color: $panel-secondary-color;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            @include interactable;
+        }
+        &::before{
+            position: absolute;
+            content: "";
+            height: 2.5rem;
+            left: 1rem;
+            @include centerNoRepImg;
+            background-image: url("app-ressources/lens-symbol.svg");
+        }
+        &:hover {
+            filter: brightness(0.8);
+        }
+        &:active {
+            transform: scale(95%);
+        }
+    }
+    img, .img-placeholder{
+        user-select: none;
+        pointer-events: none;
+        width: 87%;
+        aspect-ratio: 16/9;
+        border-radius: 1.5rem;
+    }
+    .img-placeholder{
+        background-color: $panel-primary-color;
+    }
+    form{
+        margin-top: 1rem;
+        width: 87%;
+        @include flexCenter;
+    }
+    &::before, &::after{
+        display: none;
+    }
+    h1{
+        margin-bottom: 1rem;
+    }
+    h2{
+        margin-left: 1rem;
+        margin-right: auto;
+    }
+    .button-wrapper{
+        margin-top: 1.5rem;
+        width: 70%;
+    }
+}

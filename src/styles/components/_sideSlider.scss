@@ -1,0 +1,34 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+.side-slider-section {
+    width: 95%;
+    min-height: 80vh;
+    height: fit-content;
+    position: relative;
+}
+
+.side-slider-section-entry{
+    @include hidden;
+    padding: 0;
+    box-sizing: border-box;
+    top: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    transform: translateX(-100%);
+    transition: .25s;
+    max-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    &.active{
+        @include visible;
+        max-height: none;
+        min-height: 10rem;
+        padding: 0px 5px;
+        margin: 0px 2px 0px 1.3rem ;
+        transform: translateX(0%);
+    }
+}

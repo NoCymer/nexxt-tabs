@@ -1,0 +1,143 @@
+@import "Styles/base";
+@import "Styles/utils";
+
+.anime-schedule-entry {
+    @include centerNoRepImg(cover);
+    background-color: $panel-secondary-color;
+    margin: 0.75rem 1.5rem 0.75rem 0;
+    height: 12rem;
+    aspect-ratio: 23/30;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    filter: drop-shadow(0px 5px 5px rgba(30,30,30,0.4));
+    .veil{
+        position: absolute;
+        pointer-events: none;
+        transition: top .75s;
+        background: linear-gradient(
+            180deg, rgba(59, 62, 75, 0) 8%, rgba(39, 40, 44, 0.9) 70%
+        );
+        width: 100%;
+        height: 150%;
+        top: -10%;
+        z-index: 2;
+    }
+    
+    .button{
+        @include interactable;
+        @include flexCenter;
+        text-decoration: none;
+        height: 2.8rem;
+        width: 4.5rem;
+        bottom: -160%;
+        background-color: var(--accent-secondary-color);
+        color: $panel-primary-color;
+        margin-left: 0.5rem;
+        font-weight: 800;
+        font-size: 1rem;
+        user-select: none;
+        transition: .55s, transform .35s;
+        border-radius: 0.6rem;
+        position: absolute;
+        z-index: 2;
+        &:hover {
+            transform: scale(1.05);
+        }
+        &:active {
+            transform: scale(.98);
+        }
+    }
+    .title{
+        color: white;
+        margin-left: 0.65rem;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        user-select: none;
+        pointer-events: none;
+        width: 90%;
+        transition: .55s, transform .25s;
+        height: 40%;
+        display: flex;
+        align-items: flex-end;
+        z-index: 2;
+        position: absolute;
+        bottom: 8%;
+        &::after{
+            content: "";
+            position: absolute;
+            left: -.2rem;
+            bottom: -1.4rem;
+            width: 85%;
+            height: .13rem;
+            background: linear-gradient(
+                90deg,rgba(0,0,0,0) 1%,
+                $accent-primary-color 2%,
+                $accent-primary-color 50%,
+                rgba(0,0,0,0) 90%
+            );
+            z-index: 2;
+        }
+    }
+    .broadcast-time{
+        @include flexLeft;
+        @include non-interactable;
+        position: absolute;
+        color: white;
+        margin-left: .2rem;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        width: 95%;
+        transition: .55s, transform .30s;
+        height: 2.5rem;
+        margin-left: 1rem;
+        z-index: 2;
+        bottom: -50%;
+    }
+    &:hover{
+        .veil{
+            top: -40%;
+        }
+        .button{
+            bottom: 5%;
+        }
+        .title{
+            bottom: 55%;
+        }
+        .broadcast-time{
+            bottom: 27%;
+        }
+    }
+}
+
+.day-quarter{
+    width: 100%;
+    margin-bottom: .5rem;
+    .quarter-header{
+        @include flexLeft;
+        position: relative;
+        img{
+            height: 1.2rem;
+            margin-right: .4rem;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: -.1rem;
+            height: .05rem;
+            width: 90%;
+            background-color: $separator-secondary-color;
+        }
+    }
+    
+    .quarter-content{
+        @include flexLeft;
+    }
+}
+
+#AnimeSchedule{
+    overflow-y: visible;
+}
