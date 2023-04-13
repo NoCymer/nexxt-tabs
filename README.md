@@ -14,7 +14,6 @@ NEXXT-Tabs is an open source browser extension which changes the browser's new t
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [Building](#building)
-- [Dependencies](#dependencies)
 - [Licenses](#licenses)
 
 ## Browser Availability
@@ -51,27 +50,6 @@ npm run dev
 ```bash 
 npm run build
 ```
-
-## Dependencies
-### Packages
-
-- [Particles.js](https://github.com/VincentGarreau/particles.js/)
-
-- [jQuery](https://jquery.com/)
-
-- [React](https://reactjs.org/)
-
-- [Babel](https://babeljs.io/)
-
-- [i18n](https://www.i18next.com/)
-
-- [Axios](https://github.com/axios/axios)
-
-- [Webpack](https://webpack.js.org)
-
-### APIs
-
-- [JikanAPI](https://jikan.moe/)
 
 ## Licenses
 
