@@ -53,6 +53,10 @@ npm run build
 
 ## Licenses
 
+### Backgrounds
+NEXXT Tabs is not proprietary of any of the backgrounds used in the project, and claims no rights on any them.
+Huge thanks to @polart_graph for providing the beautiful backgrounds used in the project.
+
 ### Code
 
 NEXXT-Tabs is licensed under the MIT license. See [LICENSE](https://github.com/NoCymer/nexxt-tabs/blob/main/LICENSE) for more information.
