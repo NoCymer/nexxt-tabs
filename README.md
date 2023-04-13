@@ -1,7 +1,7 @@
 
 # NEXXT Tabs
-![stars](https://img.shields.io/github/stars/NoCymer/NEXXT-Tabs?labelColor=1a1b26&color=E0979F&style=for-the-badge)
-![forks](https://img.shields.io/github/forks/NoCymer/NEXXT-Tabs?labelColor=1a1b26&color=E0979F&style=for-the-badge)
+![stars](https://img.shields.io/github/stars/NoCymer/nexxt-tabs?labelColor=1a1b26&color=E0979F&style=for-the-badge)
+![forks](https://img.shields.io/github/forks/NoCymer/nexxt-tabs?labelColor=1a1b26&color=E0979F&style=for-the-badge)
 ![rating](https://img.shields.io/chrome-web-store/rating/dbocanalfbkfdbpjpnbjmipaidlogbmi?color=%23E0979F&style=for-the-badge&labelColor=1a1b26)
 ![users](https://img.shields.io/chrome-web-store/users/dbocanalfbkfdbpjpnbjmipaidlogbmi?color=%23E0979F&style=for-the-badge&labelColor=1a1b26)
 
@@ -52,6 +52,10 @@ npm run build
 ```
 
 ## Licenses
+
+### Backgrounds
+NEXXT Tabs is not proprietary of any of the backgrounds used in the project, and claims no rights on any them.<br>
+Huge thanks to [@polart_graph](https://www.instagram.com/polart_graph) for providing the beautiful backgrounds used in the project.
 
 ### Code
 
