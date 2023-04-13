@@ -52,27 +52,6 @@ npm run dev
 npm run build
 ```
 
-## Dependencies
-### Packages
-
-- [Particles.js](https://github.com/VincentGarreau/particles.js/)
-
-- [jQuery](https://jquery.com/)
-
-- [React](https://reactjs.org/)
-
-- [Babel](https://babeljs.io/)
-
-- [i18n](https://www.i18next.com/)
-
-- [Axios](https://github.com/axios/axios)
-
-- [Webpack](https://webpack.js.org)
-
-### APIs
-
-- [JikanAPI](https://jikan.moe/)
-
 ## Licenses
 
 ### Code
