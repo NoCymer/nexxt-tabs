@@ -14,7 +14,6 @@ NEXXT-Tabs is an open source browser extension which changes the browser's new t
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [Building](#building)
-- [Dependencies](#dependencies)
 - [Licenses](#licenses)
 
 ## Browser Availability
