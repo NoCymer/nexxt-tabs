@@ -8,7 +8,7 @@
     padding: 0.2rem 1rem;
     max-width: 90%;
     border-radius: .6rem;
-    background-color: transparent;
+    background-color: $panel-secondary-color;
     transition: border .2s;
     font-size: .7rem;
     &:hover{

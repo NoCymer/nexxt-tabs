@@ -25,7 +25,6 @@
     "particles.js": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^11.18.6",
     "typescript": "^4.7.4"
   },
   "devDependencies": {
@@ -38,7 +37,7 @@
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "@types/jest": "^29.4.0",
+    "@types/jest": "^29.5.1",
     "@types/jquery": "^3.5.14",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -57,6 +56,7 @@
     "jquery": "^3.6.1",
     "mini-css-extract-plugin": "^2.6.1",
     "mock-local-storage": "^1.1.23",
+    "react-i18next": "^12.2.0",
     "sass": "^1.54.3",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",

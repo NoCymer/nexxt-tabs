@@ -52,9 +52,9 @@
     "seconds": "Gi\u00e2y",
     "backgrounds-rights-section": "B\u1ea3n Quy\u1ec1n H\u00ecnh \u1ea2nh",
     "backgrounds-rights-section-p1": "NEXXT Tabs kh\u00f4ng s\u1edf h\u1eefu b\u1ea5t k\u1ef3 h\u00ecnh n\u1ec1n n\u00e0o \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng trong d\u1ef1 \u00e1n n\u00e0y v\u00e0 kh\u00f4ng c\u00f3 quy\u1ec1n \u0111\u1ed1i v\u1edbi b\u1ea5t k\u1ef3 h\u00ecnh n\u1ec1n n\u00e0o trong s\u1ed1 \u0111\u00f3.",
-    "backgrounds-rights-section-p2" : "Huge thanks to @polart_graph for providing the beautiful backgrounds used in the project.",
+    "backgrounds-rights-section-p2" : "Cảm ơn rất nhiều @polart_graph đã cung cấp các hình nền đẹp được sử dụng trong dự án này.",
     "icons-rights-section": "B\u1ea3n Quy\u1ec1n Icon",
-    "icons-rights-section-p1": "All icons present in the project are made-in and are licensed under a Creative Commons Attribution 4.0 International License",
+    "icons-rights-section-p1": "Tất cả các biểu tượng hiện có trong dự án được tạo ra và được cấp phép theo Giấy phép Quốc tế Creative Commons Attribution 4.0",
     "codebase-rights-section": "B\u1ea3n Quy\u1ec1n Codebase",
     "codebase-rights-section-p1": "D\u1ef1 \u00e1n n\u00e0y l\u00e0 m\u00e3 ngu\u1ed3n m\u1edf, do \u0111\u00f3 b\u1ea1n c\u00f3 th\u1ec3 t\u1ef1 do truy c\u1eadp v\u00e0o codebase c\u1ee7a n\u00f3 v\u00e0 \u0111\u00f3ng g\u00f3p v\u00e0o s\u1ef1 ph\u00e1t tri\u1ec3n c\u1ee7a",
     "feedback-section": "Ph\u1ea3n h\u1ed3i & L\u1ed7i",
@@ -74,10 +74,10 @@
     "language": "Ng\u00f4n ng\u1eef",
     "language-desc": "CH\u1eccN NG\u00d4N NG\u1eee",
     "new-backgrounds": "N\u1ec0N T\u1ea2NG M\u1edaI",
-    "contribute": "Contribute",
-    "modules" : "Modules",
-    "modules-title": "Manage Modules",
-    "modules-subtitle": "Enable, disable and congigure modules",
-    "add-background" : "Add Background",
-    "browse" : "Browse"
+    "contribute": "Đóng góp",
+    "modules" : "Các mô-đun",
+    "modules-title": "Quản lý các mô-đun",
+    "modules-subtitle": "Bật, tắt và cấu hình các mô-đun",
+    "add-background" : "Thêm nền",
+    "browse" : "Duyệt"
 }

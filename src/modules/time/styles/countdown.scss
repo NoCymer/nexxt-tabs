@@ -22,7 +22,7 @@
     }
     .countdown-label{
         @include flexCenter;
-        font-weight: 800;
+        font-weight: 50;
         margin-bottom: 1.2rem;
         position: relative;
         &::before{
@@ -50,7 +50,6 @@
         width: 100%;
         margin-bottom: auto;
         margin-top: auto;
-        font-weight: 1000;
         justify-content: space-around;
     }
     .countdown-number-container{

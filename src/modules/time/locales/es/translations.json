@@ -17,6 +17,6 @@
     "time-format-desc": "Elige un formato de hora",
     "clock-title": "Configuración Del Reloj",
     "clock-desc": "CONFIGURAR RELOJ",
-    "time-module" : "Time Module",
-    "time-module-desc" : "Activates time module"
+    "time-module" : "Módulo de tiempo",
+    "time-module-desc" : "Activa el módulo de tiempo"
 }
