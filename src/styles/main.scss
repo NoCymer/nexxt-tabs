@@ -118,6 +118,11 @@ body {
     position: relative;
 }
 
+#react-target{
+    width: 100vw;
+    height: 100vh;
+}
+
 ::-webkit-scrollbar {
     width: .45rem;
 }

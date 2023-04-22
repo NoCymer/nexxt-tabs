@@ -12,6 +12,7 @@ import appManager from "./AppManager";
 import BackgroundsManager from "./BackgroundsManager";
 import Veil from "./Veil";
 import UpdatePopup from "@Components/advanced/UpdatePopup";
+import { useTransition, animated } from "@react-spring/web";
 
 const BACKGROUND_LOADING_TIME = 80;
 
@@ -45,18 +46,26 @@ function App() {
     $("title").text(t("browser-tab-title"));
 
     UpdatePopup();
+    const transition = useTransition(enabledModules, {
+        config: {
+            duration: 100
+        },
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },  
+    });
 
     return (
         <>
             <SettingsPanel/>
             <SearchBar/>
             {
-            enabledModules.map((module) => {
+            transition((style, module) => {
                 let moduleId = `module_${module.name}`;
                 return(
-                    <div id={moduleId} key={moduleId}>
+                    <animated.div style={style} id={moduleId} key={moduleId} className="module-root-container">
                         {module.rootElement}
-                    </div>
+                    </animated.div>
                 );
             })
             }
