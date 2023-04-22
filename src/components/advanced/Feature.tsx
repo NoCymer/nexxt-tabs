@@ -1,13 +1,13 @@
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
-import { Setting } from "Settings/";
-import Slider from "Components/basic/switches/Slider";
-import Checkbox from "Components/basic/switches/Checkbox";
-import { useSetting } from "Hooks";
-import { INumberField } from "Components/basic/NumberField";
-import { IInlineChoiceContainer } from "Components/basic/InlineChoice";
-import { ITextField } from "Components/basic/TextField";
-import { IDropDownList } from "Components/basic/DropDownList";
-import { IDateTimeField } from "Components/basic/DateTimeField";
+import { Setting } from "@Settings/Setting";
+import Slider from "@Components/basic/switches/Slider";
+import Checkbox from "@Components/basic/switches/Checkbox";
+import { useSetting } from "@Hooks/useSetting";
+import { INumberField } from "@Components/basic/NumberField";
+import { IInlineChoiceContainer } from "@Components/basic/InlineChoice";
+import { ITextField } from "@Components/basic/TextField";
+import { IDropDownList } from "@Components/basic/DropDownList";
+import { IDateTimeField } from "@Components/basic/DateTimeField";
 
 interface IFeature{
     setting: Setting<boolean>

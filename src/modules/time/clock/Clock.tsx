@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import appManager from "../../../AppManager";
-import { TimeModule } from "../Time";
-import { useSetting } from "Hooks";
+import { useSetting } from "@Hooks/useSetting";
 import "../styles/clock.scss";
 
 let interval: NodeJS.Timer;

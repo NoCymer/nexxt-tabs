@@ -36,11 +36,11 @@ describe("Testing UserStorage class", () => {
     });
 
     test("OnChange", () => {
-        let test = 0;
+        let test = "";
         dummyStorage.subscribe((value) => test = value);
 
-        dummyStorage.value = 1;
+        dummyStorage.value = "1";
 
-        expect(test).toBe(1);
+        expect(test).toBe("1");
     });
 })

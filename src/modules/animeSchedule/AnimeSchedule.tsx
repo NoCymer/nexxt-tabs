@@ -1,10 +1,11 @@
 import "./styles/animeSchedule.scss";
 import React, { useEffect, useState } from "react";
-import { ISmallPane, Panel, PanelTab, PanelTabLargePane, PanelTabSmallPane } from "Components/advanced/Panel";
+import { ISmallPane, Panel, PanelTab, PanelTabLargePane, PanelTabSmallPane } from "@Components/advanced/Panel";
 import { useTranslation } from "react-i18next";
-import "Public/i18n/config";
+import "@Public/i18n/config";
 import axios from "axios";
-import { Module, ModulesManager } from "Modules/base";
+import { Module } from "@Modules/base/Module";
+import { ModulesManager } from "@Modules/base/ModulesManager";
 import moduleJSON from "./module.json";
 import Anime from "./Anime";
 import DateTimeConverter from "./DateTimeConverter";
@@ -12,10 +13,10 @@ import appManager from "../../AppManager";
 import { 
     InlineChoice,
     InlineChoiceContainer
-} from "Components/basic/InlineChoice";
-import { Setting } from "../../settings";
-import { useSetting } from "../../hooks";
-import { FeatureField } from "Components/advanced/Feature";
+} from "@Components/basic/InlineChoice";
+import { Setting } from "@Settings/Setting";
+import { useSetting } from "@Hooks/useSetting";
+import { FeatureField } from "@Components/advanced/Feature";
 
 /**
  * Manages the anime schedule module 

@@ -5,7 +5,7 @@ by adding new features
 
 ### Module Architecture
 
-A module is located in the modules/ folder, its designed following the following
+A module is located in the @Modules/ folder, its designed following the following
 template : <br>
 **\* : Required**
 
@@ -50,7 +50,7 @@ be registered in the ModulesManager singleton
 
 Here is an example of this file
 ```tsx
-import { Module, ModulesManager } from "Modules/base";
+import { Module, ModulesManager } from "@Modules/base";
 import moduleJSON from "./module.json";
 import React from "react";
 
@@ -158,16 +158,16 @@ sounds, musics, and so on...
 > into its corresponding folder as follows
 
 This path : <br>
-` src/modules/dummyModule/assets/dummyAsset.png ` <br>
+` src/@Modules/dummyModule/assets/dummyAsset.png ` <br>
 Will become :  <br>
-` dist/modules/dummyModule/assets/dummyAsset.png `
+` dist/@Modules/dummyModule/assets/dummyAsset.png `
 
 In consequences if you want to use the module's assets, be sure to reference the
 **output path** and **not** the **input path** when **referencing assets**.
 
 ### Registering
 Once the module is created, it is necessary to register it in the modules.json file
-of the modules/ directory. To do so, just add the module folder in the file as
+of the @Modules/ directory. To do so, just add the module folder in the file as
 following : 
 
 #### modules.json

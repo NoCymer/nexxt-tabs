@@ -24,7 +24,7 @@ translation.json file.
 
 
 ## Adding Language
-To add a new language you must create a new folder in the public/i18n/locales folder
+To add a new language you must create a new folder in the @Public/i18n/locales folder
 named with the language initials then add a new translation.json file in it.
 
 ### File translation.json
@@ -41,7 +41,7 @@ have the actual translation.
 ### File config.ts
 
 To finish adding the language, we finally need to add it in the
-public/i18n/config.ts file 
+@Public/i18n/config.ts file 
 
 *For instance, here we will add the vitenamese language*
 

@@ -1,4 +1,5 @@
-import { Module } from "Modules/base";
+import { Module } from "@Modules/base/Module";
+import { I18nextProvider } from 'react-i18next';
 import React from "react";
 
 describe("Testing Module class", () => {

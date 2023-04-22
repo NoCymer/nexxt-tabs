@@ -1,5 +1,5 @@
-import { PanelTab, PanelTabSmallPane } from 'Components/advanced/Panel'
-import { Button, ButtonContainer } from 'Components/basic/Button';
+import { PanelTab, PanelTabSmallPane } from '@Components/advanced/Panel'
+import { Button, ButtonContainer } from '@Components/basic/Button';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 

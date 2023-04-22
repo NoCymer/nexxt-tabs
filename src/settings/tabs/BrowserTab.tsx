@@ -1,6 +1,6 @@
-import { Feature, FeatureField, FeatureOptionCheckbox } from 'Components/advanced/Feature';
-import { PanelTab, PanelTabSmallPane } from 'Components/advanced/Panel'
-import DropDownList from 'Components/basic/DropDownList';
+import { Feature, FeatureField, FeatureOptionCheckbox } from '@Components/advanced/Feature';
+import { PanelTab, PanelTabSmallPane } from '@Components/advanced/Panel'
+import DropDownList from '@Components/basic/DropDownList';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import appManager from '../../AppManager';

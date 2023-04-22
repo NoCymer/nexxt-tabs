@@ -1,5 +1,5 @@
-import { PanelTab, PanelTabSmallPane } from 'Components/advanced/Panel'
-import { Choice, ChoiceContainer } from 'Components/basic/Choice'
+import { PanelTab, PanelTabSmallPane } from '@Components/advanced/Panel'
+import { Choice, ChoiceContainer } from '@Components/basic/Choice'
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import appManager from '../../AppManager';

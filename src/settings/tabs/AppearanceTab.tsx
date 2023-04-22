@@ -1,12 +1,13 @@
-import { PanelTab, PanelTabSmallPane } from 'Components/advanced/Panel'
+import { PanelTab, PanelTabSmallPane } from '@Components/advanced/Panel'
 import React, { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import PaintSplash from "Public/app-ressources/paint-splash-symbol.svg"
+import PaintSplash from "@Public/app-ressources/paint-splash-symbol.svg"
 import { t } from 'i18next';
-import { usePopup, useSetting } from '../../hooks';
+import { usePopup } from '@Hooks/usePopup';
+import { useSetting } from '@Hooks/useSetting';
 import appManager from '../../AppManager';
-import { Popup } from 'Components/advanced/Popup';
-import { Button, ButtonContainer } from 'Components/basic/Button';
+import { Popup } from '@Components/advanced/Popup';
+import { Button, ButtonContainer } from '@Components/basic/Button';
 
 const DEFAULT_COLORS = [
     "#68B6FF",

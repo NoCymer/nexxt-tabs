@@ -13,12 +13,12 @@ module.exports = {
   
   resolve: {
     alias: {
-      Components: path.resolve(__dirname, "src/components"),
-      Hooks: path.resolve(__dirname, "src/hooks"),
-      Modules: path.resolve(__dirname, "src/modules"),
-      Styles: path.resolve(__dirname, "src/styles"),
-      Settings: path.resolve(__dirname, "src/settings"),
-      Public: path.resolve(__dirname, "public")
+      "@Components": path.resolve(__dirname, "src/components"),
+      "@Hooks": path.resolve(__dirname, "src/hooks"),
+      "@Modules": path.resolve(__dirname, "src/modules"),
+      "@Styles": path.resolve(__dirname, "src/styles"),
+      "@Settings": path.resolve(__dirname, "src/settings"),
+      "@Public": path.resolve(__dirname, "public")
     }
   },
   module: {
@@ -28,7 +28,7 @@ module.exports = {
         resolve: {
             extensions: [".ts", ".tsx"]
         },
-        exclude: /node_modules/,
+        exclude: /node_@Modules/,
         loader: "babel-loader",
         options: {
           presets: ["@babel/preset-env", "@babel/preset-react"]

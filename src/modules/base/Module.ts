@@ -1,6 +1,6 @@
-import { Setting, SettingsManager } from "Settings/";
-import appManager from "../../AppManager";
-import i18next from 'i18next';
+import { SettingsManager } from "@Settings/SettingsManager";
+import { Setting } from "@Settings/Setting";
+import i18n from '@Public/i18n/config';
 import React from "react";
 
 /**
@@ -127,11 +127,11 @@ export class Module extends SettingsManager{
         // Checks if the module is translatable
         if(moduleJSON.hasOwnProperty("supported-languages")) {
             if (moduleJSON["supported-languages"] === "inherit"){
-                i18next.languages.forEach((language) => {
+                i18n.languages.forEach((language) => {
                     const translation = 
                         require(`../${moduleJSON["name"]}/` +
                         `locales/${language}/translations.json`);
-                    i18next.addResourceBundle(
+                        i18n.addResourceBundle(
                         language,
                         "translations",
                         translation
@@ -145,7 +145,7 @@ export class Module extends SettingsManager{
                     const translation = 
                         require(`../${moduleJSON["name"]}/` +
                         `locales/${language}/translations.json`);
-                    i18next.addResourceBundle(
+                        i18n.addResourceBundle(
                         language,
                         "translations",
                         translation

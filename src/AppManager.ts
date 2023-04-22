@@ -1,8 +1,8 @@
-import {languages} from "../public/i18n/config";
-import { SettingsManager } from "./settings/SettingsManager";
-import { Setting } from "./settings/Setting";
+import {languages} from "@Public/i18n/config";
+import { SettingsManager } from "@Settings/SettingsManager";
+import { Setting } from "@Settings/Setting";
 import settingsFileJson from "./settings.json"
-import backgroundsJSON from "../public/backgrounds/backgrounds.json"
+import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
 
 /**
  * Manages the app's main settings 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import $ from "jquery";
-import { Setting } from "Settings/";
-import { useSetting } from "../../hooks";
-import { useFocus } from "../../hooks/useFocus";
+import { Setting } from "@Settings/Setting";
+import { useSetting } from "@Hooks/useSetting";
+import { useFocus } from "@Hooks/useFocus";
 
 
 interface ISmallPane {

@@ -1,5 +1,6 @@
-import { ModulesManager, Module, ModulesSettingsTabContent } from "Modules/base";
-import {render, fireEvent, screen, getByLabelText, getAllByLabelText} from "@testing-library/react"
+import { ModulesManager, ModulesSettingsTabContent } from "@Modules/base/ModulesManager";
+import { Module } from "@Modules/base/Module";
+import {render, screen} from "@testing-library/react"
 import React from "react";
 import { act } from "react-dom/test-utils";
 

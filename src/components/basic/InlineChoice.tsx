@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Setting } from "Settings/";
-import { useSetting } from "../../hooks";
+import { Setting } from "@Settings/Setting";
+import { useSetting } from "@Hooks/useSetting";
 
 interface IInlineChoice {
     value: string

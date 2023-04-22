@@ -4,7 +4,8 @@ import React, {
     useRef,
     useState
 } from "react";
-import { useFocus, usePopupFocus } from "Hooks";
+import { useFocus } from "@Hooks/useFocus";
+import { usePopupFocus } from "@Hooks/usePopupFocus";
 
 export interface IPopup {
     popupOpenerRef: React.RefObject<any>

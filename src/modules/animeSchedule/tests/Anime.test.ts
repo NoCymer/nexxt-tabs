@@ -1,6 +1,15 @@
 import Anime from "../Anime";
 import DateTimeConverter from "../DateTimeConverter";
 
+/**
+ * Strips spaces from a string and returns it 
+ * @param str String to process
+ * @returns String without any space
+ */
+const stripSpaces = (str: string) => {
+    return str.replace(/\s/g, '');
+}
+
 describe("Testing anime class", () => {
     let dummyDate = new Date(Date.now());
     dummyDate.setHours(6);
@@ -29,7 +38,7 @@ describe("Testing anime class", () => {
     })
     
     test("Release time 12", () => {
-        expect(dummyAnime.weeklyReleaseTime12).toBe("06:00\u202FAM");
+        expect(stripSpaces(dummyAnime.weeklyReleaseTime12)).toBe("06:00AM");
     })
     
     test("Release time 24", () => {

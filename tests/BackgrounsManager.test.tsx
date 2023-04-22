@@ -1,4 +1,4 @@
-import backgroundsJSON from "../public/backgrounds/backgrounds.json"
+import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
 
 jest.useFakeTimers();
 

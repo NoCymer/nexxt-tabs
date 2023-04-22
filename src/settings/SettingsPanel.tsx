@@ -1,6 +1,6 @@
 import React from "react";
-import "Public/i18n/config";
-import { Panel } from "Components/advanced/Panel";
+import "@Public/i18n/config";
+import { Panel } from "@Components/advanced/Panel";
 import {
     BackgroundsTab,
     AppearanceTab,

@@ -1,8 +1,8 @@
 import {render, fireEvent, screen} from "@testing-library/react"
 import "@testing-library/jest-dom"
 import React from "react";
-import { Choice, ChoiceContainer } from "Components/basic/Choice";
-import { Setting } from "Settings/";
+import { Choice, ChoiceContainer } from "@Components/basic/Choice";
+import { Setting } from "@Settings/Setting";
 
 let dummySetting: Setting<string>;
 let dummyCallback: Function;

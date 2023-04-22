@@ -1,6 +1,6 @@
 import $ from "jquery"
 import appManager from "./AppManager";
-import backgroundsJSON from "../public/backgrounds/backgrounds.json"
+import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
 import backgroundsDB from "./BackgroundsDatabase";
 
 type ID = string;

@@ -1,13 +1,15 @@
 import React, {  useRef } from "react";
 import "./styles/bookmark.scss";
-import { Module, ModulesManager } from "Modules/base";
+import { Module } from "@Modules/base/Module";
+import { ModulesManager } from "@Modules/base/ModulesManager";
 import moduleJSON from "./module.json";
 import { Bookmark } from "./Bookmark";
 import { useTranslation } from "react-i18next";
-import { usePopup, useSetting } from "Hooks";
-import { Popup } from "Components/advanced/Popup";
-import { Button, ButtonContainer } from "Components/basic/Button";
-import { Feature } from "Components/advanced/Feature";
+import { usePopup } from "@Hooks/usePopup";
+import { useSetting } from "@Hooks/useSetting";
+import { Popup } from "@Components/advanced/Popup";
+import { Button, ButtonContainer } from "@Components/basic/Button";
+import { Feature } from "@Components/advanced/Feature";
 
 /**
  * Manages the bookmarks module 

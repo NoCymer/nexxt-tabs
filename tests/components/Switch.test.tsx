@@ -1,8 +1,8 @@
 import {render, fireEvent, screen} from "@testing-library/react"
 import "@testing-library/jest-dom"
 import React from "react";
-import { Setting } from "Settings/";
-import Switch from "Components/basic/switches/Switch";
+import { Setting } from "@Settings/Setting";
+import Switch from "@Components/basic/switches/Switch";
 
 let dummySetting: Setting<boolean>;
 let dummyCallback: jest.Mock;

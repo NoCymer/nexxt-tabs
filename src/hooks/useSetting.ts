@@ -1,4 +1,4 @@
-import { Setting } from '../settings';
+import { Setting } from '@Settings/Setting';
 import { useEffect, useState } from "react";
 
 /**

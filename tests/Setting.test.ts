@@ -1,4 +1,4 @@
-import { Setting } from "../src/settings/Setting";
+import { Setting } from "@Settings/Setting";
 
 describe("Testing Setting class", () => {
     let dummySetting: Setting<number>;

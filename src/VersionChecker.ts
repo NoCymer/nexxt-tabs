@@ -1,4 +1,4 @@
-import manifest from "Public/manifest.json"
+import manifest from "@Public/manifest.json"
 import appManager from "./AppManager"
 
 /**

@@ -1,16 +1,16 @@
-import { Feature, FeatureOption, FeatureOptionCheckbox } from 'Components/advanced/Feature';
-import { PanelTab, PanelTabLargePane, PanelTabSmallPane } from 'Components/advanced/Panel'
-import { Popup } from 'Components/advanced/Popup';
-import { Button, ButtonContainer } from 'Components/basic/Button';
-import DropDownList from 'Components/basic/DropDownList';
-import NumberField from 'Components/basic/NumberField';
+import { Feature, FeatureOption, FeatureOptionCheckbox } from '@Components/advanced/Feature';
+import { PanelTab, PanelTabLargePane, PanelTabSmallPane } from '@Components/advanced/Panel'
+import { Popup } from '@Components/advanced/Popup';
+import { Button, ButtonContainer } from '@Components/basic/Button';
+import DropDownList from '@Components/basic/DropDownList';
+import NumberField from '@Components/basic/NumberField';
 import React, { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import appManager from '../../AppManager';
 import { Backgrounds } from "../../Background";
 import backgroundsDB from "../../BackgroundsDatabase";
 import BackgroundsManager from '../../BackgroundsManager';
-import { usePopup } from '../../hooks';
+import { usePopup } from '@Hooks/usePopup';
 
 const bgSelectedIdsSetting = appManager
     .getSetting("background-id-selected-array");

@@ -1,4 +1,5 @@
-import { ModulesManager, Module } from "Modules/base/index.ts";
+import { ModulesManager } from "@Modules/base/ModulesManager.tsx";
+import { Module } from "@Modules/base/Module.ts";
 import moduleJSON from "./module.json";
 import "./styles/particles.scss"
 import $ from "jquery";

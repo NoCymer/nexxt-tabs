@@ -1,23 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import "Styles/main.scss";
-import { SettingsPanel } from "Settings/";
+import "@Styles/main.scss";
+import { SettingsPanel } from "@Settings/SettingsPanel";
 import { useTranslation } from "react-i18next";
-import "Public/i18n/config";
-import SearchBar from "Components/advanced/SearchBar";
+import "@Public/i18n/config";
+import SearchBar from "@Components/advanced/SearchBar";
 import $ from "jquery";
-import modulesJSON from "./modules/modules.json";
-import { ModulesManager } from "Modules/base";
+import modulesJSON from "@Modules/modules.json";
+import { ModulesManager } from "@Modules/base/ModulesManager";
 import appManager from "./AppManager";
 import BackgroundsManager from "./BackgroundsManager";
 import Veil from "./Veil";
-import DropDownList from "Components/basic/DropDownList";
-import NumberField from "Components/basic/NumberField";
-import DateTimeField from "Components/basic/DateTimeField";
-import TextField from "Components/basic/TextField";
-import { TimeModule } from "Modules/time";
-import UpdatePopup from "Components/advanced/UpdatePopup";
-import { usePopup } from "./hooks";
+import UpdatePopup from "@Components/advanced/UpdatePopup";
 
 const BACKGROUND_LOADING_TIME = 80;
 
@@ -83,7 +77,7 @@ const init = async () => {
     
     // Loading modules
     for(let module in modulesJSON) 
-    await require(`Modules/${modulesJSON[module]}/index`);
+    await require(`@Modules/${modulesJSON[module]}/index`);
     
     console.log(
         `[INFO] - Successfuly loaded ${Object.keys(modulesJSON).length} modules`

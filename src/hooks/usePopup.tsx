@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import $ from "jquery";
 import { createRoot, Root } from "react-dom/client";
-import { IPopup } from "Components/advanced/Popup";
+import { IPopup } from "@Components/advanced/Popup";
 import { useTransition, animated } from "@react-spring/web";
 import { useTranslation } from "react-i18next";
 

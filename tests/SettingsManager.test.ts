@@ -1,4 +1,4 @@
-import { SettingsManager } from "../src/settings/SettingsManager";
+import { SettingsManager } from "@Settings/SettingsManager";
 
 let dummyJSON = {
     "dummy-key" : {

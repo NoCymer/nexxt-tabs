@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, ReactNode, useEffect, useRef, useState } from 'react'
 import VersionChecker from '../../VersionChecker';
-import { usePopup } from '../../hooks';
+import { usePopup } from '@Hooks/usePopup';
 import { Popup } from './Popup';
 
 interface IParagraph{

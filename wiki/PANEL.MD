@@ -38,7 +38,7 @@ A PanelTab is composed of a unique ID ending with "-tab", the URL of its icon an
 ```tsx
     <Panel 
         idPanel="dummy-panel"
-        buttonIconURL="../public/app-ressources/xyz.svg"
+        buttonIconURL="../@Public/app-ressources/xyz.svg"
         panelPosition="right"
         buttonPosition="tr">
 

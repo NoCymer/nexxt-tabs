@@ -3,7 +3,7 @@ const config: Config.InitialOptions = {
     verbose: true,
     moduleDirectories: ["node_modules", "src"],
     transform: {
-        "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
+        "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
         '^.+\\.svg$': '<rootDir>/tests/__mocks__/svg.js',
     },
     setupFiles: [
@@ -12,12 +12,12 @@ const config: Config.InitialOptions = {
     ],
     testEnvironment: "jsdom",
     moduleNameMapper: {
-        "^Modules/(.*)": "<rootDir>/src/modules/$1",
-        "^Components/(.*)": "<rootDir>/src/components/$1",
-        "^Styles/(.*)": "<rootDir>/src/styles/$1",
-        "^Settings/(.*)": "<rootDir>/src/settings/$1",
-        "^Public/(.*)": "<rootDir>/public/$1",
-        "Hooks": "<rootDir>/src/hooks",
+        "^@Modules/(.*)": "<rootDir>/src/modules/$1",
+        "^@Components/(.*)": "<rootDir>/src/components/$1",
+        "^@Styles/(.*)": "<rootDir>/src/styles/$1",
+        "^@Settings/(.*)": "<rootDir>/src/settings/$1",
+        "^@Public/(.*)": "<rootDir>/public/$1",
+        "^@Hooks/(.*)": "<rootDir>/src/hooks/$1",
         "\\.(css|scss|less)$": "identity-obj-proxy",
         "^dexie$": require.resolve('dexie'),
     }

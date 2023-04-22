@@ -1,8 +1,8 @@
 import {render, fireEvent, screen, getAllByLabelText} from "@testing-library/react"
 import "@testing-library/jest-dom"
 import React from "react";
-import { Feature, FeatureOptionCheckbox } from "Components/advanced/Feature";
-import { Setting } from "Settings/";
+import { Feature, FeatureOptionCheckbox } from "@Components/advanced/Feature";
+import { Setting } from "@Settings/Setting";
 
 let dummySetting: Setting<boolean>;
 let dummySetting1: Setting<boolean>;

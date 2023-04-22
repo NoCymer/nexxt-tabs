@@ -1,12 +1,10 @@
-import {render, fireEvent, screen, getByLabelText, getAllByLabelText} from "@testing-library/react"
+import {render, fireEvent, screen, getAllByLabelText} from "@testing-library/react"
 import "@testing-library/jest-dom"
 import React from "react";
-import { Panel, PanelTab, PanelTabSmallPane, PanelTabLargePane } from "Components/advanced/Panel";
-import { Setting, SettingsPanel } from "Settings/";
+import { Panel, PanelTab, PanelTabSmallPane, PanelTabLargePane } from "@Components/advanced/Panel";
+import { SettingsPanel } from "@Settings/SettingsPanel";
 
 let panel: HTMLElement;
-let panel1: HTMLElement;
-let largePanelOpenedSetting: Setting<boolean>;
 
 describe("Testing Panel class", () => {
     beforeEach(() => {
@@ -100,7 +98,6 @@ describe("Testing Panel class", () => {
         );
 
         panel = screen.getAllByLabelText("side-panel")[0];
-        panel1 = screen.getAllByLabelText("side-panel")[1];
 
     })
 

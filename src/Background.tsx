@@ -1,11 +1,11 @@
-import Checkbox from "Components/basic/switches/Checkbox"
+import Checkbox from "@Components/basic/switches/Checkbox"
 import React, { useEffect, useState } from "react"
 import backgroundsDB from "./BackgroundsDatabase"
 import BackgroundsManager from "./BackgroundsManager"
-import backgroundsJSON from "../public/backgrounds/backgrounds.json"
-import { Setting } from "./settings"
+import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
+import { Setting } from "@Settings/Setting"
 import appManager from "./AppManager"
-import { useSetting } from "./hooks"
+import { useSetting } from "@Hooks/useSetting"
 
 interface IBackground {
     backgroundID: string

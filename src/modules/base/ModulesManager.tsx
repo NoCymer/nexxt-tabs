@@ -1,9 +1,9 @@
-import { Feature } from "Components/advanced/Feature";
+import { Feature } from "@Components/advanced/Feature";
 import { useTranslation } from "react-i18next";
 import { Module } from "./Module";
 import React from "react";
-import { Setting } from "Settings/";
-import { useSetting } from "../../hooks";
+import { Setting } from "@Settings/Setting";
+import { useSetting } from "@Hooks/useSetting";
 
 /**
  * Manages every module, implements a singleton pattern therefore cannot be 

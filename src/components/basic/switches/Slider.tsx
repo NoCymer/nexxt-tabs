@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Setting } from "Settings/";
+import { Setting } from "@Settings/Setting";
 import Switch, { ISwitchDerivative } from "./Switch";
 
 /**
