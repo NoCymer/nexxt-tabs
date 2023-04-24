@@ -4,7 +4,7 @@
         "description": "App name"
     } ,
     "appDesc": {
-        "message": "NEXXT Tabs complacerá a todos con su interfaz altamente personalizable. Reemplaza tu pestaña de navegador predeterminada con una nueva y moderna que puedes personalizar a tu gusto.",
+        "message": "NEXXT Tabs reemplazará la pestaña predeterminada de su navegador con una pestaña de aspecto moderno y personalizable.",
         "description": "Extension description."
     }
 }

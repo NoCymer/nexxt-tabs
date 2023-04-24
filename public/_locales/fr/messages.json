@@ -4,7 +4,7 @@
         "description": "App name"
     } ,
     "appDesc": {
-        "message": "NEXXT Tabs satisfera tout le monde grace à son style hautement personnalisable. Remplacez votre onglet par défaut par un nouvel onglet moderne et personnalisable.",
+        "message": "NEXXT Tabs remplacera votre onglet de navigateur par défaut par un onglet au look moderne et hautement personnalisable.",
         "description": "Extension description."
     }
 }

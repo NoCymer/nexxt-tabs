@@ -4,7 +4,7 @@
         "description": "App name"
     } ,
     "appDesc": {
-        "message": "NEXXT Tabs sẽ làm hài lòng mọi người với giao diện được tùy chỉnh cao. Thay thế tab trình duyệt mặc định của bạn bằng một tab có giao diện hiện đại và có thể tùy chỉnh.",
+        "message": "NEXXT Tabs sẽ thay thế tab trình duyệt mặc định của bạn bằng một tab có kiểu dáng hiện đại và có thể tùy chỉnh được.",
         "description": "Extension description."
     }
 }
