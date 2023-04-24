@@ -63,7 +63,12 @@ function App() {
             transition((style, module) => {
                 let moduleId = `module_${module.name}`;
                 return(
-                    <animated.div style={style} id={moduleId} key={moduleId} className="module-root-container">
+                    <animated.div 
+                        style={style} 
+                        id={moduleId} 
+                        key={moduleId} 
+                        className="module-root-container"
+                    >
                         {module.rootElement}
                     </animated.div>
                 );
