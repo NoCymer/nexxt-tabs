@@ -98,11 +98,18 @@
     }
 }
 
+#modules{
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    @include non-interactable;
+    position: absolute;
+}
+
 .module-root-container{
     width: 100vw;
     height: 100vh;
     @include non-interactable;
-    z-index: 2;
     position: absolute;
     *{
         pointer-events: all;

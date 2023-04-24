@@ -59,21 +59,23 @@ function App() {
         <>
             <SettingsPanel/>
             <SearchBar/>
-            {
-            transition((style, module) => {
-                let moduleId = `module_${module.name}`;
-                return(
-                    <animated.div 
-                        style={style} 
-                        id={moduleId} 
-                        key={moduleId} 
-                        className="module-root-container"
-                    >
-                        {module.rootElement}
-                    </animated.div>
-                );
-            })
-            }
+            <div id="modules">
+                {
+                transition((style, module) => {
+                    let moduleId = `module_${module.name}`;
+                    return module.rootElement ? (
+                        <animated.div 
+                            style={style} 
+                            id={moduleId} 
+                            key={moduleId} 
+                            className="module-root-container"
+                        >
+                            {module.rootElement}
+                        </animated.div>
+                    ) : null;
+                })
+                }
+            </div>
         </>
     );
 }
