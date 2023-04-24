@@ -16,5 +16,12 @@
   "icons": {
     "128": "icon128.png"
   },
-  "author": "NoCymer"
+  "author": "NoCymer",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{8f518d75-6943-4c0e-9f28-224d4712cc03}",
+      "strict_min_version": "42.0"
+    }
+  }
+  
 }
