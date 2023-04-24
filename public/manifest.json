@@ -7,6 +7,9 @@
     "default_icon": "icon.png"
   },
   "default_locale": "en",
+  "chrome_settings_overrides" : {
+    "homepage": "index.html"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
