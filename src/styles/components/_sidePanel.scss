@@ -236,6 +236,8 @@
             @include visible;
             left: var(--side-panel-width);
         }
+        overflow-y: scroll;
+        overflow-x: hidden;
         .tab{
             @include hidden; 
             display: flex;
