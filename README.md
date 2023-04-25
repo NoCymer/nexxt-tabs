@@ -44,16 +44,17 @@ npm install
 ```
 
 ### Developement Build
-
+Build is platform dependent, possible values are either firefox or chrome
 ```bash 
-npm run dev
+npm run dev (chrome or firefox)
 ```
 
 ### Production Build
 
 ```bash 
-npm run build
+npm run build (chrome or firefox)
 ```
+
 
 ## Licenses
 
