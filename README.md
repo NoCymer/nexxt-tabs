@@ -44,13 +44,13 @@ npm install
 ```
 
 ### Developement Build
-Build is platform dependent, possible values are either firefox or chrome for BROWSER field
+Build is platform dependent, possible values are either firefox or chrome for the BROWSER field
 ```bash 
 npm run dev BROWSER
 ```
 
 ### Production Build
-
+Build is platform dependent, possible values are either firefox or chrome for the BROWSER field
 ```bash 
 npm run build BROWSER
 ```
