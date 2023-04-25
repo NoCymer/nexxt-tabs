@@ -11,81 +11,172 @@ import { Backgrounds } from "../../Background";
 import backgroundsDB from "../../BackgroundsDatabase";
 import BackgroundsManager from '../../BackgroundsManager';
 import { usePopup } from '@Hooks/usePopup';
+import $ from "jquery";
+import { resolve } from 'path';
 
 const bgSelectedIdsSetting = appManager
     .getSetting("background-id-selected-array");
 const bgIDsArraySetting = appManager
     .getSetting("background-ids-array");
 
+const allowedFileTypes = [
+    "image/jpeg",
+    "image/gif",
+    "image/png",
+    "image/jpg",
+    "image/svg",
+    "image/webp"
+]
 /**
  * Allows to add new backgrounds in the database
  * @param setBackgroundPopupVisibility Popup visibility 
  */
 const StoreBackground = ({setBackgroundPopupVisibility}) => {
     const { t } = useTranslation();
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFiles, setSelectedFiles] = useState<any[]>();
+
+    const onFileDrop = (event) => {
+        event.preventDefault();
+        if (event.dataTransfer.items) {
+            let files = [];
+            [...event.dataTransfer.items].forEach((item, i) => {
+                console.log(item)
+                if (
+                    item.kind === "file" && 
+                    allowedFileTypes.includes(item.type)
+                ) {
+                    files.push(item.getAsFile());
+                }
+            });
+            setSelectedFiles(files);
+        }
+    }
 
     const onFileChange = (event: React.FormEvent) => {
-        setSelectedFile((event.target as HTMLInputElement).files[0]);
+        let fileList = (event.target as HTMLInputElement).files;
+        let files = [];
+        for(let i = 0; i < fileList.length; i++) {
+            files.push(fileList.item(i));
+        }
+        setSelectedFiles(files);
     };
+
+    const registerBackground = async (file, id: string) => {
+        return new Promise<boolean>((resolve, reject) => {
+            
+            const fr = new FileReader();
+
+            fr.readAsArrayBuffer(file);
+
+            fr.onload = async () => {
+                // Creating blob
+                const blob = new Blob([fr.result])
+
+                backgroundsDB.storeBackground(
+                    id,
+                    blob
+                );
+
+                let temp = bgSelectedIdsSetting.value;
+                temp.push(id);
+                bgSelectedIdsSetting.value = temp;
+
+                resolve(true)
+            }
+            
+        })
+    }
 
     const onFileUpload = async (e: React.MouseEvent) => {
         e.preventDefault();
-        const allowedFileTypes = [
-            "image/jpeg",
-            "image/gif",
-            "image/png",
-            "image/jpg",
-            "image/svg",
-            "image/webp"
-        ]
 
         // Create an object of formData
         const formData = new FormData();
         
         // Update the formData object
-        formData.append(
-            "myFile",
-            selectedFile,
-            selectedFile.name
-        );
+        for(let i = 0; i < selectedFiles.length; i++) {
+            if(allowedFileTypes.includes(selectedFiles[i].type)) {
+                formData.append(
+                    selectedFiles[i].name,
+                    selectedFiles[i],
+                    selectedFiles[i].name
+                );
+            }
+            else {
+                console.error(
+                    "[ ERROR ] : This type of file is not supported !"
+                );
+                return;
+            }
+        }
+
+        let ids = await backgroundsDB.fetchIds();
+        let firstFreeId = ids.length > 0 ? 
+            Number.parseInt(`${ids[ids.length-1]}`) + 1 : 0;
+        let newIDs = [];
+
+        for (let i = 0; i < selectedFiles.length; i++) {
+            let id = firstFreeId + i;
+            await registerBackground(selectedFiles[i], `${id}`);
+            newIDs.push(`${id}`);
+        }
         
-        if(!allowedFileTypes.includes(selectedFile.type)) {
-            console.error("[ ERROR ] : This type of file is not supported !");
-            return;
-        }
-
-        const fr = new FileReader();
-        fr.readAsArrayBuffer(selectedFile);
-
-        fr.onload = async() => {
-            // Creating blob
-            const blob = new Blob([fr.result])
-
-            const ids = await backgroundsDB.fetchIds();
-            const id = ids.length > 0 ? 
-            `${Number.parseInt(`${ids[ids.length-1]}`) + 1}` : "0";
-            backgroundsDB.storeBackground(
-                id,
-                blob
-            );
-            let temp = bgSelectedIdsSetting.value;
-            temp.push(`${id}`);
-            bgSelectedIdsSetting.value = temp;
-
-            temp = bgIDsArraySetting.value;
-            temp.push(`${id}`);
-            bgIDsArraySetting.value = temp;
-        }
+        bgIDsArraySetting.value = 
+        [
+            ...bgIDsArraySetting.value,
+            ...newIDs
+        ]
         setBackgroundPopupVisibility()(false);
     };
+
+    const onDragHover = (event) => {
+        event.preventDefault();
+        if (event.dataTransfer.items) {
+            let validFiles = true;
+            [...event.dataTransfer.items].forEach((item, i) => {
+                if(!(item.kind === "file")){
+                    validFiles = false;
+                    return;
+                }
+                if(!allowedFileTypes.includes(item.type)) {
+                    validFiles = false;
+                    return;
+                }
+            })
+            validFiles && $(event.target).addClass("hover");
+        }
+    }
+
+    const onDragLeave = (event) => {
+        event.preventDefault();
+        $(event.target).removeClass("hover")
+    }
 
     return (
         <>
         {
-            selectedFile ?
-            <img src={URL.createObjectURL(selectedFile)}/> :
-            <div className="img-placeholder"></div>
+            selectedFiles && selectedFiles.length > 0 ?
+            <div 
+                className="img-placeholder image drop-zone"
+                onDrop={onFileDrop}
+                onDragOver={onDragHover}
+                onDragLeave={onDragLeave}
+                onDropCapture={onDragLeave}
+            >
+                <h1>{selectedFiles.length} Images</h1>
+                <span className="img-veil"/>
+                <img src={URL.createObjectURL(selectedFiles[0])}/>
+            </div>
+            :
+            <div 
+                className="img-placeholder drop-zone"
+                onDrop={onFileDrop}
+                onDragOver={onDragHover}
+                onDragLeave={onDragLeave}
+                onDropCapture={onDragLeave}
+            >
+                <h1>Drop images here</h1>
+            </div>
         }
         <form action="">
             <div className="input-button">
@@ -102,11 +193,12 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
                     "
                     type="file"
                     onChange={onFileChange}
+                    multiple={true}
                 />
             </div>
             <ButtonContainer direction="inline" fitMode="fit">
             
-            { selectedFile && 
+            { selectedFiles && selectedFiles.length > 0 && 
                 <Button 
                     callback={onFileUpload}
                     options={{color:"success", fillMode:"filled"}}

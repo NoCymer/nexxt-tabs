@@ -51,6 +51,9 @@ export default class BackgroundsManager {
     /** Determines if the backgrounds will cycle or not */
     private _canCycle = true;
 
+    /** Layer to change for crossfade effect */
+    private layerToChange = "crossfade"
+
     /**
      * Returns the total number of backgrounds loaded.
      */
@@ -100,7 +103,7 @@ export default class BackgroundsManager {
         // Cycle background logic
         if(this._bgCycleSetting.value) {
             // Initialize the first background.
-            this.cycleBackground();
+            this.changeBackgroundToIDInstant(this.getNextID());
     
             // Background cycling initialisation
             this.interval = setInterval(
@@ -109,7 +112,7 @@ export default class BackgroundsManager {
         }
         // Static background logic
         else {
-            this.changeBackgroundToID(this._bgCurrentIdSetting.value);
+            this.changeBackgroundToIDInstant(this._bgCurrentIdSetting.value);
         }
 
         this._bgCycleSetting.subscribe((value) => {
@@ -210,6 +213,26 @@ export default class BackgroundsManager {
     }
 
     /**
+     * Changes the background to a given id. and stores its id
+     * in the background history, the crossfade effect is not applied.
+     * @param {number} nextID Id of the targeted background.
+     */
+    public async changeBackgroundToIDInstant (nextID: string) {
+        let url = await BackgroundsManager.idToUrl(nextID);
+        $("#background").css(
+            "background-image", `url(${url})`
+        )
+        $("#crossfade").css(
+            "background-image", `url(${url})`
+        )
+        this._bgCurrentIdSetting.value = nextID;
+        let cycleHistory = this._bgIdsCycleHistorySetting.value;
+        cycleHistory.push(nextID);
+        if (cycleHistory.length > 1) cycleHistory.shift();
+        this._bgIdsCycleHistorySetting.value = cycleHistory;
+    }
+
+    /**
      * Pauses the background cycling process
      */
     public stopCycling () {
@@ -233,16 +256,22 @@ export default class BackgroundsManager {
      */
     private crossFade (toUrl: string) {
         let transitionDuration = 750 //ms
-        $("#crossfade").css(
-            "background-image", 
-            `url(${toUrl})`
-        );
-        $("#crossfade").css("opacity", 1);
+        const changeLayer = () => {
+            this.layerToChange = this.layerToChange === "crossfade" ? 
+                "background" : "crossfade"
+        }
+
+        $("#" + this.layerToChange).css(
+            "background-image", `url(${toUrl})`
+        )
+
         setTimeout(() => {
-            $("#background").css(
-                "background-image", `url(${toUrl})`
-            )
-            $("#crossfade").css("opacity", 0);
+            $("#crossfade").css(
+                "opacity",
+                this.layerToChange === "crossfade" ? 
+                1 : 0
+            );
+            changeLayer()
         }, transitionDuration)
     }
 
