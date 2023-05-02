@@ -79,5 +79,7 @@
     "modules-title": "Gerer Les Modules",
     "modules-subtitle": "Activer, desactiver et configurer les modules",
     "add-background" : "Ajouter arri\u00e8re plan",
-    "browse" : "Parcourir fichiers"
+    "browse" : "Parcourir fichiers",
+    "drop-zone" : "Deposer images ici",
+    "drop-zone-count" : "Image(s)"
 }

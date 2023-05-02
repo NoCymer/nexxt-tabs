@@ -79,5 +79,7 @@
     "modules-title": "Quản lý các mô-đun",
     "modules-subtitle": "Bật, tắt và cấu hình các mô-đun",
     "add-background" : "Thêm nền",
-    "browse" : "Duyệt"
+    "browse" : "Duyệt",
+    "drop-zone" : "Thả ảnh vào đây",
+    "drop-zone-count" : "Ảnh"
 }

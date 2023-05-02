@@ -79,5 +79,7 @@
     "modules-title": "Gestionar módulos",
     "modules-subtitle": "Habilitar, deshabilitar y configurar módulos",
     "add-background" : "Agregar Fondo",
-    "browse" : "Explorar"
+    "browse" : "Explorar",
+    "drop-zone" : "Desliza tu imagen aqui",
+    "drop-zone-count" : "Imagen(es)"
 }
