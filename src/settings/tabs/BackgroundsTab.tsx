@@ -163,7 +163,7 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
                 onDragLeave={onDragLeave}
                 onDropCapture={onDragLeave}
             >
-                <h1>{selectedFiles.length} Images</h1>
+                <h1>{selectedFiles.length} {t("drop-zone-count")}</h1>
                 <span className="img-veil"/>
                 <img src={URL.createObjectURL(selectedFiles[0])}/>
             </div>
@@ -175,7 +175,7 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
                 onDragLeave={onDragLeave}
                 onDropCapture={onDragLeave}
             >
-                <h1>Drop images here</h1>
+                <h1>{t("drop-zone")}</h1>
             </div>
         }
         <form action="">

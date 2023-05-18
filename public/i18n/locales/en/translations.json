@@ -79,5 +79,7 @@
     "modules-title": "Manage Modules",
     "modules-subtitle": "Enable, disable and configure modules",
     "add-background" : "Add Background",
-    "browse" : "Browse"
+    "browse" : "Browse",
+    "drop-zone" : "Drop images here",
+    "drop-zone-count" : "Image(s)"
 }
