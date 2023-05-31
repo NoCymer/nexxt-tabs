@@ -16,13 +16,16 @@ i18n.use(initReactI18next).init({
     },
     vi: {
       translations: require("./locales/vi/translations.json")
+    },
+    it: {
+      translations: require("./locales/it/translations.json")
     }
   },
   ns: ["translations"],
   defaultNS: "translations"
 });
 
-i18n.languages = ["en", "es", "fr", "vi"];
+i18n.languages = ["en", "es", "fr", "vi", "it"];
 
 export default i18n;
 export const languages = i18n.languages

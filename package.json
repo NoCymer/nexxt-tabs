@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@react-spring/web": "^9.7.1",
+    "babel": "^6.23.0",
     "blob-polyfill": "^7.0.20220408",
     "dexie": "^3.2.3",
     "fake-indexeddb-es6": "^3.1.2",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",

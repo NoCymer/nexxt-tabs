@@ -1,0 +1,22 @@
+{
+    "time-module-title": "Visualizzazione dell'ora", 
+    "upper-display-title": "Visualizzazione superiore", 
+    "upper-display-subtitle": "Selezionare la visualizzazione dello schermo superiore", 
+    "lower-display-title": "Visualizzazione inferiore", 
+    "lower-display-subtitle": "Selezionare la visualizzazione dello schermo inferiore", 
+    "none": "Nessuno", 
+    "clock": "Orologio", 
+    "countdown": "Conto alla rovescia", 
+    "time-module-countdown-section-title": "Conto alla rovescia", 
+    "time-module-countdown-section-subtitle": "Impostare conto alla rovescia", 
+    "label": "Formulazione", 
+    "countdown-label-desc": "Scegliere una formulazione", 
+    "date": "Data ", 
+    "countdown-date-desc": "Scegliere una data", 
+    "time-format": "Formato d'ora", 
+    "time-format-desc": "Scegliere un formato d'ora", 
+    "clock-title": "Impostazioni dell'orologio", 
+    "clock-desc": "Configurare l'orologio", 
+    "time-module" : "Modulo di tempo", 
+    "time-module-desc" : "Attivare il modulo tempo" 
+}

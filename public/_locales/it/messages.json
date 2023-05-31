@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "NEXXT TABS",
+        "description": "App name"
+    } ,
+    "appDesc": {
+        "message": "NEXXT Tabs sostituirà la tua scheda di navigazione per impostazione predefinita con una scheda dall’apetto moderno e altamente personalizzabile.",
+        "description": "Extension description."
+    }
+}

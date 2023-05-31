@@ -48,6 +48,12 @@ export const LanguagesTab = () => {
                             text="Tiếng Việt"
                             value="vi"
                         />
+                        <Choice
+                            key="5"
+                            img="./app-ressources/countries/italy.png"
+                            text="Italiano"
+                            value="it"
+                        />
                     </ChoiceContainer>
                 </section>         
                 </PanelTabSmallPane>
