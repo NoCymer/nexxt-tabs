@@ -45,7 +45,7 @@
             background: linear-gradient(
                 180deg,
                 $panel-secondary-color 0%,
-                rgba(0,0,0,0) 5%
+                rgba(0,0,0,0) 3%
             );
         }
         &::after{
@@ -59,7 +59,7 @@
             background: linear-gradient(
                 0,
                 $panel-secondary-color 0%,
-                rgba(0,0,0,0) 4%
+                rgba(0,0,0,0) 2%
             );
         }
         >span{

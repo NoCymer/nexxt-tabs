@@ -87,6 +87,8 @@
 
 .add-background-popup{
     width: 40%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     .input-button{
         width: 70%;
         height: 3.5rem;
@@ -184,8 +186,8 @@
             width: .75rem;
             height: .75rem;
             z-index: 2;
-            top: .5rem;
-            right: .5rem;
+            top: .35rem;
+            right: .35rem;
             border: 0.35rem solid transparent;
             &:hover{
                 transform: scale(1.2);
@@ -244,9 +246,6 @@
         margin-top: 1rem;
         width: 87%;
         @include flexCenter;
-    }
-    &::before, &::after{
-        display: none;
     }
     h1{
         margin-bottom: 1rem;
