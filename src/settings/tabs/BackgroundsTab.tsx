@@ -27,6 +27,9 @@ const allowedFileTypes = [
     "image/svg",
     "image/webp"
 ]
+
+
+
 /**
  * Allows to add new backgrounds in the database
  * @param setBackgroundPopupVisibility Popup visibility 
@@ -48,7 +51,10 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
                     files.push(item.getAsFile());
                 }
             });
-            setSelectedFiles(files);
+            if(selectedFiles)
+                setSelectedFiles(selectedFiles.concat(files));
+            else 
+                setSelectedFiles(files);
         }
     }
 
@@ -152,32 +158,47 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
         $(event.target).removeClass("hover")
     }
 
+    const handleDelete = (e, image) => {      
+        e.stopPropagation();
+        setSelectedFiles(selectedFiles.filter(img => img.name != image.name));
+    }
+
+    const BackgroundPreview = ({imageFile}) => {
+        const [image, setImage] = useState(imageFile);
+        return(
+            <div className="img-placeholder image ">
+                <span className="img-veil"/>
+                <img src={URL.createObjectURL(image)}></img>
+                <span className="delete" onClick={(e) => handleDelete(e, image)}/>
+            </div>
+        )
+    }
+
     return (
         <>
-        {
-            selectedFiles && selectedFiles.length > 0 ?
-            <div 
-                className="img-placeholder image drop-zone"
-                onDrop={onFileDrop}
-                onDragOver={onDragHover}
-                onDragLeave={onDragLeave}
-                onDropCapture={onDragLeave}
-            >
-                <h1>{selectedFiles.length} {t("drop-zone-count")}</h1>
-                <span className="img-veil"/>
-                <img src={URL.createObjectURL(selectedFiles[0])}/>
-            </div>
-            :
-            <div 
-                className="img-placeholder drop-zone"
-                onDrop={onFileDrop}
-                onDragOver={onDragHover}
-                onDragLeave={onDragLeave}
-                onDropCapture={onDragLeave}
-            >
-                <h1>{t("drop-zone")}</h1>
-            </div>
-        }
+        <div className="drop-zone-wrapper">
+            {
+                selectedFiles && selectedFiles.length > 0 ? 
+                selectedFiles.map((image, i) => {
+                    return <BackgroundPreview imageFile={image} key={i}/>
+                }) : null
+            }
+            {
+                selectedFiles && selectedFiles.length > 0 ? 
+                <div className="separator thin"></div> : null
+            }
+            {
+                <div 
+                    className="img-placeholder drop-zone full-size"
+                    onDrop={onFileDrop}
+                    onDragOver={onDragHover}
+                    onDragLeave={onDragLeave}
+                    onDropCapture={onDragLeave}
+                >
+                    <h1>{t("drop-zone")}</h1>
+                </div>
+            }
+        </div>
         <form action="">
             <div className="input-button">
                 <h1>{t("browse")}</h1>

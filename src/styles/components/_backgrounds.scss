@@ -86,7 +86,7 @@
 }
 
 .add-background-popup{
-    width: 30%;
+    width: 40%;
     .input-button{
         width: 70%;
         height: 3.5rem;
@@ -127,18 +127,81 @@
             transform: scale(95%);
         }
     }
+    .drop-zone-wrapper{
+        @include flexCenter;
+        flex-wrap: wrap;
+        width: 28rem;
+    }
+    .separator{
+        width: 80%;
+        border-radius: 10px;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+        &.thick{
+            height: .2rem;
+            background-color: $separator-primary-color;
+        }
+        &.medium{
+            height: .15rem;
+            background-color: $separator-secondary-color;
+        }
+        &.thin{
+            height: .1rem;
+            background-color: $separator-secondary-color;
+        }
+        &.no-margin{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        &.no-margin-top{
+            margin-top: 0;
+        }
+        &.no-margin-bottom{
+            margin-bottom: 0;
+        }
+    }
     .img-placeholder{
         user-select: none;
         pointer-events: none;
-        width: 87%;
+        width: 30%;
         aspect-ratio: 16/9;
-        border-radius: 1.5rem;
+        margin: .3rem;
+        border-radius: 0.7rem;
         background-color: $panel-primary-color;
         pointer-events: all;
         @include flexCenter;
         @include centerNoRepImg;
         position: relative;
         overflow: hidden;
+        .delete{
+            @include centerNoRepImg;
+            @include noDragImg;
+            @include interactable;
+            background-image: url("./app-ressources/close-symbol.svg");
+            transition: .25s;
+            position: absolute;
+            width: .75rem;
+            height: .75rem;
+            z-index: 2;
+            top: .5rem;
+            right: .5rem;
+            border: 0.35rem solid transparent;
+            &:hover{
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 5px $accent-ternary-color);
+            }
+            &:active{
+                transform: scale(0.98);
+            }
+        }
+        &.full-size{
+            width: 70%;
+            border-radius: 1.2rem;
+            h1 {
+                font-size: 1rem;
+            }
+        }
         h1{
             position: absolute;
             top: 50%;
@@ -146,7 +209,7 @@
             transform: translateX(-50%) translateY(-50%);
             margin: 0;
             padding: 0;
-            font-size: 1rem;
+            font-size: 0.3rem;
             text-align: center;
             pointer-events: none;
             z-index: 2;

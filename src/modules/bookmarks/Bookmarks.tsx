@@ -93,7 +93,7 @@ const Bookmarks = () => {
             className="bookmark-popup"
         >
             <h1>{t("bookmarks-new")}</h1>
-            <form action="">
+            <form action="" onSubmit={(e) => {e.preventDefault()}}>
             <div className="bookmark-input-section">
                 <input 
                     type="text"
