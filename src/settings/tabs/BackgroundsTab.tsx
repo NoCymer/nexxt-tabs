@@ -43,7 +43,6 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
         if (event.dataTransfer.items) {
             let files = [];
             [...event.dataTransfer.items].forEach((item, i) => {
-                console.log(item)
                 if (
                     item.kind === "file" && 
                     allowedFileTypes.includes(item.type)
