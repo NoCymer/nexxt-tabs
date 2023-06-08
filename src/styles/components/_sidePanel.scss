@@ -435,6 +435,8 @@ section{
         margin-left: 1rem;
     }
 }
+
+// 720p
 @media (max-width: 1400px) {
     :root{
         --side-panel-width: 400px;
@@ -507,6 +509,7 @@ section{
     }
 }
 
+// 1440p
 @media (min-width: 1921px) {
     :root{
         --side-panel-width: 740px;
@@ -580,6 +583,7 @@ section{
     }
 }
 
+// 2160p
 @media (min-width: 2561px) {
     :root{
         --side-panel-width: 1200px;
