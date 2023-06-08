@@ -244,7 +244,7 @@ const Panel = ({
                         <img src={children.props.tabIconURL}/>
                     </div>
                     }
-                    <span className="active-effect"></span>
+                    <div className="active-effect"/>
                 </div>
                 <div className="content">
                 {

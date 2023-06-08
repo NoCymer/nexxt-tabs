@@ -158,6 +158,16 @@ body {
 
 @media (min-width: 1921px) {
     :root{
+        font-size: 22px;
+    }
+    .side-pannel-section-paragraph {
+        width: 27ch;
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 2561px) {
+    :root{
         font-size: 35px;
     }
     .side-pannel-section-paragraph {

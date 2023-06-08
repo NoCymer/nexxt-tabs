@@ -506,7 +506,81 @@ section{
         cursor: default;
     }
 }
+
 @media (min-width: 1921px) {
+    :root{
+        --side-panel-width: 740px;
+    }
+
+    // LEFT
+    .side-Panel.left .small-Panel .navbar .active-effect{
+        position: absolute;
+        transition: .25s;
+        width: 101%;
+        height: 2.4rem;
+        left: 0px;
+        margin-left: 15px;
+        border-radius: 90px 0 0 90px;
+        background-color: $panel-secondary-color;
+    }
+    .side-Panel.left .small-Panel .navbar .active-effect::before{
+        top: -72px;
+        right: 15px;
+        width: 74px;
+        height: 89px;
+        border-bottom-right-radius: 96px;
+        box-shadow: 25px 25px 0 $panel-secondary-color;
+    }
+    
+    .side-Panel.left .small-Panel .navbar .active-effect::after {
+        bottom: -72px;
+        right: 15px;
+        width: 74px;
+        height: 89px;
+        border-top-right-radius: 96px;
+        box-shadow: 25px -25px 0 $panel-secondary-color;
+    }
+    .side-Panel.left .small-Panel .navbar .element.active {
+        transform: translateX(0) scale(1.1);
+        cursor: default;
+    }
+
+
+    // RIGHT
+    .side-Panel.right .small-Panel .navbar .active-effect{
+        position: absolute;
+        transition: .25s;
+        width: 101%;
+        height: 2.4rem;
+        right: 0px;
+        margin-right: 15px;
+        border-radius: 0 90px 90px 0;
+        background-color: $panel-secondary-color;
+    }
+    .side-Panel.right .small-Panel .navbar .active-effect::before{
+        top: -72px;
+        left: 15px;
+        width: 74px;
+        height: 89px;
+        border-bottom-left-radius: 96px;
+        box-shadow: -25px 25px 0 $panel-secondary-color;
+    }
+    
+    .side-Panel.right .small-Panel .navbar .active-effect::after {
+        bottom: -72px;
+        left: 15px;
+        width: 74px;
+        height: 89px;
+        border-top-left-radius: 96px;
+        box-shadow: -25px -25px 0 $panel-secondary-color;
+    }
+    .side-Panel.right .small-Panel .navbar .element.active {
+        transform: translateX(calc(-150% + 60px)) scale(1.1);
+        cursor: default;
+    }
+}
+
+@media (min-width: 2561px) {
     :root{
         --side-panel-width: 1200px;
     }
