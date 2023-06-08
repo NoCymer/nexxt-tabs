@@ -8,6 +8,9 @@ import { useSetting } from '@Hooks/useSetting';
 import appManager from '../../AppManager';
 import { Popup } from '@Components/advanced/Popup';
 import { Button, ButtonContainer } from '@Components/basic/Button';
+import ValueSlider from '@Components/basic/ValueSlider';
+import { Setting } from '@Settings/Setting';
+import { SettingsManager } from '@Settings/SettingsManager';
 
 const DEFAULT_COLORS = [
     "#68B6FF",
@@ -255,6 +258,8 @@ export const AppearanceTab = () => {
                     <h2>{t("colors-section-title")}</h2>
                     <h3>{t("colors-section-subtitle")}</h3>
                     <ColorPalette/>
+                    <ValueSlider title="Search Bar Opacity" min={0} max={1} step={.01} maxValName='Opaque' minValName='Transparent' setting={appManager.getSetting("search-bar-opacity")}/>
+                    <ValueSlider title="Bookmarks Opacity" min={0} max={1} step={.01} maxValName='Opaque' minValName='Transparent' setting={appManager.getSetting("bookmarks-opacity")}/>
                 </section>         
                 </PanelTabSmallPane>
             }

@@ -1,6 +1,7 @@
 import { t } from "i18next";
 import React, { useState } from "react";
 import appManager from "../../AppManager";
+import { useSetting } from "@Hooks/useSetting";
 
 
 /**
@@ -42,9 +43,12 @@ const SearchBar = () => {
     const handleChange=(e) => {
         setSearchQuery(e.target.value);
     }
+
+    const [opacity, setOpacity] = useSetting(appManager.getSetting("search-bar-opacity"));
+
     return(
         <form id="search-bar-wrapper" onSubmit={handleClick}>
-            <span onClick={handleClick}></span>
+            <span className="lens" onClick={handleClick}></span>
             <input 
                 type="text"
                 autoComplete="off"
@@ -53,6 +57,7 @@ const SearchBar = () => {
                 tabIndex={1}
                 onChange={handleChange}
             /> 
+            <span className="bg" style={{opacity: opacity}}/>
         </form>
     )
 }

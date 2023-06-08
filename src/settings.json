@@ -43,5 +43,11 @@
     },
     "last-version-showcased-string" : {
         "defaultValue" : "none"
+    },
+    "search-bar-opacity" : {
+        "defaultValue" : 0.9
+    },
+    "bookmarks-opacity" : {
+        "defaultValue" : 0.9
     }
 }

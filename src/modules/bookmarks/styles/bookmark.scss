@@ -12,7 +12,7 @@
     border-radius: 39% 61% 66% 34% / 36% 48% 52% 64% ;
     border: 0.15rem solid transparent;
     transition: .25s, transform .2s;
-    span{
+    .bookmark-delete{
         @include non-interactable;
         @include hidden;
         @include centerNoRepImg;
@@ -34,7 +34,7 @@
             transform: scale(0.98);
         }
     }
-    &::after{
+    .bookmark-bg{
         transition: .25s;
         content: "";
         position: absolute;
@@ -46,7 +46,7 @@
     }
     &:hover{
         border: 0.15rem solid  var(--accent-secondary-color);
-        &::after{
+        .bookmark-bg{
             opacity: 1;
         }
         span{

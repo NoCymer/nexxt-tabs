@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     z-index: 3;
+
     input {
         color: white;
         font-family: "roboto", sans-serif;
@@ -40,12 +41,12 @@
         transition: .25s;
     }
     &:hover{
-        &::after{
-            filter: brightness(1.2);
+        .bg{
+            filter: brightness(1.1);
         }
     }
     &:focus-within{
-        &::after{
+        .bg{
             filter: brightness(1.2);
             opacity: 1;
         }
@@ -59,17 +60,7 @@
             );
         }
     }
-    &::after{
-        content: "";
-        position: absolute;
-        background-color: $panel-secondary-color;
-        border-radius: 1.8rem;
-        transition: .25s;
-        opacity: .92;
-        width: 100%;
-        height: 100%;
-    }
-    span {
+    .lens {
         transform: scale(1) translateZ(0);
         content: "";
         height: 1.8rem;
@@ -91,5 +82,13 @@
         &:active{
             transform: scale(0.98) translateZ(0);
         }
+    }
+    .bg {
+        position: absolute;
+        background-color: $panel-secondary-color;
+        border-radius: 1.8rem;
+        transition: .25s;
+        width: 100%;
+        height: 100%;
     }
 }

@@ -1,0 +1,24 @@
+@import "@Styles/base";
+@import "@Styles/utils";
+
+.value-slider{
+    width: 80%;
+    position: relative;
+    margin-bottom: 3rem;
+    margin-top: 1.5rem;
+    input[type="range"] {
+        width: 100%;
+    }
+    .min-val-name{
+        @include non-interactable;
+        position: absolute;
+        left: 0;
+        bottom: -1.5rem;
+    }
+    .max-val-name{
+        @include non-interactable;
+        position: absolute;
+        right: 0;
+        bottom: -1.5rem;
+    }
+}

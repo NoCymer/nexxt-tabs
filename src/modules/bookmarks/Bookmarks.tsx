@@ -10,6 +10,7 @@ import { useSetting } from "@Hooks/useSetting";
 import { Popup } from "@Components/advanced/Popup";
 import { Button, ButtonContainer } from "@Components/basic/Button";
 import { Feature } from "@Components/advanced/Feature";
+import appManager from "../../AppManager";
 
 /**
  * Manages the bookmarks module 
@@ -56,6 +57,8 @@ const BookmarkElement = ({bookmark}: IBookmark) => {
         bookmarkListSetting.value = bookmarks;
     }
 
+    const [opacity, setOpacity] = useSetting(appManager.getSetting("bookmarks-opacity"));
+
     return(
         <div 
             aria-label="bookmark"
@@ -66,9 +69,11 @@ const BookmarkElement = ({bookmark}: IBookmark) => {
         >
             <span
                 aria-label="bookmark-delete"
+                className="bookmark-delete"
                 onClick={handleDelete}
             />
             <img src={bookmark.iconUrl}/>
+            <span className="bookmark-bg" style={{opacity: opacity}}/>
         </div>
     )
 }
@@ -161,6 +166,8 @@ const Bookmarks = () => {
         setBookmarks(temp);
     }   
 
+    const [opacity, setOpacity] = useSetting(appManager.getSetting("bookmarks-opacity"));
+    
     return(
         <div aria-label="bookmark-container" id="bookmark-container">
             {bookmarks.map((bookmark: BookmarkObject, index: number) => {
@@ -180,6 +187,7 @@ const Bookmarks = () => {
                     src="./app-ressources/plus-symbol.svg"
                     alt="Add Bookmark"
                 />
+                <span className="bookmark-bg" style={{opacity: opacity}}/>
                 
             </div>
         </div>
