@@ -21,6 +21,12 @@
                     "_quarter": 0
                 }
             ]
+        },
+        "schedule-last-update" : {
+            "defaultValue" : 0
+        },
+        "schedule-last-update-try" : {
+            "defaultValue" : 0
         }
     }
 }

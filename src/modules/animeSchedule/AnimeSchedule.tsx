@@ -18,6 +18,10 @@ import { Setting } from "@Settings/Setting";
 import { useSetting } from "@Hooks/useSetting";
 import { FeatureField } from "@Components/advanced/Feature";
 
+const JIKAN_COOLDOWN = 500; // cooldown in ms
+
+const JIKAN_FULL_FETCH_COOLDOWN = 10000; // cooldown in ms
+
 /**
  * Manages the anime schedule module 
  */
@@ -89,33 +93,57 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
     )
 }
 
+/**
+ * Checks if the entry"s broadcast day is not null and has an non default image
+ * @param entry 
+ * @returns 
+ */
+const isEntryValid = (entry) => {
+    if (
+        entry["broadcast"]["day"] == null 
+        || entry["broadcast"]["time"] == null
+        || entry["images"]["jpg"]["image_url"] == null
+        || entry["images"]["jpg"]["image_url"] == (
+            "https://cdn.myanimelist.net/img/sp/icon/" +
+            "apple-touch-icon-256.png"
+        )
+    )  return false;
+    return true;
+}
+
+/**
+ * Sleeps for ms time
+ * @param ms time to sleep 
+ * @returns 
+ */
+const sleep = async (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const AnimeScheduleWeek = () => {
     
 
     /**
-     * Fetches Jikan"s api"s data if online else uses cached value
+     * Fetches Jikan's api's data if online else uses cached value
      * @returns Anime Schedule Object
      */
     const getAnimes = async () => {
         let animeList: Anime[] = [];
-        // Accesses jikan"s anime api if online else uses cached schedule
-        if (navigator.onLine) {
-            await axios
-            .get("https://api.jikan.moe/v4/schedules?limit=500")
-            .then(response => {
-                response.data.data.forEach((entry: Object) => {
-                    // Checks if the entry"s broadcast day is not null and has 
-                    // an non default image
-                    if (
-                        entry["broadcast"]["day"] == null 
-                        || entry["broadcast"]["time"] == null
-                        || entry["images"]["jpg"]["image_url"] == null
-                        || entry["images"]["jpg"]["image_url"] == (
-                            "https://cdn.myanimelist.net/img/sp/icon/" +
-                            "apple-touch-icon-256.png"
-                        )
-                    )  return;
+        let hasNext = true;
+        let currentPage = 1;
+        let lastFetch = 0;
 
+        const fetchPage = async (page: number) => {
+            let currentTime = Date.now();
+            let deltaTime = currentTime - lastFetch;
+            if(deltaTime < JIKAN_COOLDOWN) await sleep(JIKAN_COOLDOWN - deltaTime);
+            await axios.get(`https://api.jikan.moe/v4/schedules?limit=25&page=${page}`)
+            .then(response => {
+                hasNext = JSON.parse(response.data["pagination"]["has_next_page"]);
+                response.data["data"].forEach((entry: Object) => {
+                    
+                    if (!isEntryValid(entry)) return;
+        
                     let date = DateTimeConverter.getCurrentWeekDateTime(
                         DateTimeConverter.dayStrToInt(
                             entry["broadcast"]["day"]
@@ -123,7 +151,8 @@ const AnimeScheduleWeek = () => {
                         entry["broadcast"]["time"],
                         "UTC+9"
                     );
-
+                        
+        
                     animeList.push(
                         new Anime(
                             entry["mal_id"],
@@ -140,10 +169,32 @@ const AnimeScheduleWeek = () => {
                 console.error(`[ERROR] : Fetching api.jikan.moe lead to the` + 
                     `following error: ${error}`
                 );
+                hasNext = false;
             });
+            lastFetch = Date.now();
+        }
+
+        let updateRequired = (
+            Date.now() -
+            AnimeScheduleModule.getSetting("schedule-last-update").value
+        ) > JIKAN_FULL_FETCH_COOLDOWN
+
+        let canUpdate = (
+            Date.now() -
+            AnimeScheduleModule.getSetting("schedule-last-update-try").value
+        ) > JIKAN_FULL_FETCH_COOLDOWN
+
+        // Accesses jikan's anime api if online, else uses cached schedule
+        if (navigator.onLine && updateRequired && canUpdate) {
+            AnimeScheduleModule.getSetting("schedule-last-update-try").value = Date.now();
+            while(hasNext) {
+                await fetchPage(currentPage);
+                currentPage++
+            }
+            AnimeScheduleModule.getSetting("schedule-last-update").value = Date.now();
         }
         else{
-            console.warn("[WARNING] : Offline - Loading cached schedule : " + 
+            console.warn("[WARNING] : Loading cached schedule : " + 
                 "Results may be outdated"
             );
 
