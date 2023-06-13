@@ -184,7 +184,7 @@ const AnimeScheduleWeek = () => {
             AnimeScheduleModule.getSetting("schedule-last-update-try").value
         ) > JIKAN_FULL_FETCH_COOLDOWN
 
-        // Accesses jikan's anime api if online, else uses cached schedule
+        // Accesses jikan's anime api if necessary, else uses cached schedule
         if (navigator.onLine && updateRequired && canUpdate) {
             AnimeScheduleModule.getSetting("schedule-last-update-try").value = Date.now();
             while(hasNext) {
