@@ -1,6 +1,6 @@
 import "./styles/animeSchedule.scss";
 import React, { useEffect, useState } from "react";
-import { ISmallPane, Panel, PanelTab, PanelTabLargePane, PanelTabSmallPane } from "@Components/advanced/Panel";
+import { Panel, PanelTab, PanelTabSmallPane } from "@Components/advanced/Panel";
 import { useTranslation } from "react-i18next";
 import "@Public/i18n/config";
 import axios from "axios";
