@@ -5,20 +5,57 @@
     width: 80%;
     position: relative;
     margin-bottom: 3rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    margin-left: 0.8rem;
+    h2{
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
     input[type="range"] {
+        --g: .5rem; /* the gap */
+        --l: .3rem; /* line thickness*/
+        --s: 1.8rem; /* thumb size*/
+        margin-left: 0.90rem;
+        height: calc(var(--s) + 10px);
         width: 100%;
+        appearance :none;
+        background: none;
+        overflow: hidden;
+        cursor: pointer;
+        &::-moz-range-thumb, &::-webkit-slider-thumb{
+            height: var(--s);
+            width: var(--s);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: transparent;
+            box-shadow: 0 0 0 var(--l) inset var(--accent-secondary-color);
+            appearance: none;
+            border-image: linear-gradient(90deg,var(--accent-secondary-color) 50%,#ababab 0) 1/0 100vw/0 calc(100vw + var(--g));
+            transition: 300ms;
+            clip-path:
+                polygon(
+                0     calc(50% + var(--l)/2),
+                -100vw calc(50% + var(--l)/2),
+                -100vw calc(50% - var(--l)/2),
+                0     calc(50% - var(--l)/2),
+                0 0,100% 0,
+                100%  calc(50% - var(--l)/2),
+                100vw calc(50% - var(--l)/2),
+                100vw calc(50% + var(--l)/2),
+                100%  calc(50% + var(--l)/2),
+                100% 100%,0 100%);
+        }
     }
     .min-val-name{
         @include non-interactable;
         position: absolute;
-        left: 0;
-        bottom: -1.5rem;
+        left: 0.90rem;
+        bottom: -1.1rem;
     }
     .max-val-name{
         @include non-interactable;
         position: absolute;
-        right: 0;
-        bottom: -1.5rem;
+        right: -0.90rem;
+        bottom: -1.1rem;
     }
 }

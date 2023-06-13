@@ -19,7 +19,7 @@ const ValueSlider = ({setting, title,max, min, step, minValName, maxValName}: IV
     
     return (
         <div className="value-slider">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <input type="range" min={min} max={max} step={step} name="" id="" onChange={onChange} value={value}/>
             <span className="min-val-name">{minValName}</span>
             <span className="max-val-name">{maxValName}</span>

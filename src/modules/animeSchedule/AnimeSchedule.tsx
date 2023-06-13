@@ -208,9 +208,14 @@ const AnimeScheduleWeek = () => {
         return animeList;
     }
 
-    let emptyAnimeList: Anime[] = [];
+    let animeList: Anime[] = [];
 
-    const [animeSchedule, setAnimeSchedule] = useState(emptyAnimeList);
+    // Loads cached schedule
+    scheduleSetting.value.forEach((anime: Object) => {
+        animeList.push(Anime.fromJSON(anime))
+    });
+
+    const [animeSchedule, setAnimeSchedule] = useState(animeList);
 
     // Fetches Jikan"s api then updates the component once
     // to display the schedule
@@ -245,7 +250,7 @@ const AnimeScheduleWeek = () => {
             "Sundays" : [[],[],[],[],[],[],[],[]]
         };
 
-        //Populates the week accordingly to every anime"s quarter if its
+        // Populates the week accordingly to every anime"s quarter if its
         // title isn"t null
         animeSchedule.forEach((anime) => {
             anime.title != "" ?
