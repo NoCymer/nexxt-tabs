@@ -94,9 +94,9 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
 }
 
 /**
- * Checks if the entry"s broadcast day is not null and has an non default image
- * @param entry 
- * @returns 
+ * Checks if the entry's broadcast day is not null and has an non default image
+ * @param entry Entry fetched from jikan's api
+ * @returns True if the entry is valid
  */
 const isEntryValid = (entry) => {
     if (
@@ -186,12 +186,14 @@ const AnimeScheduleWeek = () => {
 
         // Accesses jikan's anime api if necessary, else uses cached schedule
         if (navigator.onLine && updateRequired && canUpdate) {
-            AnimeScheduleModule.getSetting("schedule-last-update-try").value = Date.now();
+            AnimeScheduleModule
+                .getSetting("schedule-last-update-try").value = Date.now();
             while(hasNext) {
                 await fetchPage(currentPage);
                 currentPage++
             }
-            AnimeScheduleModule.getSetting("schedule-last-update").value = Date.now();
+            AnimeScheduleModule
+                .getSetting("schedule-last-update").value = Date.now();
         }
         else{
             console.warn("[WARNING] : Loading cached schedule : " + 
