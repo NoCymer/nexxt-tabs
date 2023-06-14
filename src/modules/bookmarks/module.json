@@ -14,6 +14,12 @@
         },
         "bookmark-list" : {
             "defaultValue": [{"url":"", "title":""}]
+        },
+        "bookmarks-opacity" : {
+            "defaultValue" : 0.9
+        },
+        "bookmarks-blur-amount" : {
+            "defaultValue": 2
         }
     }
 }

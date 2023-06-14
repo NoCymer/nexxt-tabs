@@ -260,12 +260,25 @@ export const AppearanceTab = () => {
                     <ColorPalette/>
                     <span className="separator thin"/>
 
-                    <ValueSlider title="Search Bar Opacity" min={0} max={1} step={.01} maxValName='Opaque' minValName='Transparent' setting={appManager.getSetting("search-bar-opacity")}/>
-                    <ValueSlider title="Search Bar Blur" min={0} max={20} step={1} maxValName='Blurred' minValName='Clear' setting={appManager.getSetting("search-bar-blur-amount")}/>
+                    <ValueSlider
+                        title="Search Bar Opacity"
+                        min={0}
+                        max={1}
+                        step={.01}
+                        minValName='Transparent'
+                        maxValName='Opaque'
+                        setting={appManager.getSetting("search-bar-opacity")}
+                    />
+                    <ValueSlider
+                        title="Search Bar Blur"
+                        min={0}
+                        max={20}
+                        step={1}
+                        maxValName='Blurred'
+                        minValName='Clear'
+                        setting={appManager.getSetting("search-bar-blur-amount")}
+                    />
 
-                    <span className="separator thin"/>
-                    <ValueSlider title="Bookmarks Opacity" min={0} max={1} step={.01} maxValName='Opaque' minValName='Transparent' setting={appManager.getSetting("bookmarks-opacity")}/>
-                    <ValueSlider title="Bookmarks Blur" min={0} max={20} step={1} maxValName='Blurred' minValName='Clear' setting={appManager.getSetting("bookmarks-blur-amount")}/>
                 </section>         
                 </PanelTabSmallPane>
             }

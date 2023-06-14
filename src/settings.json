@@ -49,11 +49,5 @@
     },
     "search-bar-blur-amount" : {
         "defaultValue" : 2
-    },
-    "bookmarks-opacity" : {
-        "defaultValue" : 0.9
-    },
-    "bookmarks-blur-amount" : {
-        "defaultValue": 2
     }
 }

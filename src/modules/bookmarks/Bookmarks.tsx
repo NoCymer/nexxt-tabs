@@ -11,6 +11,7 @@ import { Popup } from "@Components/advanced/Popup";
 import { Button, ButtonContainer } from "@Components/basic/Button";
 import { Feature } from "@Components/advanced/Feature";
 import appManager from "../../AppManager";
+import ValueSlider from "@Components/basic/ValueSlider";
 
 /**
  * Manages the bookmarks module 
@@ -57,8 +58,8 @@ const BookmarkElement = ({bookmark}: IBookmark) => {
         bookmarkListSetting.value = bookmarks;
     }
 
-    const [opacity, setOpacity] = useSetting(appManager.getSetting("bookmarks-opacity"));
-    const [blurAmount, setBlurAmount] = useSetting(appManager.getSetting("bookmarks-blur-amount"));
+    const [opacity, setOpacity] = useSetting(BookmarksModule.getSetting("bookmarks-opacity"));
+    const [blurAmount, setBlurAmount] = useSetting(BookmarksModule.getSetting("bookmarks-blur-amount"));
 
     return(
         <div 
@@ -168,8 +169,8 @@ const Bookmarks = () => {
         setBookmarks(temp);
     }   
 
-    const [opacity, setOpacity] = useSetting(appManager.getSetting("bookmarks-opacity"));
-    const [blurAmount, setBlurAmount] = useSetting(appManager.getSetting("bookmarks-blur-amount"));
+    const [opacity, setOpacity] = useSetting(BookmarksModule.getSetting("bookmarks-opacity"));
+    const [blurAmount, setBlurAmount] = useSetting(BookmarksModule.getSetting("bookmarks-blur-amount"));
     
     return(
         <div aria-label="bookmark-container" id="bookmark-container">
@@ -201,15 +202,35 @@ const Bookmarks = () => {
 const BookmarksOptions = () => {
     const { t } = useTranslation();
     return (
-        <Feature
-            title={t("bookmarks")}
-            desc={t("open-new-page")}
-            img={"app-ressources/new-tab-symbol.svg"}
-            setting={BookmarksModule.getSetting(
-                "bookmark-new-page-boolean"
-            )}
-        />
-        
+        <>
+            <Feature
+                title={t("bookmarks")}
+                desc={t("open-new-page")}
+                img={"app-ressources/new-tab-symbol.svg"}
+                setting={BookmarksModule.getSetting(
+                    "bookmark-new-page-boolean"
+                )}
+            />
+            <span className="separator thin"/>
+            <ValueSlider
+                title="Bookmarks Opacity"
+                min={0}
+                max={1}
+                step={.01}
+                minValName='Transparent'
+                maxValName='Opaque'
+                setting={BookmarksModule.getSetting("bookmarks-opacity")}
+            />
+            <ValueSlider
+                title="Bookmarks Blur"
+                min={0}
+                max={20}
+                step={1}
+                minValName='Clear'
+                maxValName='Blurred'
+                setting={BookmarksModule.getSetting("bookmarks-blur-amount")}
+            />
+        </>
     )
 }
 
