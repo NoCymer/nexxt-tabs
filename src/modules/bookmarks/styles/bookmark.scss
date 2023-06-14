@@ -40,6 +40,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        box-sizing: border-box;
         border-radius: 39% 61% 66% 34% / 36% 48% 52% 64% ;
         background: $panel-secondary-color;
         z-index: 0;

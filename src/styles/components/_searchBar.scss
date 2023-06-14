@@ -91,6 +91,7 @@
         width: 100%;
         height: 100%;
         z-index: 0;
+        box-sizing: border-box;
     }
     .blur-bg{
         background-color: color-mix(in srgb, white, transparent 100%);
