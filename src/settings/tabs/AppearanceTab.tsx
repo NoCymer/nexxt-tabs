@@ -258,8 +258,14 @@ export const AppearanceTab = () => {
                     <h2>{t("colors-section-title")}</h2>
                     <h3>{t("colors-section-subtitle")}</h3>
                     <ColorPalette/>
+                    <span className="separator thin"/>
+
                     <ValueSlider title="Search Bar Opacity" min={0} max={1} step={.01} maxValName='Opaque' minValName='Transparent' setting={appManager.getSetting("search-bar-opacity")}/>
+                    <ValueSlider title="Search Bar Blur" min={0} max={20} step={1} maxValName='Blurred' minValName='Clear' setting={appManager.getSetting("search-bar-blur-amount")}/>
+
+                    <span className="separator thin"/>
                     <ValueSlider title="Bookmarks Opacity" min={0} max={1} step={.01} maxValName='Opaque' minValName='Transparent' setting={appManager.getSetting("bookmarks-opacity")}/>
+                    <ValueSlider title="Bookmarks Blur" min={0} max={20} step={1} maxValName='Blurred' minValName='Clear' setting={appManager.getSetting("bookmarks-blur-amount")}/>
                 </section>         
                 </PanelTabSmallPane>
             }

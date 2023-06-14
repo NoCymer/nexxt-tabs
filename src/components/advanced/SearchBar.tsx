@@ -45,6 +45,7 @@ const SearchBar = () => {
     }
 
     const [opacity, setOpacity] = useSetting(appManager.getSetting("search-bar-opacity"));
+    const [blurAmount, setBlurAmount] = useSetting(appManager.getSetting("search-bar-blur-amount"));
 
     return(
         <form id="search-bar-wrapper" onSubmit={handleClick}>
@@ -58,6 +59,7 @@ const SearchBar = () => {
                 onChange={handleChange}
             /> 
             <span className="bg" style={{opacity: opacity}}/>
+            <span className="blur-bg" style={{backdropFilter: `blur(${blurAmount}px)`}}/>
         </form>
     )
 }

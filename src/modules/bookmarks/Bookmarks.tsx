@@ -58,6 +58,7 @@ const BookmarkElement = ({bookmark}: IBookmark) => {
     }
 
     const [opacity, setOpacity] = useSetting(appManager.getSetting("bookmarks-opacity"));
+    const [blurAmount, setBlurAmount] = useSetting(appManager.getSetting("bookmarks-blur-amount"));
 
     return(
         <div 
@@ -74,6 +75,7 @@ const BookmarkElement = ({bookmark}: IBookmark) => {
             />
             <img src={bookmark.iconUrl}/>
             <span className="bookmark-bg" style={{opacity: opacity}}/>
+                <span className="blur-bg" style={{backdropFilter: `blur(${blurAmount}px)`}}/>
         </div>
     )
 }
@@ -167,6 +169,7 @@ const Bookmarks = () => {
     }   
 
     const [opacity, setOpacity] = useSetting(appManager.getSetting("bookmarks-opacity"));
+    const [blurAmount, setBlurAmount] = useSetting(appManager.getSetting("bookmarks-blur-amount"));
     
     return(
         <div aria-label="bookmark-container" id="bookmark-container">
@@ -188,6 +191,7 @@ const Bookmarks = () => {
                     alt="Add Bookmark"
                 />
                 <span className="bookmark-bg" style={{opacity: opacity}}/>
+                <span className="blur-bg" style={{backdropFilter: `blur(${blurAmount}px)`}}/>
                 
             </div>
         </div>

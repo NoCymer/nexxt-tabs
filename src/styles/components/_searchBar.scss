@@ -83,12 +83,18 @@
             transform: scale(0.98) translateZ(0);
         }
     }
-    .bg {
+    .bg, .blur-bg{
         position: absolute;
         background-color: $panel-secondary-color;
         border-radius: 1.8rem;
         transition: .25s;
         width: 100%;
         height: 100%;
+        z-index: 0;
+    }
+    .blur-bg{
+        background-color: color-mix(in srgb, white, transparent 100%);
+        backdrop-filter: blur(10px);
+        z-index: -1;
     }
 }
