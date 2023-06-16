@@ -82,10 +82,10 @@
     "browse" : "Scegliere i file", 
     "drop-zone" : "Trascinare immagini qui", 
     "drop-zone-count" : "Immagine (i)",
-    "search-bar-opacity": "Search Bar Opacity",
-    "search-bar-blur": "Search Bar Blur",
-    "clear": "Clear",
-    "blurry": "Blurry",
-    "transparent": "Transparent",
-    "opaque": "Opaque"
+    "search-bar-opacity": "Opacità della barra di ricerca",
+    "search-bar-blur": "Sfocatura della barra di ricerca",
+    "clear": "Pulisci",
+    "blurry": "Sfocato",
+    "transparent": "Trasparente",
+    "opaque": "Opaco"
 }
