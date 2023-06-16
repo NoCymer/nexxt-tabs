@@ -110,9 +110,18 @@
             background-image: url("app-ressources/checkmark-symbol.svg");
             opacity: 0;
         }
+        &:hover{
+            transform: scale(1.1);
+        }
+        &:active{
+            transform: scale(0.98);
+        }
         &.active{
             &::after{
                 @include visible;
+            }
+            &:hover, &:active{
+                transform: scale(1);
             }
         }
     }
