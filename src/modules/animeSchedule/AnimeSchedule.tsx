@@ -85,7 +85,7 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
                 title={anime.weeklyReleaseTime24}>
                         {anime.weeklyReleaseTime24}
             </h1>
-            <a className="button" href={anime.malURL} target="_blank">
+            <a className="button" href={anime.malURL} target="_blank" tabIndex={-1}>
                 {t("view")}
             </a>
             <h1 className="title">{anime.title}</h1>
