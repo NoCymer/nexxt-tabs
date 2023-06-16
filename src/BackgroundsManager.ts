@@ -219,12 +219,8 @@ export default class BackgroundsManager {
      */
     public async changeBackgroundToIDInstant (nextID: string) {
         let url = await BackgroundsManager.idToUrl(nextID);
-        $("#background").css(
-            "background-image", `url(${url})`
-        )
-        $("#crossfade").css(
-            "background-image", `url(${url})`
-        )
+        $("#background").attr("src", `${url}`)
+        $("#crossfade").attr("src", `${url}`)
         this._bgCurrentIdSetting.value = nextID;
         let cycleHistory = this._bgIdsCycleHistorySetting.value;
         cycleHistory.push(nextID);
@@ -261,9 +257,7 @@ export default class BackgroundsManager {
                 "background" : "crossfade"
         }
 
-        $("#" + this.layerToChange).css(
-            "background-image", `url(${toUrl})`
-        )
+        $("#" + this.layerToChange).attr("src", `${toUrl}`)
 
         setTimeout(() => {
             $("#crossfade").css(
