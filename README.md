@@ -30,7 +30,6 @@ NEXXT-Tabs is an open source browser extension which changes the browser's new t
 
 ![Screenshot3](/screenshots/screenshot3.png)
 ![Screenshot2](/screenshots/screenshot2.png)
-![Screenshot1](/screenshots/screenshot1.png)
 
 ## Contributing
 If you want to contribute please read the [documentation](https://github.com/NoCymer/NEXXT-Tabs/wiki)
