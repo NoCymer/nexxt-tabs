@@ -82,10 +82,10 @@
     "browse" : "Parcourir fichiers",
     "drop-zone" : "D\u00e9poser images ici",
     "drop-zone-count" : "Image(s)",
-    "search-bar-opacity": "Search Bar Opacity",
-    "search-bar-blur": "Search Bar Blur",
-    "clear": "Clear",
-    "blurry": "Blurry",
+    "search-bar-opacity": "Opacité barre de recherche",
+    "search-bar-blur": "Netteté barre de recherche",
+    "clear": "Nette",
+    "blurry": "Flou",
     "transparent": "Transparent",
     "opaque": "Opaque"
 }
