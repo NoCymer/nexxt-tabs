@@ -227,6 +227,52 @@ const AnimeScheduleWeek = () => {
         });
     },[])
 
+    const getQuarters = (week, day, timeFormat) => {
+        return week[day].map((quarter: Anime[]) => {
+            if (quarter.length <= 1)
+                return null;
+            return (
+                <div
+                    className="day-quarter"
+                    key={week[day].indexOf(quarter)}
+                >
+
+                    {
+                    /* Displays the quarter localised in 12h or 24h format */}
+                    <div className="quarter-header">
+                        <img src="app-ressources/clock-symbol.svg" alt="" />
+                        <h1>
+                            {timeFormat === "12h" ?
+                                quarterListTwelve[week[day].indexOf(quarter)] :
+                                quarterListTwentyFour[week[day].indexOf(quarter)]}
+                        </h1>
+                    </div>
+                    <div className="quarter-content">
+                        {//Iterates over every anime of each quarter of
+                            // each day
+                            quarter.map(
+                                anime => <AnimeScheduleEntry
+                                    key={anime.id}
+                                    anime={anime} />
+                            )}
+                    </div>
+                </div>
+            );
+        });
+    }
+ 
+    /**
+     * Checks whether or nat a day has anime to display
+     * @param day 
+     * @param week 
+     * @returns True if the day has no anime to display
+     */
+    const isDayEmpty = (day, week) => {
+        for(let quarter in week[day])
+            if(week[day][quarter].length > 0) return false;
+        return true;
+    }
+
     /**
      * Returns the week React Element containing each day filled with its
      * quarters and anime entries corresponding
@@ -283,44 +329,13 @@ const AnimeScheduleWeek = () => {
                 id={day}
                 key={day}
             >
-                {//Iterates over every quarter of each day
-                week[day].map((quarter: Anime[]) => {
-                if (quarter.length == 0) return null;
-                return (
-                <div 
-                    className="day-quarter"
-                    key={week[day].indexOf(quarter)}
-                >
-
-                    {/* Displays the quarter localised in
-                        12h or 24h format */
-                    }
-                    <div className="quarter-header">
-                        <img src="app-ressources/clock-symbol.svg" alt="" />
-                        <h1>
-                        {
-                            timeFormat === "12h" ?
-                            quarterListTwelve[week[day].indexOf(quarter)] :
-                            quarterListTwentyFour[week[day].indexOf(quarter)]
-                        }
-                        </h1>
-                    </div>
-                    <div className="quarter-content">
-                        {//Iterates over every anime of each quarter of
-                        // each day
-                        quarter.map(
-                            anime => 
-                                <AnimeScheduleEntry 
-                                    key={anime.id}
-                                    anime={anime}
-                                />
-                            )
-                        }
-                    </div>
-                </div>
-                );
-                })}
+                {
+                    //Iterates over every quarter of each day
+                    isDayEmpty(day, week) ? <span className="loading-wheel"></span> : getQuarters(week, day, timeFormat)
+                }
             </div>)
+
+                
             })}
             </>
         )
