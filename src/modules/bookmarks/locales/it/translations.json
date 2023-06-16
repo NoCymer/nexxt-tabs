@@ -2,5 +2,7 @@
     "bookmarks": "Segnalibro", 
     "bookmarks-desc": "Attivare il sistema di segnalibro", 
     "bookmarks-new": "Nuovo preferito", 
-    "bookmarks-new-title": "Titolo"
+    "bookmarks-new-title": "Titolo",
+    "bookmarks-opacity": "Bookmarks Opacity",
+    "bookmarks-blur": "Bookmarks Blur"
 }

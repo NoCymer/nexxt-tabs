@@ -81,5 +81,11 @@
     "add-background" : "Agregar Fondo",
     "browse" : "Explorar",
     "drop-zone" : "Desliza tu imagen aqui",
-    "drop-zone-count" : "Imagen(es)"
+    "drop-zone-count" : "Imagen(es)",
+    "search-bar-opacity": "Search Bar Opacity",
+    "search-bar-blur": "Search Bar Blur",
+    "clear": "Clear",
+    "blurry": "Blurry",
+    "transparent": "Transparent",
+    "opaque": "Opaque"
 }

@@ -81,5 +81,11 @@
     "add-background" : "Ajouter arri\u00e8re plan",
     "browse" : "Parcourir fichiers",
     "drop-zone" : "D\u00e9poser images ici",
-    "drop-zone-count" : "Image(s)"
+    "drop-zone-count" : "Image(s)",
+    "search-bar-opacity": "Search Bar Opacity",
+    "search-bar-blur": "Search Bar Blur",
+    "clear": "Clear",
+    "blurry": "Blurry",
+    "transparent": "Transparent",
+    "opaque": "Opaque"
 }

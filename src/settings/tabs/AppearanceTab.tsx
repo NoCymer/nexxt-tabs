@@ -261,21 +261,21 @@ export const AppearanceTab = () => {
                     <span className="separator thin"/>
 
                     <ValueSlider
-                        title="Search Bar Opacity"
+                        title={t("search-bar-opacity")}
                         min={0}
                         max={1}
                         step={.01}
-                        minValName='Transparent'
-                        maxValName='Opaque'
+                        minValName={t("transparent")}
+                        maxValName={t("opaque")}
                         setting={appManager.getSetting("search-bar-opacity")}
                     />
                     <ValueSlider
-                        title="Search Bar Blur"
+                        title={t("search-bar-blur")}
                         min={0}
                         max={20}
                         step={1}
-                        maxValName='Blurred'
-                        minValName='Clear'
+                        maxValName={t("blurry")}
+                        minValName={t("clear")}
                         setting={appManager.getSetting("search-bar-blur-amount")}
                     />
 

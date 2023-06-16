@@ -81,5 +81,11 @@
     "add-background" : "Agguingere sotto fondo", 
     "browse" : "Scegliere i file", 
     "drop-zone" : "Trascinare immagini qui", 
-    "drop-zone-count" : "Immagine (i)"
+    "drop-zone-count" : "Immagine (i)",
+    "search-bar-opacity": "Search Bar Opacity",
+    "search-bar-blur": "Search Bar Blur",
+    "clear": "Clear",
+    "blurry": "Blurry",
+    "transparent": "Transparent",
+    "opaque": "Opaque"
 }

@@ -2,5 +2,7 @@
     "bookmarks": "Marcadores",
     "bookmarks-desc": "Habilita el sistema de marcadores",
     "bookmarks-new": "Nuevo marcador",
-    "bookmarks-new-title": "Titulo"
+    "bookmarks-new-title": "Titulo",
+    "bookmarks-opacity": "Bookmarks Opacity",
+    "bookmarks-blur": "Bookmarks Blur"
 }

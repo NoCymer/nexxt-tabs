@@ -2,5 +2,7 @@
     "bookmarks": "Dấu trang",
     "bookmarks-desc": "Bật hệ thống dấu trang",
     "bookmarks-new": "Dấu trang mới",
-    "bookmarks-new-title": "Tiêu đề"
+    "bookmarks-new-title": "Tiêu đề",
+    "bookmarks-opacity": "Bookmarks Opacity",
+    "bookmarks-blur": "Bookmarks Blur"
 }

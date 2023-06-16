@@ -213,21 +213,21 @@ const BookmarksOptions = () => {
             />
             <span className="separator thin"/>
             <ValueSlider
-                title="Bookmarks Opacity"
+                title={t("bookmarks-opacity")}
                 min={0}
                 max={1}
                 step={.01}
-                minValName='Transparent'
-                maxValName='Opaque'
+                minValName={t("transparent")}
+                maxValName={t("opaque")}
                 setting={BookmarksModule.getSetting("bookmarks-opacity")}
             />
             <ValueSlider
-                title="Bookmarks Blur"
+                title={t("bookmarks-blur")}
                 min={0}
                 max={20}
                 step={1}
-                minValName='Clear'
-                maxValName='Blurred'
+                minValName={t("clear")}
+                maxValName={t("blurry")}
                 setting={BookmarksModule.getSetting("bookmarks-blur-amount")}
             />
         </>
