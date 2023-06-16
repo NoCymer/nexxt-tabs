@@ -14,8 +14,6 @@ import Veil from "./Veil";
 import UpdatePopup from "@Components/advanced/UpdatePopup";
 import { useTransition, animated } from "@react-spring/web";
 
-const BACKGROUND_LOADING_TIME = 80;
-
 function App() {
     // Translation logic
     const { t, i18n} = useTranslation();
@@ -88,6 +86,12 @@ const init = async () => {
         appManager.getSetting("main-accent").value
     );
 
+    // Awaits for background loading then hides the veil
+    $("#background").get(0).addEventListener("load", () => {
+        Veil.hideVeil();
+        $("#background").get(0).removeEventListener("load", this);
+    });
+
     // Initialising Backgrounds Manager
     await BackgroundsManager.instance.init();
     
@@ -105,10 +109,6 @@ const init = async () => {
         const root = createRoot(rootElement.get(0));
         root.render(<App/>);
     } 
-
-    //Awaiting for background loading then hiding veil
-    setTimeout(()=>Veil.hideVeil(),BACKGROUND_LOADING_TIME);
-    
 }
 
 init();
