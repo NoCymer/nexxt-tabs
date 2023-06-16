@@ -72,7 +72,7 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
     const { t } = useTranslation();
     
     return(
-        //Checks if the anime is valid by checking its id which cannot be null 
+        // Checks if the anime is valid by checking its id which cannot be null 
         // or equal to 0
         anime.id != 0 ?
         <div 
@@ -82,8 +82,9 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
             <div className="veil"></div>
             <h1 
                 className="broadcast-time" 
-                title={anime.weeklyReleaseTime24}>
-                        {anime.weeklyReleaseTime24}
+                title={anime.weeklyReleaseTime24}
+            >
+                {anime.weeklyReleaseTime24}
             </h1>
             <a className="button" href={anime.malURL} target="_blank" tabIndex={-1}>
                 {t("view")}
