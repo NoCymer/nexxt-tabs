@@ -211,7 +211,15 @@ const BookmarksOptions = () => {
                     "bookmark-new-page-boolean"
                 )}
             />
-            <span className="separator thin"/>
+            
+        </>
+    )
+}
+
+const BookmarksAppearanceOptions = () => {
+    const { t } = useTranslation();
+    return (
+        <>
             <ValueSlider
                 title={t("bookmarks-opacity")}
                 min={0}
@@ -234,7 +242,9 @@ const BookmarksOptions = () => {
     )
 }
 
+
 BookmarksModule.settingsSectionElement = <BookmarksOptions/>;
+BookmarksModule.appearanceSectionElement = <BookmarksAppearanceOptions/>;
 BookmarksModule.rootElement = <Bookmarks/>;
 
 ModulesManager.instance.register(BookmarksModule);

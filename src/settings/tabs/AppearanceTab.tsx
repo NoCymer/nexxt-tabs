@@ -11,6 +11,7 @@ import { Button, ButtonContainer } from '@Components/basic/Button';
 import ValueSlider from '@Components/basic/ValueSlider';
 import { Setting } from '@Settings/Setting';
 import { SettingsManager } from '@Settings/SettingsManager';
+import { ModulesAppearanceTabContent, ModulesManager } from '@Modules/base/ModulesManager';
 
 const DEFAULT_COLORS = [
     "#68B6FF",
@@ -278,6 +279,8 @@ export const AppearanceTab = () => {
                         minValName={t("clear")}
                         setting={appManager.getSetting("search-bar-blur-amount")}
                     />
+
+                    <ModulesAppearanceTabContent/>
 
                 </section>         
                 </PanelTabSmallPane>

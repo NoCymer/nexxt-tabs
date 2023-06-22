@@ -32,6 +32,9 @@ export class Module extends SettingsManager{
     /** Section element of the module"s settings  */
     private _settingsSectionElement: React.ReactNode;
 
+    /** Section element of the module"s settings  */
+    private _appearanceSectionElement: React.ReactNode;
+
     /** Root element of the module */
     private _rootElement: React.ReactNode;
     
@@ -71,6 +74,13 @@ export class Module extends SettingsManager{
 
     public get enabledSetting(): Setting<boolean> {
         return this._enabledSetting;
+    }
+
+    public get appearanceSectionElement(): React.ReactNode {
+        return this._appearanceSectionElement;
+    }
+    public set appearanceSectionElement(value: React.ReactNode) {
+        this._appearanceSectionElement = value;
     }
 
     /** Checks if the module is enabled */

@@ -206,3 +206,28 @@ export const ModulesSettingsTabContent = () => {
         </>
     )
 }
+
+
+/** Content of the Modules'Appearance Tab
+ * containing every module's appearance settings.
+ */
+export const ModulesAppearanceTabContent = () => {
+
+    const modulesList = ModulesManager.instance.modules;
+    
+    return(
+        <>
+            {
+                modulesList.map((module: Module) => {
+                    return (
+                        module.appearanceSectionElement && 
+                            <div key={module.name}>
+                                <span className="separator thin"/>
+                                {module.appearanceSectionElement}
+                            </div> 
+                    )
+                })
+            }
+        </>
+    )
+}
