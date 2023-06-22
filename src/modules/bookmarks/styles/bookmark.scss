@@ -46,7 +46,7 @@
         z-index: 0;
     }
     .blur-bg{
-        background-color: color-mix(in srgb, white, transparent 100%);
+        background-color: #FFFFFF00;
         backdrop-filter: blur(10px);
         z-index: -1;
     }

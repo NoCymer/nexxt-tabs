@@ -112,6 +112,13 @@ const isEntryValid = (entry) => {
     return true;
 }
 
+const entryAlreadyExist = (entry, list:any[]) => {
+    for(let i = 0; i < list.length; i++)
+        if(list[i]["mal_id"] == entry["mal_id"]) 
+            return true;
+    return false;
+}
+
 /**
  * Sleeps for ms time
  * @param ms time to sleep 
@@ -144,6 +151,7 @@ const AnimeScheduleWeek = () => {
                 response.data["data"].forEach((entry: Object) => {
                     
                     if (!isEntryValid(entry)) return;
+                    if (!entryAlreadyExist(entry, animeList)) return;
         
                     let date = DateTimeConverter.getCurrentWeekDateTime(
                         DateTimeConverter.dayStrToInt(
