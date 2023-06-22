@@ -114,7 +114,7 @@ const isEntryValid = (entry) => {
 
 const entryAlreadyExist = (entry, list:any[]) => {
     for(let i = 0; i < list.length; i++)
-        if(list[i]["mal_id"] == entry["mal_id"]) 
+        if(list[i]["id"] == entry["mal_id"]) 
             return true;
     return false;
 }
@@ -149,9 +149,9 @@ const AnimeScheduleWeek = () => {
             .then(response => {
                 hasNext = JSON.parse(response.data["pagination"]["has_next_page"]);
                 response.data["data"].forEach((entry: Object) => {
-                    
+
                     if (!isEntryValid(entry)) return;
-                    if (!entryAlreadyExist(entry, animeList)) return;
+                    if (entryAlreadyExist(entry, animeList)) return;
         
                     let date = DateTimeConverter.getCurrentWeekDateTime(
                         DateTimeConverter.dayStrToInt(
