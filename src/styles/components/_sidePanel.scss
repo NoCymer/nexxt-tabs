@@ -334,6 +334,12 @@
     &.right{
         direction: rtl;
         right: -100%;
+        .content{
+            &::before{
+                left: auto;
+                right: var(--navbar-width);
+            }
+        }
         .navbar{
             .element{
                 right: -50%;

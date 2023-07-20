@@ -99,6 +99,7 @@
         @include flexCenter(column);
         justify-content: flex-start;
         flex-wrap: nowrap;
+        width: 100%;
     }
     .bookmark-input-section{
         width: 100%;
