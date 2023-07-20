@@ -155,7 +155,6 @@ const TimeSettingSection = () => {
     )
 }
 
-let interval: NodeJS.Timer;
 
 interface ICountdown{
     position : ("top" | "bottom");
@@ -166,6 +165,7 @@ interface ICountdown{
  */
 const Countdown = ({position}: ICountdown) => {
     const [countdownPosition, setCountdownPosition] = useState(position);
+    const [interval, setStateInterval] = useState<NodeJS.Timer>();
     
     const [countdownDate, setCountdownDate] = useSetting(
         TimeModule.getSetting("countdown-datetime")
@@ -219,7 +219,7 @@ const Countdown = ({position}: ICountdown) => {
     useEffect(() => {
         updateTime(countdownDate);
         if(interval) clearInterval(interval);
-        interval = setInterval(() => updateTime(countdownDate),100);
+        setStateInterval(setInterval(() => updateTime(countdownDate),100));
     }, [countdownDate])
 
     useEffect(() =>  setCountdownPosition(position), [position])
