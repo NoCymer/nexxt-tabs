@@ -82,10 +82,10 @@
     "browse" : "Duyệt",
     "drop-zone" : "Thả ảnh vào đây",
     "drop-zone-count" : "Ảnh",
-    "search-bar-opacity": "Search Bar Opacity",
-    "search-bar-blur": "Search Bar Blur",
-    "clear": "Clear",
-    "blurry": "Blurry",
-    "transparent": "Transparent",
-    "opaque": "Opaque"
+    "search-bar-opacity": "Độ trong suốt của thanh tìm kiếm",
+    "search-bar-blur": "Độ mờ của thanh tìm kiếm",
+    "clear": "Rõ",
+    "blurry": "Mờ",
+    "transparent": "Trong",
+    "opaque": "Đục"
 }
