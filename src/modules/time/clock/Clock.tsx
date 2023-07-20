@@ -25,7 +25,6 @@ interface IClock{
  * Simple clock element
  */
 const Clock = ({position}: IClock) => {
-    const [interval, setStateInterval] = useState<NodeJS.Timer>();
 
     const [formatSetting, setFormatSetting] = useSetting(
         appManager.getSetting("time-format-string")
@@ -44,15 +43,10 @@ const Clock = ({position}: IClock) => {
 
     useEffect(() => {
         updateTime();
-        if(interval) clearInterval(interval);
-        setStateInterval(setInterval(updateTime,100));
-    }, [])
-
-    useEffect(() => {
-        updateTime();
-        if(interval) clearInterval(interval);
-        setStateInterval(setInterval(updateTime,100));
-        setTimeString(dateToString(new Date(), formatSetting))
+        let interval = setInterval(updateTime, 1000);
+        return () => {
+            clearInterval(interval);
+        };
     }, [formatSetting])
 
     useEffect(() =>  setClockPosition(position), [position])
