@@ -3,8 +3,6 @@ import appManager from "../../../AppManager";
 import { useSetting } from "@Hooks/useSetting";
 import "../styles/clock.scss";
 
-let interval: NodeJS.Timer;
-
 const dateToString = (date: Date, format: string) => {
     return date.toLocaleTimeString([], (
         format === "24h" ? {
@@ -27,6 +25,8 @@ interface IClock{
  * Simple clock element
  */
 const Clock = ({position}: IClock) => {
+    const [interval, setStateInterval] = useState<NodeJS.Timer>();
+
     const [formatSetting, setFormatSetting] = useSetting(
         appManager.getSetting("time-format-string")
     );
@@ -45,13 +45,13 @@ const Clock = ({position}: IClock) => {
     useEffect(() => {
         updateTime();
         if(interval) clearInterval(interval);
-        interval = setInterval(updateTime,100);
+        setStateInterval(setInterval(updateTime,100));
     }, [])
 
     useEffect(() => {
         updateTime();
         if(interval) clearInterval(interval);
-        interval = setInterval(updateTime,100);
+        setStateInterval(setInterval(updateTime,100));
         setTimeString(dateToString(new Date(), formatSetting))
     }, [formatSetting])
 
