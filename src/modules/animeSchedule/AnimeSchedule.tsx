@@ -70,6 +70,7 @@ interface IAnimeScheduleEntry {
 
 const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
     const { t } = useTranslation();
+    const [timeFormat, setTimeFormat] = useSetting(timeFormatSetting);
     
     return(
         // Checks if the anime is valid by checking its id which cannot be null 
@@ -82,9 +83,9 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
             <div className="veil"></div>
             <h1 
                 className="broadcast-time" 
-                title={anime.weeklyReleaseTime24}
+                title={ timeFormat === "24h" ? anime.weeklyReleaseTime24 : anime.weeklyReleaseTime12 }
             >
-                {anime.weeklyReleaseTime24}
+                { timeFormat === "24h" ? anime.weeklyReleaseTime24 : anime.weeklyReleaseTime12 }
             </h1>
             <a className="button" href={anime.malURL} target="_blank" tabIndex={-1}>
                 {t("view")}

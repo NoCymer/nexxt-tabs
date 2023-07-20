@@ -8,7 +8,7 @@
         {
             "type":"paragraph",
             "title":"Customization update",
-            "content":"In this spring update we're bringing NEXXT Tabs into a new era of customization, with the addition of custom backgrounds and Blur / Opacity settings, you can now decide for yourself what you want your browser to look like !"
+            "content":"In this summer update we're bringing NEXXT Tabs into a new era of customization, with the addition of custom backgrounds and Blur / Opacity settings, you can now decide for yourself what you want your browser to look like !"
         },
         {
             "type":"paragraph",
@@ -22,10 +22,10 @@
                 "Opacity and Blur settings",
                 "Compatibility with other browsers enhanced",
                 "Graphical enhancements",
-                "Reduced drastically schedule loading time",
+                "Drastically reduced schedule loading time",
                 "Schedule now refreshes data more frequently",
                 "Fixing visual artefacts in schedule",
-                "Project is now under an MIT License",
+                "Project is now under a MIT License",
                 "Project Icons are now under a Creative Commons Attribution 4.0 International License"
             ]
         }

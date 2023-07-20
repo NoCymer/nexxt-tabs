@@ -3,6 +3,7 @@
 
 .countdown-container{
     @include flexStart(column);
+    flex-wrap: nowrap;
     z-index: 3;
     align-items: center;
     font-size: 1.6rem;
