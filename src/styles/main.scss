@@ -88,7 +88,7 @@ h4{
     position: absolute;
     top: 0;
     z-index: 1;
-    @include centerNoRepImg(cover);
+    object-fit: cover;
 }
 #crossfade {
     opacity: 0;
