@@ -168,11 +168,11 @@ const Countdown = ({position}: ICountdown) => {
     
     const [countdownDate, setCountdownDate] = useSetting(
         TimeModule.getSetting("countdown-datetime")
-    )
+    );
 
     const [label, setLabel] = useSetting(
         TimeModule.getSetting("countdown-label-string")
-    )
+    );
 
     const { t } = useTranslation();
 
@@ -181,7 +181,7 @@ const Countdown = ({position}: ICountdown) => {
         h: "00",
         m: "00",
         s: "00"    
-    }) 
+    });
 
     const updateTime = (datetime: number) => {
         const now = new Date();
@@ -190,7 +190,7 @@ const Countdown = ({position}: ICountdown) => {
         let s = Math.floor(remTime / 1000);
         let m = Math.floor(s / 60);
         let h = Math.floor(m / 60);
-        let d = Math.floor(h / 24);						
+        let d = Math.floor(h / 24);
         
         h %= 24;
         m %= 60;
@@ -203,15 +203,15 @@ const Countdown = ({position}: ICountdown) => {
                 h: "0",
                 m: "0",
                 s: "0"
-            })
+            });
         }
         else {
             setTime({
                 d: "" + d,
-                h: (h < 10) ? "0" + h : "" + h,
-                m: (m < 10) ? "0" + m : "" + m,
-                s: (s < 10) ? "0" + s : "" + s    
-            })
+                h: "" + h,
+                m: "" + m,
+                s: "" + s    
+            });
         }
     }
     
