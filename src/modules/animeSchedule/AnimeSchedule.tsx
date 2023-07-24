@@ -61,6 +61,13 @@ const quarterListTwentyFour = [
 const scheduleSetting = AnimeScheduleModule
     .getSetting("schedule-weekday-entries-array");
 
+// Checks for default value and sanitize it for avoiding unwanted quarter
+try {
+    if(scheduleSetting.value[0]["_quarter"] === -1) {
+        scheduleSetting.value = [];
+    }
+} catch(e) {}
+
 const timeFormatSetting = appManager
     .getSetting("time-format-string");
 
@@ -238,7 +245,7 @@ const AnimeScheduleWeek = () => {
 
     const getQuarters = (week, day, timeFormat) => {
         return week[day].map((quarter: Anime[]) => {
-            if (quarter.length <= 1)
+            if (quarter.length < 1)
                 return null;
             return (
                 <div
@@ -271,12 +278,12 @@ const AnimeScheduleWeek = () => {
     }
  
     /**
-     * Checks whether or nat a day has anime to display
+     * Checks whether or not a day has been loaded
      * @param day 
      * @param week 
      * @returns True if the day has no anime to display
      */
-    const isDayEmpty = (day, week) => {
+    const isDayLoaded = (day, week) => {
         for(let quarter in week[day])
             if(week[day][quarter].length > 0) return false;
         return true;
@@ -340,7 +347,7 @@ const AnimeScheduleWeek = () => {
             >
                 {
                     //Iterates over every quarter of each day
-                    isDayEmpty(day, week) ? <span className="loading-wheel"></span> : getQuarters(week, day, timeFormat)
+                    isDayLoaded(day, week) ? <span className="loading-wheel"/> : getQuarters(week, day, timeFormat)
                 }
             </div>)
 
