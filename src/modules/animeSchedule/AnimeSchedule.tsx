@@ -213,7 +213,7 @@ const AnimeScheduleWeek = () => {
                 .getSetting("schedule-last-update").value = Date.now();
         }
         else{
-            console.warn("[WARNING] : Loading cached schedule : " + 
+            console.log("[WARNING] : Loading cached schedule : " + 
                 "Results may be outdated"
             );
 
