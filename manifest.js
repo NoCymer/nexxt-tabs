@@ -18,7 +18,7 @@ const main = () => {
     if(args.length < 3) args[2] = ""
     fs.readFile("./public/manifest.json", 'utf8', (err, manifest) => {
         manifest = JSON.parse(manifest)
-        switch (args[2]) {
+        switch (args[2].toLowerCase()) {
             case "firefox":
                 fs.writeFileSync("./dist/manifest.json", JSON.stringify({...manifest, ...ff_manifest}));
                 break;
