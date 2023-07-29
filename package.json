@@ -35,6 +35,8 @@
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/chrome": "^0.0.242",
+    "@types/firefox-webext-browser": "^111.0.1",
     "@types/jest": "^29.5.1",
     "@types/jquery": "^3.5.14",
     "@types/node": "^18.15.13",

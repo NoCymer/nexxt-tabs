@@ -7,7 +7,6 @@ import {
     ModulesTab,
     InfoTab,
     LanguagesTab,
-    BrowserTab
 } from "./tabs";
 
 /**
@@ -23,7 +22,6 @@ export const SettingsPanel = () => {
         >
             {BackgroundsTab()}
             {LanguagesTab()}    
-            {BrowserTab()}
             {AppearanceTab()}
             {ModulesTab()}
             {InfoTab()}

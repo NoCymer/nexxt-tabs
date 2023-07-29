@@ -10,34 +10,27 @@ import { useSetting } from "@Hooks/useSetting";
 const SearchBar = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
-    const openLink = (link: string) => {
-        if(appManager.getSetting("search-opens-new-page-boolean").value)
-            window.open(link);
-        else
-            location.assign(link);
+    const search = (text: string) => {
+        if(typeof browser === "undefined") {
+            chrome.search.query(
+                {
+                    disposition: "CURRENT_TAB",
+                    text: text
+                }
+            );
+            return;
+        }
+        browser.search.query({
+            text: text,
+            disposition: "CURRENT_TAB",
+        });
     }
 
     const handleClick = (e) => {
         e.preventDefault(); // Preventing form default behaviour
         if(searchQuery.trim().length === 0) 
             return; //Preventing search with empty string
-        switch(appManager
-            .getSetting("search-engine-string")
-            .value) {
-
-            case "google": 
-                openLink(`https://google.com/search?q=${searchQuery}`);
-                break;
-            case "duckduckgo": 
-                openLink(`https://duckduckgo.com/?q=${searchQuery}`);
-                break;
-            case "qwant": 
-                openLink(`https://qwant.com/?q=${searchQuery}`);
-                break;
-            case "ecosia": 
-                openLink(`https://ecosia.org/search?q=${searchQuery}`);
-                break;
-        }
+        search(searchQuery);
     }
 
     const handleChange=(e) => {

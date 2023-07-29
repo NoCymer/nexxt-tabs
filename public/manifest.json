@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "3.3000",
+  "version": "3.3",
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
   "action": {
@@ -11,7 +11,8 @@
     "newtab": "index.html"
   },
   "permissions": [
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "search"
   ],
   "icons": {
     "128": "icon128.png"

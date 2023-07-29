@@ -2,9 +2,6 @@
     "language-string" : {
         "defaultValue": "en"
     },
-    "search-opens-new-page-boolean" : {
-        "defaultValue": false
-    },
     "background-id-current-integer": {
         "defaultValue": 0
     },
@@ -28,9 +25,6 @@
     },
     "background-shuffle-boolean" : {
         "defaultValue": true
-    },
-    "search-engine-string" : {
-        "defaultValue": "google"
     },
     "time-format-string" : {
         "defaultValue": "24h"
