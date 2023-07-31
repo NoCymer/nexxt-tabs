@@ -1,4 +1,21 @@
 const fs = require('fs'); 
+const archiver = require('archiver');
+
+function zipDir(sourceDir, outPath) {
+  const ar = archiver('zip', { zlib: { level: 9 }});
+  const writeStream = fs.createWriteStream(outPath);
+
+  return new Promise((resolve, reject) => {
+    ar
+      .directory(sourceDir, false)
+      .on('error', err => reject(err))
+      .pipe(writeStream)
+    ;
+
+    writeStream.on('close', () => resolve());
+    ar.finalize();
+  });
+}
 
 const args = process.argv;
 
@@ -30,6 +47,19 @@ const main = () => {
                 break;
         }
     }); 
+    if (fs.existsSync("./dist/dist.zip"))
+      fs.rmSync("./dist/dist.zip");
+
+    if (fs.existsSync("./dist.zip"))
+      fs.rmSync("./dist.zip");
+
+    zipDir("./dist", "./dist.zip").then(() => {
+      fs.copyFileSync("./dist.zip", "./dist/dist.zip");
+
+      if (fs.existsSync("./dist.zip"))
+        fs.rmSync("./dist.zip");
+
+    });
 }
 
 main();
