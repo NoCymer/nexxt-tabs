@@ -35,6 +35,38 @@ const activeTabSetting = new Setting(
     todayDay
 );
 
+
+const cacheStructure = {
+    "_id": 0,
+    "_title": "",
+    "_synopsis": "",
+    "_thumbnailURL": "",
+    "_malURL": "",
+    "_nextReleaseDate": "",
+    "_quarter": 0
+}
+
+/**
+ * Checks if the given cache for the schedule is valid or not
+ * @param cache Cache to check
+ * @returns True if the cache is valid, else false.
+ */
+const isCacheValid = (cache) => {
+    try {
+        let first = cache[0];
+        for(let key in cacheStructure) {
+            if (first[key] == undefined) {
+                console.log("cache invalid");
+                return false;
+            }
+        }
+    } catch {
+        return false;
+    }
+    return true;
+    
+}
+
 activeTabSetting.value = todayDay;
 
 
@@ -60,6 +92,10 @@ const quarterListTwentyFour = [
 ]
 const scheduleSetting = AnimeScheduleModule
     .getSetting("schedule-weekday-entries-array");
+
+let cacheValidity = isCacheValid(scheduleSetting.value);
+scheduleSetting.value = cacheValidity ? scheduleSetting.value : [{}];
+
 
 // Checks for default value and sanitize it for avoiding unwanted quarter
 try {
@@ -216,21 +252,29 @@ const AnimeScheduleWeek = () => {
             console.log("[WARNING] : Loading cached schedule : " + 
                 "Results may be outdated"
             );
-
-            // Converts every entry in the setting to an Anime instance
-            scheduleSetting.value.forEach((anime: Object) => {
-                animeList.push(Anime.fromJSON(anime))
-            })      
+            
+            if(cacheValidity) {
+                // Converts every entry in the setting to an Anime instance
+                scheduleSetting.value.forEach((anime: Object) => {
+                    animeList.push(Anime.fromJSON(anime))
+                })      
+            } else {
+                console.log("[ERROR] : Invalid cache deteted, reload required");
+            }
         }
         return animeList;
     }
 
     let animeList: Anime[] = [];
 
-    // Loads cached schedule
-    scheduleSetting.value.forEach((anime: Object) => {
-        animeList.push(Anime.fromJSON(anime))
-    });
+    if(cacheValidity) {
+        // Loads cached schedule
+        scheduleSetting.value.forEach((anime: Object) => {
+            animeList.push(Anime.fromJSON(anime))
+        });
+    } else {
+        console.log("[WARNING] : Invalid cache deteted, fetching new data...");
+    }
 
     const [animeSchedule, setAnimeSchedule] = useState(animeList);
 
