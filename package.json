@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --coverageDirectory='coverage' --maxWorkers=4  --verbose",
-    "dev": "webpack --config webpack.dev.js && node manifest.js ",
-    "build": "webpack --config webpack.prod.js && node manifest.js "
+    "dev": "webpack --config webpack.dev.js && node builder.js ",
+    "build": "webpack --config webpack.prod.js && node builder.js "
   },
   "keywords": [],
   "author": "",
