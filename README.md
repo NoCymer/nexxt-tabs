@@ -5,7 +5,7 @@
 ![rating](https://img.shields.io/chrome-web-store/rating/dbocanalfbkfdbpjpnbjmipaidlogbmi?color=%23E0979F&style=for-the-badge&labelColor=1a1b26)
 ![users](https://img.shields.io/chrome-web-store/users/dbocanalfbkfdbpjpnbjmipaidlogbmi?color=%23E0979F&style=for-the-badge&labelColor=1a1b26)
 
-NEXXT-Tabs is an open source browser extension which changes the browser's new tabs appearance and gives it a modern look with lot of customizable features.
+NEXXT-Tabs is an open source browser extension which changes the browser's new tabs appearance and gives it a modern look with plethora of customizable features.
 
 ## Table of contents
 
