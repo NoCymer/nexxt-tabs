@@ -65,7 +65,7 @@ Huge thanks to [@polart_graph](https://www.instagram.com/polart_graph) for provi
 
 NEXXT-Tabs is licensed under the **MIT License**. See [LICENSE](https://github.com/NoCymer/nexxt-tabs/blob/main/LICENSE) for more information.
 
-## Open source licenses
+### Open source licenses
 
 See [Licenses](docs/LICENSES.MD).
 
