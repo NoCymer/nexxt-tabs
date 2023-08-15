@@ -1,5 +1,0 @@
-* [🏠Home](https://github.com/NoCymer/NEXXT-Tabs/wiki)
-* [⚙ Settings](https://github.com/NoCymer/NEXXT-Tabs/wiki/Settings)
-* [🌐 Languages](https://github.com/NoCymer/NEXXT-Tabs/wiki/Languages)
-* [📁 Panels](https://github.com/NoCymer/NEXXT-Tabs/wiki/Panels)
-* [🧩 Modules](https://github.com/NoCymer/NEXXT-Tabs/wiki/Modules)

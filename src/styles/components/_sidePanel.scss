@@ -158,7 +158,7 @@
             position: relative;
             width: calc(100% - var(--navbar-width));
             height: 100%;
-            overflow-y: scroll;
+            overflow-y: auto;
             overflow-x: hidden;
             .tab{
                 @include hidden; 
@@ -236,7 +236,7 @@
             @include visible;
             left: var(--side-panel-width);
         }
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
         .tab{
             @include hidden; 

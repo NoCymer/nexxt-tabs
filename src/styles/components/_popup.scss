@@ -95,7 +95,7 @@
         filter: drop-shadow(.1rem .1rem .5rem black);
     }
     .popup-content{
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
         max-height: 45rem;
         width: 100%;
