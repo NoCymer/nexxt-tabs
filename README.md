@@ -18,13 +18,15 @@ NEXXT-Tabs is an open source browser extension which changes the browser's new t
 
 ## Browser Availability
 
-![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) |
---- | --- |
-![version](https://img.shields.io/chrome-web-store/v/dbocanalfbkfdbpjpnbjmipaidlogbmi?style=for-the-badge&labelColor=1a1b26&color=E0979F) | ![version](https://img.shields.io/amo/v/nexxt-tabs?style=for-the-badge&labelColor=1a1b26&color=E0979F) | 
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/main/src/edge/edge_48x48.png) |
+--- | --- | --- |
+![version](https://img.shields.io/chrome-web-store/v/dbocanalfbkfdbpjpnbjmipaidlogbmi?style=for-the-badge&labelColor=1a1b26&color=E0979F) | ![version](https://img.shields.io/amo/v/nexxt-tabs?style=for-the-badge&labelColor=1a1b26&color=E0979F) | ![version](https://img.shields.io/badge/edge-V3.3.1-pink?style=for-the-badge&label=%20Edge%20Add-ons&labelColor=1a1b26&color=E0979F) |
 
 - [Chrome web store](https://chrome.google.com/webstore/detail/nexxt-tabs/dbocanalfbkfdbpjpnbjmipaidlogbmi)
 
 - [Mozzila addons](https://addons.mozilla.org/en-US/firefox/addon/nexxt-tabs/)
+  
+- [Edge addons](https://microsoftedge.microsoft.com/addons/detail/nexxt-tabs/bjnibpcdibagoeedomnaafeinlooabhk)
 
 ## Screenshots
 
