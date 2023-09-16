@@ -25,7 +25,7 @@
         @include hidden;
         @include centerNoRepImg;
         @include noDragImg;
-        background-image: url("./app-ressources/close-symbol.svg");
+        background-image: url("app-ressources/dark/close-symbol.svg");
         transition: .25s;
         position: absolute;
         width: 1rem;
@@ -180,7 +180,7 @@
             @include centerNoRepImg;
             @include noDragImg;
             @include interactable;
-            background-image: url("./app-ressources/close-symbol.svg");
+            background-image: url("app-ressources/dark/close-symbol.svg");
             transition: .25s;
             position: absolute;
             width: .75rem;

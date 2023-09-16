@@ -71,7 +71,7 @@
             width: 1.5rem;
             height: 1.5rem;
             @include centerNoRepImg;
-            background-image: url("app-ressources/close-symbol.svg");
+            background-image: url("app-ressources/dark/close-symbol.svg");
             &:hover{
                 filter: drop-shadow(0px 0px 5px $accent-ternary-color);
                 transform: scale(1.2);

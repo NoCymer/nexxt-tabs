@@ -29,7 +29,7 @@
             &::after {
                 @include centerNoRepImg;
                 background-image: url(
-                    "./app-ressources/checkmark-symbol.svg"
+                    "app-ressources/dark/checkmark-symbol.svg"
                 );
                 position: absolute;
                 content: "";
