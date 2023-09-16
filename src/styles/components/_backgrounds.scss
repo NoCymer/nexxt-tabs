@@ -98,7 +98,7 @@
         transition: transform 0.12s;
         @include flexCenter;
         h1{
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
             font-size: 1rem;
             font-weight: 600;
             margin: 0;
@@ -170,7 +170,7 @@
         aspect-ratio: 16/9;
         margin: .3rem;
         border-radius: 0.7rem;
-        background-color: $panel-primary-color;
+        background-color: var(--panel-primary-color);
         pointer-events: all;
         @include flexCenter;
         @include centerNoRepImg;

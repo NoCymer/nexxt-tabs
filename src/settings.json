@@ -1,4 +1,7 @@
 {
+    "user-theme" : {
+        "defaultValue" : "dark"
+    },
     "language-string" : {
         "defaultValue": "en"
     },

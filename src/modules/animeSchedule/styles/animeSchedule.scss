@@ -3,7 +3,7 @@
 
 .anime-schedule-entry {
     @include centerNoRepImg(cover);
-    background-color: $panel-secondary-color;
+    background-color: var(--panel-secondary-color);
     margin: 0.75rem 1.5rem 0.75rem 0;
     height: 11.5rem;
     aspect-ratio: 23/30;
@@ -36,7 +36,7 @@
         width: 4.5rem;
         bottom: -160%;
         background-color: var(--accent-secondary-color);
-        color: $panel-primary-color;
+        color: var(--panel-primary-color);
         margin-left: 0.5rem;
         font-weight: 500;
         font-size: 1rem;
@@ -76,8 +76,8 @@
             height: .13rem;
             background: linear-gradient(
                 90deg,rgba(0,0,0,0) 1%,
-                $accent-primary-color 2%,
-                $accent-primary-color 50%,
+                var(--accent-primary-color)  2%,
+                var(--accent-primary-color)  50%,
                 rgba(0,0,0,0) 90%
             );
             z-index: 2;
@@ -147,14 +147,12 @@
     .side-slider-section-entry {
         .loading-wheel{
             position: absolute;
-            content: "";
             width: 3rem;
             height: 3rem;
             top: 70%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             @include centerNoRepImg(fill);
-            background-image: url("app-ressources/loading-symbol.svg");
             animation-name: loading;
             animation-duration: 1s;
             animation-timing-function: linear;

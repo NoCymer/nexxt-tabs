@@ -41,7 +41,7 @@
         height: 100%;
         box-sizing: border-box;
         border-radius: 39% 61% 66% 34% / 36% 48% 52% 64% ;
-        background: $panel-secondary-color;
+        background: var(--panel-secondary-color);
         z-index: 0;
     }
     .blur-bg{
@@ -116,7 +116,7 @@
             font-size: 1.1rem;
             border: none;
             z-index: 5;
-            color: $accent-primary-color;
+            color: var(--accent-primary-color) ;
             &:focus-within ~ .input-header,
             &:not(:placeholder-shown) ~ .input-header{
                 top: .6rem;
@@ -140,7 +140,7 @@
             width: 70%;
             border-radius: 2rem;
             border: 0.1rem solid $separator-secondary-color;
-            background-color: $panel-secondary-color;
+            background-color: var(--panel-secondary-color);
             filter: none;
         }
         .input-header {
@@ -150,7 +150,7 @@
             color: $separator-secondary-color;
             user-select: none;
             pointer-events: none;
-            background-color: $panel-secondary-color;
+            background-color: var(--panel-secondary-color);
             transition: .15s;
             top: 2.2rem;
             font-size: 1rem;

@@ -4,6 +4,7 @@ import { Module } from "./Module";
 import React from "react";
 import { Setting } from "@Settings/Setting";
 import { useSetting } from "@Hooks/useSetting";
+import { useTheme } from "@Hooks/useTheme";
 
 /**
  * Manages every module, implements a singleton pattern therefore cannot be 
@@ -118,6 +119,7 @@ export const ModulesSettingsTabContent = () => {
     const [activeTab, setActiveTab] = useSetting(
         ModulesManager.instance.modulesActiveTabSetting
     );
+    const [theme, setTheme] = useTheme();
     return(
         <>
             <div 
@@ -141,6 +143,12 @@ export const ModulesSettingsTabContent = () => {
                             
                         {
                             modulesList.map((module, index) => {
+                                let iconURL = module.iconURL;
+                                if(theme == "light")
+                                    iconURL = iconURL.replace(
+                                        "app-ressources/dark/",
+                                        "app-ressources/light/"
+                                    );
                                 return (
                                     <div
                                         className="module-settings-section"
@@ -150,12 +158,13 @@ export const ModulesSettingsTabContent = () => {
                                             title={t(module.title)}
                                             desc={t(module.desc)}
                                             setting={module.enabledSetting}
-                                            img={module.iconURL}
+                                            img={iconURL}
                                             key={`${module.name}-state`}
                                         />
                                         {
                                             module.settingsSectionElement &&
-                                            <span 
+                                            <img 
+                                                src={`app-ressources/${theme}/parameters-symbol.svg`}
                                                 className="modules-settings-button"
                                                 onClick={() => setActiveTab(
                                                     module.name + "-tab"
@@ -192,7 +201,9 @@ export const ModulesSettingsTabContent = () => {
                                     onClick={
                                         () => setActiveTab("modules-list")
                                     }
-                                />
+                                >
+                                    <img src={`app-ressources/${theme}/arrow-left-symbol.svg`} alt=""/>
+                                </span>
                                 <h1 className="module-title">{t(module.title)}</h1>
                                 <span className="separator thick"/>
                                 <section>

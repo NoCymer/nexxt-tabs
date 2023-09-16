@@ -3,12 +3,12 @@
 
 .drop-down-list {
     @include interactable;
-    border: 0.1rem solid $accent-primary-color;
-    color: $accent-primary-color;
+    border: 0.1rem solid var(--accent-primary-color) ;
+    color: var(--accent-primary-color) ;
     padding: 0.2rem 1rem;
     max-width: 90%;
     border-radius: .6rem;
-    background-color: $panel-secondary-color;
+    background-color: var(--panel-secondary-color);
     transition: border .2s;
     font-size: .65rem;
     &:hover{

@@ -13,6 +13,7 @@ import BackgroundsManager from '../../BackgroundsManager';
 import { usePopup } from '@Hooks/usePopup';
 import $ from "jquery";
 import { resolve } from 'path';
+import { useTheme } from '@Hooks/useTheme';
 
 const bgSelectedIdsSetting = appManager
     .getSetting("background-id-selected-array");
@@ -247,6 +248,7 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
  */
 export const BackgroundsTab = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
     const [backgroundPopupVisibility, setBackgroundPopupVisibility] = usePopup(
         <Popup 
             popupOpenerRef={null}
@@ -262,7 +264,7 @@ export const BackgroundsTab = () => {
     return (
     <PanelTab
         tabID="backgrounds-tab" 
-        tabIconURL="./app-ressources/background-symbol.svg"
+        tabIconURL={`app-ressources/${theme}/background-symbol.svg`}
         LargePane={() => 
             <PanelTabLargePane>
                 <ButtonContainer direction="stacked" fitMode="fit">
@@ -312,7 +314,7 @@ export const BackgroundsTab = () => {
                 <Feature
                     title={t("cycle-backgrounds")}
                     desc={t("cycle-backgrounds-desc")}
-                    img={"app-ressources/cycle-symbol.svg"}
+                    img={`app-ressources/${theme}/cycle-symbol.svg`}
                     setting={appManager.getSetting(
                         "background-cycle-boolean"
                     )}

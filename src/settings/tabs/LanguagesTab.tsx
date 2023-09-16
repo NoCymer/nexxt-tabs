@@ -3,6 +3,7 @@ import { Choice, ChoiceContainer } from '@Components/basic/Choice'
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import appManager from '../../AppManager';
+import { useTheme } from '@Hooks/useTheme';
 
 const languageSetting = appManager
     .getSetting("language-string");
@@ -12,10 +13,11 @@ const languageSetting = appManager
  */
 export const LanguagesTab = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
     return (
         <PanelTab
             tabID="language-tab" 
-            tabIconURL="./app-ressources/language-symbol.svg" 
+            tabIconURL={`app-ressources/${theme}/language-symbol.svg`}
             SmallPane={() => 
                 <PanelTabSmallPane>
                 <h1>{t("language")}</h1>

@@ -1,23 +1,18 @@
-$panel-primary-color: #27282c;
-$panel-secondary-color: #3b3e4b;
-$panel-secondary-color-hover:  #4a5667;
-$panel-ternary-color: #555969;
 
-$accent-primary-color: #D8D8D8;
 
-// $panel-primary-color: #d0dde4;
-// $panel-secondary-color: #f1f1f1;
-// $panel-secondary-color-hover:  #8a99ad;
-// $panel-ternary-color: #535353;
+// // var(--panel-primary-color): #ffffff;
+// // var(--panel-secondary-color): #ececec;
+// // var(--panel-secondary-color-hover) :  #78828f;
+// // var(--panel-ternary-color) : #535353;
 
-// $accent-primary-color: #262627;
+// // var(--accent-primary-color) : #555555;
 
-$panel-primary-color-light: #afafaf;
-$panel-secondary-color-light: #ffffff;
-$panel-secondary-color-hover-light:  #8a99ad;
-$panel-ternary-color-light: #535353;
+// var(--panel-primary-color)-light: #ffffff;
+// var(--panel-secondary-color)-light: #ececec;
+// var(--panel-secondary-color-hover) -light:  #78828f;
+// var(--panel-ternary-color) -light: #535353;
 
-$accent-primary-color-light: #272727;
+// var(--accent-primary-color) -light: #555555;
 
 
 $accent-ternary-color: #F27272;
@@ -28,5 +23,5 @@ $accent-quaternary-color-active: #6cb36e;
 
 $button-unselected-color: #C4C4C4;
 
-$separator-primary-color: $accent-primary-color;
+$separator-primary-color: var(--accent-primary-color) ;
 $separator-secondary-color: #A0A0A0;

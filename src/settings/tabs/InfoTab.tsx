@@ -1,5 +1,6 @@
 import { PanelTab, PanelTabSmallPane } from '@Components/advanced/Panel'
 import { Button, ButtonContainer } from '@Components/basic/Button';
+import { useTheme } from '@Hooks/useTheme';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 
@@ -8,10 +9,11 @@ import { useTranslation } from 'react-i18next';
  */
 export const InfoTab = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
     return (
         <PanelTab
             tabID="info-tab" 
-            tabIconURL="./app-ressources/info-symbol.svg" 
+            tabIconURL={`app-ressources/${theme}/info-symbol.svg`}
             navbarIconPosition="bottom"
             LargePane={() => <></>}
             SmallPane={() => 

@@ -67,13 +67,8 @@
                 margin-left: 1.5rem;
             }
         }
-        &::before {
-            @include centerNoRepImg;
-            @include noDragImg;
-            background-image: url(
-                "./app-ressources/arrow-right-symbol.svg"
-            );
-            content: "";
+        .arrow {
+            margin: 0;
             position: absolute;
             min-width: 1rem;
             min-height: 1rem;

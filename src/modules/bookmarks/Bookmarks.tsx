@@ -12,6 +12,7 @@ import { Button, ButtonContainer } from "@Components/basic/Button";
 import { Feature } from "@Components/advanced/Feature";
 import appManager from "../../AppManager";
 import ValueSlider from "@Components/basic/ValueSlider";
+import { useTheme } from "@Hooks/useTheme";
 
 /**
  * Manages the bookmarks module 
@@ -171,6 +172,7 @@ const Bookmarks = () => {
 
     const [opacity, setOpacity] = useSetting(BookmarksModule.getSetting("bookmarks-opacity"));
     const [blurAmount, setBlurAmount] = useSetting(BookmarksModule.getSetting("bookmarks-blur-amount"));
+    const [theme, setTheme] = useTheme();
     
     return(
         <div aria-label="bookmark-container" id="bookmark-container">
@@ -188,7 +190,7 @@ const Bookmarks = () => {
                 ref={popupOpener}>
                     
                 <img 
-                    src="./app-ressources/plus-symbol.svg"
+                    src={`app-ressources/${theme}/plus-symbol.svg`}
                     alt="Add Bookmark"
                 />
                 <span className="bookmark-bg" style={{opacity: opacity}}/>
@@ -201,12 +203,13 @@ const Bookmarks = () => {
 
 const BookmarksOptions = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
     return (
         <>
             <Feature
                 title={t("bookmarks")}
                 desc={t("open-new-page")}
-                img={"app-ressources/new-tab-symbol.svg"}
+                img={`app-ressources/${theme}/new-tab-symbol.svg`}
                 setting={BookmarksModule.getSetting(
                     "bookmark-new-page-boolean"
                 )}

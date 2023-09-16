@@ -75,7 +75,7 @@
         color: var(--accent-secondary-color);
         &:hover {
             background-color: var(--accent-secondary-color);
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
         }
     }
     &.danger {
@@ -83,7 +83,7 @@
         color: $accent-ternary-color;
         &:hover {
             background-color: $accent-ternary-color;
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
         }
     }
     &.success {
@@ -91,21 +91,21 @@
         color: $accent-quaternary-color;
         &:hover {
             background-color: $accent-quaternary-color;
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
         }
     }
     &.filled {
         border: none;
         &.primary {
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
             background-color: var(--accent-secondary-color);
         }
         &.danger {
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
             background-color: $accent-ternary-color;
         }
         &.success {
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
             background-color: $accent-quaternary-color;
         }
         &:hover {

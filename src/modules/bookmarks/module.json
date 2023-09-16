@@ -2,7 +2,7 @@
     "name": "bookmarks",
     "title": "bookmarks",
     "desc": "bookmarks-desc",
-    "iconURL": "app-ressources/bookmark-symbol.svg",
+    "iconURL": "app-ressources/dark/bookmark-symbol.svg",
     "supported-languages": "inherit",
     "status-setting" : {
         "key": "bookmark-activated-boolean",

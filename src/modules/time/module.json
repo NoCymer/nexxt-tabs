@@ -2,7 +2,7 @@
     "name" : "time",
     "title": "time-module",
     "desc": "time-module-desc",
-    "iconURL": "app-ressources/clock-symbol.svg",
+    "iconURL": "app-ressources/dark/clock-symbol.svg",
     "supported-languages": "inherit",
     "status-setting" : {
         "key": "time-activated-boolean",

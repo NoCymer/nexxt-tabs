@@ -24,12 +24,12 @@
         font-weight: 500;
         cursor: pointer;
         &:hover{
-            background-color: $panel-secondary-color-hover;
+            background-color: var(--panel-secondary-color-hover) ;
             border: 0.1rem solid var(--accent-secondary-color);
         }
         &.active {
             background-color: var(--accent-secondary-color);
-            color: $panel-primary-color;
+            color: var(--panel-primary-color);
             cursor: default;
         }
     }

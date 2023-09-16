@@ -17,6 +17,7 @@ import {
 import { Setting } from "@Settings/Setting";
 import { useSetting } from "@Hooks/useSetting";
 import { FeatureField } from "@Components/advanced/Feature";
+import { useTheme } from "@Hooks/useTheme";
 
 const JIKAN_COOLDOWN = 500; // cooldown in ms
 
@@ -173,6 +174,7 @@ const sleep = async (ms) => {
 }
 
 const AnimeScheduleWeek = () => {
+    const [theme, setTheme] = useTheme();
     
 
     /**
@@ -300,7 +302,7 @@ const AnimeScheduleWeek = () => {
                     {
                     /* Displays the quarter localised in 12h or 24h format */}
                     <div className="quarter-header">
-                        <img src="app-ressources/clock-symbol.svg" alt="" />
+                        <img src={`app-ressources/${theme}/clock-symbol.svg`} alt="" />
                         <h1>
                             {timeFormat === "12h" ?
                                 quarterListTwelve[week[day].indexOf(quarter)] :
@@ -391,7 +393,7 @@ const AnimeScheduleWeek = () => {
             >
                 {
                     //Iterates over every quarter of each day
-                    isDayLoaded(day, week) ? <span className="loading-wheel"/> : getQuarters(week, day, timeFormat)
+                    isDayLoaded(day, week) ? <img src={`app-ressources/${theme}/loading-symbol.svg`} className="loading-wheel"/> : getQuarters(week, day, timeFormat)
                 }
             </div>)
 
@@ -410,19 +412,20 @@ const AnimeScheduleWeek = () => {
 
 const AnimeSchedulePanel = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
 
     return(
         <Panel 
             idPanel="schedule-Panel" 
             buttonType="zone-button"
-            buttonIconURL="./app-ressources/arrow-left-symbol.svg"
+            buttonIconURL="./app-ressources/dark/arrow-left-symbol.svg"
             panelPosition="right"
             buttonPosition="r">
 
             <PanelTab
                 key="schedule" 
                 tabID="schedule-tab" 
-                tabIconURL="./app-ressources/schedule-symbol.svg"
+                tabIconURL={`app-ressources/${theme}/schedule-symbol.svg`}
                 SmallPane={() => {
                     return(
                         <PanelTabSmallPane>
@@ -485,11 +488,12 @@ const AnimeSchedulePanel = () => {
 
 const AnimeScheduleSettings = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
     return(
         <FeatureField
             title={t("time-format")}
             desc={t("time-format-desc")}
-            img="app-ressources/time-format-symbol.svg"
+            img={`app-ressources/${theme}/time-format-symbol.svg`}
             field={
             <InlineChoiceContainer 
                 setting={appManager.getSetting("time-format-string")}

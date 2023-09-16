@@ -24,8 +24,8 @@
 .popup{
     border-radius: 1.8rem;
     z-index: 5;
-    background-color: $panel-secondary-color;
-    color: $accent-primary-color;
+    background-color: var(--panel-secondary-color);
+    color: var(--accent-primary-color) ;
     box-sizing: content-box;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -44,7 +44,7 @@
             top: 1.7rem;
             background: linear-gradient(
                 180deg,
-                $panel-secondary-color 0%,
+                var(--panel-secondary-color) 0%,
                 rgba(0,0,0,0) 3%
             );
         }
@@ -58,11 +58,11 @@
             bottom: 1.8rem;
             background: linear-gradient(
                 0,
-                $panel-secondary-color 0%,
+                var(--panel-secondary-color) 0%,
                 rgba(0,0,0,0) 2%
             );
         }
-        >span{
+        >img{
             @include interactable;
             transition: transform .2s, scale .2s;
             position: absolute;

@@ -8,6 +8,7 @@ import { IInlineChoiceContainer } from "@Components/basic/InlineChoice";
 import { ITextField } from "@Components/basic/TextField";
 import { IDropDownList } from "@Components/basic/DropDownList";
 import { IDateTimeField } from "@Components/basic/DateTimeField";
+import { useTheme } from "@Hooks/useTheme";
 
 interface IFeature{
     setting: Setting<boolean>
@@ -111,16 +112,18 @@ export const FeatureOptionCheckbox = ({
     }: IFeatureOptionCheckbox) => {
 
     const [active, setActive] = useSetting(setting);
+    const [theme, setTheme] = useTheme();
 
     const getImg = () => {
         if(img)
-            return <img src="app-ressources/new-tab-symbol.svg"/>
+            return <img src={`app-ressources/${theme}/new-tab-symbol.svg`}/>
         return null;
     }
 
     return (
         <div aria-label="feature-option" className="feature-option">
             {getImg()}
+            <img src={`app-ressources/${theme}/arrow-right-symbol.svg`} alt="" className="arrow" />
             <div 
                 className={
                     img?"info-feature-option" : "info-feature-option mrg"
@@ -151,16 +154,18 @@ export const FeatureOption = ({
         description,
         img
     }: IFeatureOption) => {
+    const [theme, setTheme] = useTheme();
 
     const getImg = () => {
         if(img)
-            return <img src="app-ressources/new-tab-symbol.svg"/>
+            return <img src={`app-ressources/${theme}/${img}`}/>
         return null;
     }
 
     return (
         <div aria-label="feature-option" className="feature-option">
             {getImg()}
+            <img src={`app-ressources/${theme}/arrow-right-symbol.svg`} alt="" className="arrow" />
             {description && 
                 <div className={img?"info-feature-option" : "info-feature-option mrg"}>
                     <p className="desc">{description}</p>

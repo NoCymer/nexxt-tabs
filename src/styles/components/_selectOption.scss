@@ -13,18 +13,18 @@
         border-radius: 1.8rem;
         position: relative;
         transition: background-color 0.25s, border 0.25s, transform 0.15s;
-        background-color: $panel-secondary-color;
+        background-color: var(--panel-secondary-color);
         border: 0.1rem solid transparent;
         &:hover {
             border: 0.1rem solid var(--accent-secondary-color);
-            background-color: $panel-secondary-color-hover;
+            background-color: var(--panel-secondary-color-hover) ;
         }
         &:active {
             transform: scale(0.95);
         }
         &.active {
             background-color: var(--accent-secondary-color);
-            color: $panel-secondary-color;
+            color: var(--panel-secondary-color);
             @include non-interactable;
             &::after {
                 @include centerNoRepImg;

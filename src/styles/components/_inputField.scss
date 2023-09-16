@@ -1,8 +1,8 @@
 @import "@Styles/base";
 
 .input-field {
-    border: 0.1rem solid $accent-primary-color;
-    color: $accent-primary-color;
+    border: 0.1rem solid var(--accent-primary-color) ;
+    color: var(--accent-primary-color) ;
     min-width: 5ch;
     width: 5ch;
     padding: .2rem 1rem;

@@ -78,6 +78,13 @@ function App() {
     );
 }
 
+const switchTheme = (newTheme) => {
+    if(newTheme == "light")
+        $("body").addClass("light");
+    else 
+        $("body").removeClass("light");
+}
+
 const init = async () => {
 
     // Setting up the theme color
@@ -109,6 +116,12 @@ const init = async () => {
         const root = createRoot(rootElement.get(0));
         root.render(<App/>);
     } 
+
+    const theme = appManager.getSetting("user-theme")
+    switchTheme(theme.value);
+    theme.subscribe(val => {
+        switchTheme(val)
+    })
 }
 
 init();

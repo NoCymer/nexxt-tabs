@@ -12,6 +12,7 @@ import { Choice, ChoiceContainer } from "@Components/basic/Choice";
 import { FeatureField } from "@Components/advanced/Feature";
 import { InlineChoice, InlineChoiceContainer } from "@Components/basic/InlineChoice";
 import appManager from "../../AppManager";
+import { useTheme } from "@Hooks/useTheme";
 
 moduleJSON["settings"]["countdown-datetime"]["defaultValue"] = 
     (new Date(Date.now())).getTime();
@@ -29,6 +30,7 @@ const lowerScreenSetting = TimeModule.getSetting("display-lower-selection");
 
 const TimeSettingSection = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
 
     return (
         <>
@@ -37,22 +39,22 @@ const TimeSettingSection = () => {
             <ChoiceContainer setting={upperScreenSetting}>
                 <Choice
                     key="1"
-                    img="app-ressources/none-symbol.svg"
-                    activeImg="app-ressources/none-black-symbol.svg"
+                    img={`app-ressources/${theme}/none-symbol.svg`}
+                    activeImg={`app-ressources/${theme}/none-black-symbol.svg`}
                     text={t("none")}
                     value="none"
                 />
                 <Choice
                     key="2"
-                    img="app-ressources/digital-clock-symbol.svg"
-                    activeImg="app-ressources/digital-clock-black-symbol.svg"
+                    img={`app-ressources/${theme}/digital-clock-symbol.svg`}
+                    activeImg={`app-ressources/${theme}/digital-clock-black-symbol.svg`}
                     text={t("clock")}
                     value="clock"
                 />
                 <Choice 
                     key="3"
-                    img="app-ressources/hourglass-symbol.svg"
-                    activeImg="app-ressources/hourglass-black-symbol.svg"
+                    img={`app-ressources/${theme}/hourglass-symbol.svg`}
+                    activeImg={`app-ressources/${theme}/hourglass-black-symbol.svg`}
                     text={t("countdown")}
                     value="countdown"
                 />
@@ -63,22 +65,22 @@ const TimeSettingSection = () => {
             <ChoiceContainer setting={lowerScreenSetting}>
                 <Choice
                     key="1"
-                    img="app-ressources/none-symbol.svg"
-                    activeImg="app-ressources/none-black-symbol.svg"
+                    img={`app-ressources/${theme}/none-symbol.svg`}
+                    activeImg={`app-ressources/${theme}/none-black-symbol.svg`}
                     text={t("none")}
                     value="none"
                 />
                 <Choice
                     key="2"
-                    img="app-ressources/digital-clock-symbol.svg"
-                    activeImg="app-ressources/digital-clock-black-symbol.svg"
+                    img={`app-ressources/${theme}/digital-clock-symbol.svg`}
+                    activeImg={`app-ressources/${theme}/digital-clock-black-symbol.svg`}
                     text={t("clock")}
                     value="clock"
                 />
                 <Choice 
                     key="3"
-                    img="app-ressources/hourglass-symbol.svg"
-                    activeImg="app-ressources/hourglass-black-symbol.svg"
+                    img={`app-ressources/${theme}/hourglass-symbol.svg`}
+                    activeImg={`app-ressources/${theme}/hourglass-black-symbol.svg`}
                     text={t("countdown")}
                     value="countdown"
                 />
@@ -89,7 +91,7 @@ const TimeSettingSection = () => {
             <FeatureField
                 title={t("label")}
                 desc={t("countdown-label-desc")}
-                img="app-ressources/label-symbol.svg"
+                img={`app-ressources/${theme}/label-symbol.svg`}
                 field={
                     <TextField 
                         placeholder={t("label")}
@@ -111,7 +113,7 @@ const TimeSettingSection = () => {
             <FeatureField
                 title={t("date")}
                 desc={t("countdown-date-desc")}
-                img="app-ressources/calendar-symbol.svg"
+                img={`app-ressources/${theme}/calendar-symbol.svg`}
                 field={
                     <DateTimeField 
                         onInput={(val)=> {
@@ -133,7 +135,7 @@ const TimeSettingSection = () => {
             <FeatureField
                 title={t("time-format")}
                 desc={t("time-format-desc")}
-                img="app-ressources/time-format-symbol.svg"
+                img={`app-ressources/${theme}/time-format-symbol.svg`}
                 field={
                 <InlineChoiceContainer 
                     setting={appManager.getSetting("time-format-string")}

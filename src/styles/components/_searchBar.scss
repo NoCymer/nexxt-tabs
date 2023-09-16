@@ -13,7 +13,7 @@
     z-index: 3;
 
     input {
-        color: $accent-primary-color;
+        color: var(--accent-primary-color) ;
         font-family: "roboto", sans-serif;
         font-weight: 300;
         font-size: 1.2rem;
@@ -71,9 +71,6 @@
         transform-origin: center;
         backface-visibility: hidden;
         left: 1rem;
-        background: url("./app-ressources/lens-symbol.svg");
-        background-position: center;
-        background-repeat: no-repeat;
         cursor: pointer;
         &:hover{
             transform: scale(1.2) translateZ(0);
@@ -85,7 +82,7 @@
     }
     .bg, .blur-bg{
         position: absolute;
-        background-color: $panel-secondary-color;
+        background-color: var(--panel-secondary-color);
         border-radius: 1.8rem;
         transition: .25s;
         width: 100%;

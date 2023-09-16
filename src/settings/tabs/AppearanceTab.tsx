@@ -12,6 +12,8 @@ import ValueSlider from '@Components/basic/ValueSlider';
 import { Setting } from '@Settings/Setting';
 import { SettingsManager } from '@Settings/SettingsManager';
 import { ModulesAppearanceTabContent, ModulesManager } from '@Modules/base/ModulesManager';
+import { useTheme } from '@Hooks/useTheme';
+import { Choice, ChoiceContainer } from '@Components/basic/Choice';
 
 const DEFAULT_COLORS = [
     "#68B6FF",
@@ -198,6 +200,7 @@ const ColorPalette = () => {
             </ButtonContainer>
         </Popup>
     )
+    const [theme, setTheme] = useTheme();
 
     return(
         <div className="color-palette">
@@ -236,7 +239,9 @@ const ColorPalette = () => {
                     className={"color-entry add"}
                     ref={popupOpener}
                     onClick={() => setIsPopupVisible(true)}
-                />
+                >
+                    <img src={`app-ressources/${theme}/pen-symbol.svg`} className="pen"></img>
+                </span>
             </div>
         </div>
     )
@@ -247,10 +252,12 @@ const ColorPalette = () => {
  */
 export const AppearanceTab = () => {
     const { t } = useTranslation();
+    const [theme, setTheme] = useTheme();
+    const themeSetting = appManager.getSetting("user-theme");
     return (
         <PanelTab
             tabID="appearance-tab" 
-            tabIconURL="./app-ressources/spraycan-symbol.svg" 
+            tabIconURL={`app-ressources/${theme}/spraycan-symbol.svg`}
             SmallPane={() => 
                 <PanelTabSmallPane>
                 <h1>{t("appearance-tab-title")}</h1>
@@ -259,6 +266,23 @@ export const AppearanceTab = () => {
                     <h2>{t("colors-section-title")}</h2>
                     <h3>{t("colors-section-subtitle")}</h3>
                     <ColorPalette/>
+                    <span className="separator thin"/>
+
+                    <ChoiceContainer setting={themeSetting}>
+                        <Choice
+                            key="1"
+                            img="./app-ressources/countries/usa.png"
+                            text="Dark theme"
+                            value="dark"
+                        />
+                        <Choice
+                            key="2"
+                            img="./app-ressources/countries/france.png"
+                            text="Light theme"
+                            value="light"
+                        />
+                    </ChoiceContainer>
+                    
                     <span className="separator thin"/>
 
                     <ValueSlider

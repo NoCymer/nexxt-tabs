@@ -2,7 +2,7 @@
     "name" : "animeSchedule",
     "title": "anime-schedule-module-title",
     "desc": "anime-schedule-module-desc",
-    "iconURL": "app-ressources/schedule-symbol.svg",
+    "iconURL": "app-ressources/dark/schedule-symbol.svg",
     "supported-languages": "inherit",
     "status-setting" : {
         "key": "schedule-activated-boolean",

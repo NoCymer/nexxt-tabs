@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import { useFocus } from "@Hooks/useFocus";
 import { usePopupFocus } from "@Hooks/usePopupFocus";
+import { useTheme } from "@Hooks/useTheme";
 
 export interface IPopup {
     popupOpenerRef: React.RefObject<any>
@@ -57,7 +58,7 @@ export const Popup = (
                 className={`popup fullscreen ${className ? className : ""}`}
                 ref={popup}
             >
-                <span onClick={handleClose} aria-label="close-popup"/>
+                <img src={`app-ressources/dark/close-symbol.svg`} onClick={handleClose} aria-label="close-popup"/>
                 <div className="popup-content">
                     {children}
                 </div>
