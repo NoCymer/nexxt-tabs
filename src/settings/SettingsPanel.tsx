@@ -15,7 +15,7 @@ import {
 export const SettingsPanel = () => {
     return(
         <Panel 
-            buttonIconURL="app-ressources/parameters-symbol.svg"
+            buttonIconURL="app-ressources/dark/parameters-symbol.svg"
             buttonPosition="tl"
             idPanel="settings-Panel"
             panelPosition="left"

@@ -1,7 +1,7 @@
 import { PanelTab, PanelTabSmallPane } from '@Components/advanced/Panel'
 import React, { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import PaintSplash from "@Public/app-ressources/paint-splash-symbol.svg"
+import PaintSplash from "@Public/app-ressources/dark/paint-splash-symbol.svg"
 import { t } from 'i18next';
 import { usePopup } from '@Hooks/usePopup';
 import { useSetting } from '@Hooks/useSetting';
@@ -271,13 +271,13 @@ export const AppearanceTab = () => {
                     <ChoiceContainer setting={themeSetting}>
                         <Choice
                             key="1"
-                            img="./app-ressources/countries/usa.png"
+                            img={`app-ressources/${theme}/moon.svg`}
                             text="Dark theme"
                             value="dark"
                         />
                         <Choice
                             key="2"
-                            img="./app-ressources/countries/france.png"
+                            img={`app-ressources/${theme}/sun.svg`}
                             text="Light theme"
                             value="light"
                         />

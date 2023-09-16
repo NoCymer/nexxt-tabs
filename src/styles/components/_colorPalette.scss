@@ -63,7 +63,7 @@
                 top: -0.7rem;
                 border: .35rem solid transparent;
                 @include centerNoRepImg;
-                background-image: url("app-ressources/close-symbol.svg");
+                background-image: url("app-ressources/dark/close-symbol.svg");
                 &:hover{
                     transform: scale(1.2);
                     filter: drop-shadow(0 0 .1rem $accent-ternary-color);
@@ -92,7 +92,6 @@
                 transform: translateX(-50%) translateY(-50%);
                 position: absolute;
                 @include centerNoRepImg;
-                background-image: url("app-ressources/pen-symbol.svg");
             }
         }
         &::after{
@@ -160,7 +159,7 @@
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             @include centerNoRepImg;
-            background-image: url("app-ressources/pen-symbol.svg");
+            background-image: url("app-ressources/dark/pen-symbol.svg");
             opacity: 1;
         }
         &:hover{
