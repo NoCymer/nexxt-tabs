@@ -272,13 +272,13 @@ export const AppearanceTab = () => {
                         <Choice
                             key="1"
                             img={`app-ressources/${theme}/moon.svg`}
-                            text="Dark theme"
+                            text={t("dark-theme")}
                             value="dark"
                         />
                         <Choice
                             key="2"
                             img={`app-ressources/${theme}/sun.svg`}
-                            text="Light theme"
+                            text={t("light-theme")}
                             value="light"
                         />
                     </ChoiceContainer>
