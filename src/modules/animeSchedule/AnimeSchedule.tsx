@@ -55,15 +55,9 @@ const cacheStructure = {
 const isCacheValid = (cache) => {
     try {
         let first = cache[0];
-        for(let key in cacheStructure) {
-            if (first[key] == undefined) {
-                console.log("cache invalid");
-                return false;
-            }
-        }
-    } catch {
-        return false;
-    }
+        for(let key in cacheStructure)
+            if (!Object.keys(first).includes(key)) return false;
+    } catch { return false; }
     return true;
     
 }
