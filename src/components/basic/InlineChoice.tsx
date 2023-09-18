@@ -5,6 +5,7 @@ import { useSetting } from "@Hooks/useSetting";
 interface IInlineChoice {
     value: string
     text: string
+    className?: string
     setting?: Setting<any>
 }
 
@@ -37,14 +38,14 @@ export const InlineChoiceContainer = (
     )
 }
 
-export const InlineChoice = ({value, text, setting}: IInlineChoice) => {
+export const InlineChoice = ({value, text, setting, className}: IInlineChoice) => {
     const [activeValue, setActiveValue] = useSetting(setting);
     return(
         <div 
             className={
                 `multiple-selector-entry ${
                     (activeValue == value) ? "active" : ""
-                }`
+                } ${className}`
             }
             data-value={value}
             onClick={() => setActiveValue(value)}

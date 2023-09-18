@@ -413,12 +413,13 @@ const AnimeScheduleWeek = () => {
 const AnimeSchedulePanel = () => {
     const { t } = useTranslation();
     const [theme, setTheme] = useTheme();
+    const [activeDay, setActiveDay] = useState((new Date(Date.now())).getDay());
 
     return(
         <Panel 
             idPanel="schedule-Panel" 
             buttonType="zone-button"
-            buttonIconURL="./app-ressources/dark/arrow-left-symbol.svg"
+            buttonIconURL="app-ressources/dark/arrow-left-symbol.svg"
             panelPosition="right"
             buttonPosition="r">
 
@@ -441,36 +442,43 @@ const AnimeSchedulePanel = () => {
                                     key="1" 
                                     text={t("monday-short")}
                                     value="mondays"
+                                    className={activeDay == 1 ? "highlight" : ""}
                                 />
                                 <InlineChoice
                                     key="2" 
                                     text={t("tuesday-short")}
                                     value="tuesdays"
+                                    className={activeDay == 2 ? "highlight" : ""}
                                 />
                                 <InlineChoice
                                     key="3" 
                                     text={t("wednesday-short")}
                                     value="wednesdays"
+                                    className={activeDay == 3 ? "highlight" : ""}
                                 />
                                 <InlineChoice
                                     key="4" 
                                     text={t("thursday-short")}
                                     value="thursdays"
+                                    className={activeDay == 4 ? "highlight" : ""}
                                 />
                                 <InlineChoice
                                     key="5" 
                                     text={t("friday-short")}
                                     value="fridays"
+                                    className={activeDay == 5 ? "highlight" : ""}
                                 />
                                 <InlineChoice
                                     key="6" 
                                     text={t("saturday-short")}
                                     value="saturdays"
+                                    className={activeDay == 6 ? "highlight" : ""}
                                 />
                                 <InlineChoice
                                     key="7" 
                                     text={t("sunday-short")}
                                     value="sundays"
+                                    className={activeDay == 0 ? "highlight" : ""}
                                 />
                             </InlineChoiceContainer>
                             <span className="separator thin"/>
