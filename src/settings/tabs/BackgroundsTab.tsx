@@ -26,7 +26,8 @@ const allowedFileTypes = [
     "image/png",
     "image/jpg",
     "image/svg",
-    "image/webp"
+    "image/webp",
+    "video/mp4"
 ]
 
 

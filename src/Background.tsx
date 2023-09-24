@@ -235,6 +235,8 @@ export const Backgrounds = () => {
         getBackgrounds(bgIDsArraySetting.value);
     }, []) 
 
+    console.log(backgrounds);
+    
     return(
     <div className="backgrounds-container">
         {

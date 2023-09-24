@@ -37,10 +37,47 @@ class BackgroundsDatabase extends Dexie {
      * @param backgroundID Id of the background
      * @returns BLOB Corresponding to the background
      */
-    public async fetchBackground(backgroundID: ID): Promise<any> {
-        return (
-            (await this.table("backgrounds").get({id: backgroundID}))["blob"]
-        )
+    public fetchBackground(backgroundID: ID): Promise<any> {
+        return new Promise((resolve,reject) => {
+            this.table("backgrounds").get({id: backgroundID}).then(background => {
+                let fr = new FileReader();
+    
+                fr.onloadend = function(e) {
+                    let fileType = "";
+                    let arr = (new Uint8Array(e.target.result as ArrayBuffer)).subarray(0, 4);
+                    let header = "";
+                    for(let i = 0; i < arr.length; i++) {
+                        header += arr[i].toString(16);
+                    }
+                    switch (header) {
+                        case "89504e47":
+                            fileType = "image/png";
+                            break;
+                        case "47494638":
+                            fileType = "image/gif";
+                            break;
+                        case "ffd8ffe0":
+                        case "ffd8ffe1":
+                        case "ffd8ffe2":
+                        case "ffd8ffe3":
+                        case "ffd8ffe8":
+                            fileType = "image/jpg";
+                            break;
+                        case "66747970":
+                            fileType = "video/mp4";
+                            break;
+                        default:
+                            fileType = background['blob']['type'];
+                            break;
+                    }
+                    console.log(header, fileType,background["blob"].slice(0, background["blob"].size, fileType));
+                    
+                    resolve(background["blob"].slice(0, background["blob"].size, fileType));
+                };
+                fr.readAsArrayBuffer(background['blob']);
+            });
+        })
+        
     }
 
     /**
