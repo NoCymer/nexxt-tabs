@@ -189,12 +189,13 @@ export default class BackgroundsManager {
     /** Gets the url pointing to a given background id
      * @param id ID of the targeted background
      */
-    public static async idToUrl(id: string) {
-        return backgroundsJSON.includes(id) ?
-        `backgrounds/${id}.jpg` :
-        URL.createObjectURL(
-            await BackgroundsManager.backgroundsBD.fetchBackground(id)
-        );
+    public static async idToBackground(id: string) {
+        if(backgroundsJSON.includes(id)) {
+            return {url: `backgrounds/${id}.jpg`, type:"image/jpg"};
+        } else {
+            const backgroundBlob = await BackgroundsManager.backgroundsBD.fetchBackground(id);
+            return {url: URL.createObjectURL(backgroundBlob), type:backgroundBlob["type"]};
+        }
     }
 
     /**
@@ -203,7 +204,7 @@ export default class BackgroundsManager {
      * @param {number} nextID Id of the targeted background.
      */
     public async changeBackgroundToID (nextID: string) {
-        let url = await BackgroundsManager.idToUrl(nextID);
+        let url = (await BackgroundsManager.idToBackground(nextID)).url;
         this.crossFade(url);
         this._bgCurrentIdSetting.value = nextID;
         let cycleHistory = this._bgIdsCycleHistorySetting.value;
@@ -218,7 +219,7 @@ export default class BackgroundsManager {
      * @param {number} nextID Id of the targeted background.
      */
     public async changeBackgroundToIDInstant (nextID: string) {
-        let url = await BackgroundsManager.idToUrl(nextID);
+        let url = (await BackgroundsManager.idToBackground(nextID)).url;
         $("#background").attr("src", `${url}`)
         $("#crossfade").attr("src", `${url}`)
         this._bgCurrentIdSetting.value = nextID;
