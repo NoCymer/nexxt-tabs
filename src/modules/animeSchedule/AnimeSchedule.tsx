@@ -19,7 +19,7 @@ import { useSetting } from "@Hooks/useSetting";
 import { FeatureField } from "@Components/advanced/Feature";
 import { useTheme } from "@Hooks/useTheme";
 
-const JIKAN_COOLDOWN = 500; // cooldown in ms
+const JIKAN_COOLDOWN = 850; // cooldown in ms
 
 const JIKAN_FULL_FETCH_COOLDOWN = 10000; // cooldown in ms
 
