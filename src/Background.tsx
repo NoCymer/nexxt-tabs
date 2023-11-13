@@ -180,7 +180,7 @@ const Background = ({
                     }
                 })}
             >
-                <video autoPlay={true} loop={true}>
+                <video muted autoPlay={true} loop={true}>
                     <source src={backgroundURL} type={backgroundType} />
                 </video>
                 

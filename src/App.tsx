@@ -98,11 +98,11 @@ const init = async () => {
     await BackgroundsManager.instance.init();
 
     // Awaits for background loading then hides the veil
-    $(".crossfade-background.active").get(0).addEventListener("load", (e) => {
+    $(".cb.active").get(0).addEventListener("load", (e) => {
         Veil.hideVeil();
         e.target.removeEventListener("load", this);
     });
-    $(".crossfade-background.active").get(0).addEventListener("canplay", (e) => {
+    $(".cb.active").get(0).addEventListener("canplay", (e) => {
         Veil.hideVeil();
         e.target.removeEventListener("canplay", this);
     });

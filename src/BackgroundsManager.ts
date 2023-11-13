@@ -9,6 +9,8 @@ type ID = string;
  * Background Manager Singleton
  */
 export default class BackgroundsManager {
+    /** Duration of the crossfade animation in ms*/
+    private readonly CROSSFADE_DURATION = 750;
     
     private static _instance: BackgroundsManager;
 
@@ -199,7 +201,7 @@ export default class BackgroundsManager {
     }
 
     /**
-     * Changes the background to a given id. and stores its id
+     * Changes the background to a given id and stores its id
      * in the background history.
      * @param {number} nextID Id of the targeted background.
      */
@@ -226,12 +228,12 @@ export default class BackgroundsManager {
         let type = trueType.includes("video") ? "video" : "img";
 
 
-        $(`.crossfade-background.active`).removeClass("active");
-        $(`#crossfade-background-${this.layerToChange}-${type}`).addClass("active");
+        $(`.cb.active`).removeClass("active");
+        $(`#cb-${this.layerToChange}-${type}`).addClass("active");
         if(type == "video") 
-            $(`#crossfade-background-${this.layerToChange}-${type}`).attr("type", trueType);
+            $(`#cb-${this.layerToChange}-${type}`).attr("type", trueType);
 
-        $(`#crossfade-background-${this.layerToChange}-${type}`).attr("src", toUrl);
+        $(`#cb-${this.layerToChange}-${type}`).attr("src", toUrl);
 
 
         this._bgCurrentIdSetting.value = nextID;
@@ -239,6 +241,11 @@ export default class BackgroundsManager {
         cycleHistory.push(nextID);
         if (cycleHistory.length > 1) cycleHistory.shift();
         this._bgIdsCycleHistorySetting.value = cycleHistory;
+        this.changeLayer();
+    }
+    /**  Changes the layer to its opposite, if layer 1 then it will become 2 */
+    private changeLayer () {
+        this.layerToChange = this.layerToChange === 1 ? 2 : 1;
     }
 
     /**
@@ -264,21 +271,29 @@ export default class BackgroundsManager {
      * Cross fades between two backgrounds
      */
     private crossFade (toUrl: string, trueType: string) {
-        let transitionDuration = 750 //ms
+
+        // Extracts the type of the target background, 
+        // it will either be "video" or "img".
         let type = trueType.includes("video") ? "video" : "img";
-        const changeLayer = () => this.layerToChange = this.layerToChange === 1 ? 2 : 1
 
-        const prev = $(`.crossfade-background.active`);
-        $(`#crossfade-background-${this.layerToChange}-${type}`).addClass("active");
+
+        // Previous active background element 
+        const prev = $(`.cb.active`);
+
         if(type == "video") 
-            $(`#crossfade-background-${this.layerToChange}-${type}`).attr("type", trueType);
+            $(`#cb-${this.layerToChange}-${type}`).attr("type", trueType);
+        
+        $(`#cb-${this.layerToChange}-${type}`).attr("src", toUrl);
 
-        $(`#crossfade-background-${this.layerToChange}-${type}`).attr("src", toUrl);
+        $(`#cb-${this.layerToChange}-${type}`).addClass("new-active");
 
+        // Removes the active class to the previous active background element to start the transition
         setTimeout(() => {
+            $(`#cb-${this.layerToChange}-${type}`).removeClass("new-active");
+            $(`#cb-${this.layerToChange}-${type}`).addClass("active");
             prev.removeClass("active");
-            changeLayer()
-        }, transitionDuration)
+            this.changeLayer();
+        }, this.CROSSFADE_DURATION);
     }
 
     /** Returns the next background id according to settings
