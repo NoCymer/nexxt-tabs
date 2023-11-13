@@ -26,7 +26,8 @@ const allowedFileTypes = [
     "image/png",
     "image/jpg",
     "image/svg",
-    "image/webp"
+    "image/webp",
+    "video/mp4"
 ]
 
 
@@ -76,7 +77,7 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
 
             fr.onload = async () => {
                 // Creating blob
-                const blob = new Blob([fr.result])
+                const blob = new Blob([fr.result], {type:file.type})
 
                 backgroundsDB.storeBackground(
                     id,
@@ -163,15 +164,25 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
         setSelectedFiles(selectedFiles.filter(img => img.name != image.name));
     }
 
-    const BackgroundPreview = ({imageFile}) => {
-        const [image, setImage] = useState(imageFile);
-        return(
-            <div className="img-placeholder image ">
-                <span className="img-veil"/>
-                <img src={URL.createObjectURL(image)}></img>
-                <span className="delete" onClick={(e) => handleDelete(e, image)}/>
-            </div>
-        )
+    const BackgroundPreview = ({file}) => {
+        const [content, setContent] = useState(file);
+        if(content.type.includes("video")) {
+            return(
+                <div className="img-placeholder image ">
+                    <span className="img-veil"/>
+                    <video autoPlay={true} loop={true}><source src={URL.createObjectURL(content)} type={content.type} /></video>
+                    <span className="delete" onClick={(e) => handleDelete(e, content)}/>
+                </div>
+            )
+        } else {
+            return(
+                <div className="img-placeholder image ">
+                    <span className="img-veil"/>
+                    <img src={URL.createObjectURL(content)}></img>
+                    <span className="delete" onClick={(e) => handleDelete(e, content)}/>
+                </div>
+            )
+        }
     }
 
     return (
@@ -179,8 +190,8 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
         <div className="drop-zone-wrapper">
             {
                 selectedFiles && selectedFiles.length > 0 ? 
-                selectedFiles.map((image, i) => {
-                    return <BackgroundPreview imageFile={image} key={i}/>
+                selectedFiles.map((file, i) => {
+                    return <BackgroundPreview file={file} key={i}/>
                 }) : null
             }
             {
@@ -210,7 +221,8 @@ const StoreBackground = ({setBackgroundPopupVisibility}) => {
                         image/png,
                         image/jpg,
                         image/svg,
-                        image/webp
+                        image/webp,
+                        video/mp4
                     "
                     type="file"
                     onChange={onFileChange}

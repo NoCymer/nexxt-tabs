@@ -10,6 +10,7 @@ import { useSetting } from "@Hooks/useSetting"
 interface IBackground {
     backgroundID: string
     backgroundURL: string
+    backgroundType: string
     selectedBackgroundsSetting?: Setting<string[]>
 }
 
@@ -71,6 +72,7 @@ const removeFromArray = <T,>(array: T[], element: T) => {
 const Background = ({
     backgroundID,
     backgroundURL,
+    backgroundType
     }: IBackground) => {
 
     const [selected, setSelected] = useState<boolean>(
@@ -93,6 +95,11 @@ const Background = ({
     // Style of the background
     const backgroundStyle = {
         backgroundImage: `url(${backgroundURL})`,
+        transitionDelay: "0s",
+        opacity: "1"
+    }
+    // Style of the video background
+    const videoBackgroundStyle = {
         transitionDelay: "0s",
         opacity: "1"
     }
@@ -155,53 +162,106 @@ const Background = ({
             setSelected(true);
         }
     }
-
-    return(
-        <div
-            className="background-entry"
-            id={"background-" + backgroundID}
-            style={backgroundStyle}
-            onClick={(() => {
-                if(
-                    !isSingleSelectionInactive &&
-                    activeBackground !== backgroundID
-                ) {
-                    setActiveBackground(backgroundID);
-                    BackgroundsManager.instance.changeBackgroundToID(
-                        backgroundID
-                    );
+    if(backgroundType.includes("video")) {
+        return(
+            <div
+                className="background-entry"
+                id={"background-" + backgroundID}
+                style={videoBackgroundStyle}
+                onClick={(() => {
+                    if(
+                        !isSingleSelectionInactive &&
+                        activeBackground !== backgroundID
+                    ) {
+                        setActiveBackground(backgroundID);
+                        BackgroundsManager.instance.changeBackgroundToID(
+                            backgroundID
+                        );
+                    }
+                })}
+            >
+                <video muted autoPlay={true} loop={true}>
+                    <source src={backgroundURL} type={backgroundType} />
+                </video>
+                
+                {
+                    !isSingleSelectionInactive ? (
+                        activeBackground === backgroundID ? 
+                            <Checkbox
+                                isActive={true}
+                            /> : null 
+                        ) :
+                    <Checkbox
+                        isActive={selected}
+                        onChange={onSelectedChange}
+                        changeChecker={
+                        () => {
+                            if(selected)
+                                return selectedBackgroundsSetting.value.length > 1
+                            else return true;
+                        }
+                        }
+                    />
                 }
-            })}
-        >
-            {
-                !isSingleSelectionInactive ? (
-                    activeBackground === backgroundID ? 
-                        <Checkbox
-                            isActive={true}
-                        /> : null 
-                    ) :
-                <Checkbox
-                    isActive={selected}
-                    onChange={onSelectedChange}
-                    changeChecker={
-                    () => {
-                        if(selected)
-                            return selectedBackgroundsSetting.value.length > 1
-                        else return true;
-                    }
-                    }
+                {
+                // Display delete button only if not pre-installed background
+                !backgroundsJSON.includes(backgroundID) && <span
+                    aria-label="background-delete"
+                    onClick={handleDelete}
                 />
-            }
-            {
-            // Display delete button only if not pre-installed background
-            !backgroundsJSON.includes(backgroundID) && <span
-                aria-label="background-delete"
-                onClick={handleDelete}
-            />
-            }
-            
-        </div>
-    )
+                }
+                
+            </div>
+        )
+    } else {
+        return(
+            <div
+                className="background-entry"
+                id={"background-" + backgroundID}
+                style={backgroundStyle}
+                onClick={(() => {
+                    if(
+                        !isSingleSelectionInactive &&
+                        activeBackground !== backgroundID
+                    ) {
+                        setActiveBackground(backgroundID);
+                        BackgroundsManager.instance.changeBackgroundToID(
+                            backgroundID
+                        );
+                    }
+                })}
+            >
+                {
+                    !isSingleSelectionInactive ? (
+                        activeBackground === backgroundID ? 
+                            <Checkbox
+                                isActive={true}
+                            /> : null 
+                        ) :
+                    <Checkbox
+                        isActive={selected}
+                        onChange={onSelectedChange}
+                        changeChecker={
+                        () => {
+                            if(selected)
+                                return selectedBackgroundsSetting.value.length > 1
+                            else return true;
+                        }
+                        }
+                    />
+                }
+                {
+                // Display delete button only if not pre-installed background
+                !backgroundsJSON.includes(backgroundID) && <span
+                    aria-label="background-delete"
+                    onClick={handleDelete}
+                />
+                }
+                
+            </div>
+        )
+    }
+    
 }
 
 /** Contains all backgrounds that can either be selected or deselected */
@@ -209,7 +269,7 @@ export const Backgrounds = () => {
     const [
         backgrounds,
         setBackgrounds
-    ] = useState<{url: string, id: string}[]>([]);
+    ] = useState<{url: string, id: string, type: string}[]>([]);
 
     useEffect(() => {
         /**
@@ -218,11 +278,13 @@ export const Backgrounds = () => {
          * @param values ID array of the backgrounds
          */
         const getBackgrounds = async (values: string[]) => {
-            let temp: {url: string, id: string}[] = [];
+            let temp: {url: string, id: string, type:string}[] = [];
             for (const id of values) {
+                const bg = await BackgroundsManager.idToBackground(id);
                 temp.push({
                     id: id,
-                    url: await BackgroundsManager.idToUrl(id)
+                    url: bg.url,
+                    type: bg.type
                 });
             }
             setBackgrounds(temp);
@@ -233,16 +295,17 @@ export const Backgrounds = () => {
         })
 
         getBackgrounds(bgIDsArraySetting.value);
-    }, []) 
-
+    }, []);
+    
     return(
     <div className="backgrounds-container">
         {
             backgrounds.map((background) => {
-                return <Background
+                    return <Background
                     backgroundID={background.id}
                     backgroundURL={background.url}
                     key={background.id}
+                    backgroundType={background.type}
                 />
             })
         }

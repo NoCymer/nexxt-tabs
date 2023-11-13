@@ -46,16 +46,31 @@
         text-align: justify;
         font-weight: 300;
         position: relative;
-        &::before {
-            position: absolute;
-            content: "";
-            width: 1.3rem;
-            height: 1.3rem;
-            left: 0;
-            top: .08rem;
-            @include centerNoRepImg;
-            background-image: url("app-ressources/light/arrow-right-symbol.svg");
+        &.light{
+            &::before {
+                position: absolute;
+                content: "";
+                width: 1.3rem;
+                height: 1.3rem;
+                left: 0;
+                top: .08rem;
+                @include centerNoRepImg;
+                background-image: url("app-ressources/light/arrow-right-symbol.svg");
+            }
         }
+        &.dark{
+            &::before {
+                position: absolute;
+                content: "";
+                width: 1.3rem;
+                height: 1.3rem;
+                left: 0;
+                top: .08rem;
+                @include centerNoRepImg;
+                background-image: url("app-ressources/dark/arrow-right-symbol.svg");
+            }
+        }
+        
     }
     .button-wrapper {
         margin-left: 1.2rem;
@@ -63,46 +78,99 @@
     }
     &#backgrounds-info{
         h1{
-            &::after{
-                background-image: url(
-                    "app-ressources/light/background-copyright-symbol.svg"
-                );
+            &.dark{
+                &::after{
+                    background-image: url(
+                        "app-ressources/dark/background-copyright-symbol.svg"
+                    );
+                }
+            
+            }
+            &.light{
+                &::after{
+                    background-image: url(
+                        "app-ressources/light/background-copyright-symbol.svg"
+                    );
+                }
+
             }
         }
     }
     &#icons-info{
         h1{
-            &::after{
-                background-image: url(
-                    "app-ressources/light/icon-copyright-symbol.svg"
-                );
+            &.dark{
+                &::after{
+                    background-image: url(
+                        "app-ressources/dark/icon-copyright-symbol.svg"
+                    );
+                }
+            
+            }
+            &.light{
+                &::after{
+                    background-image: url(
+                        "app-ressources/light/icon-copyright-symbol.svg"
+                    );
+                }
+
             }
         }
     }
     &#codebase-info{
         h1{
-            &::after{
-                background-image: url(
-                    "app-ressources/light/codebase-copyright-symbol.svg"
-                );
+            &.dark{
+                &::after{
+                    background-image: url(
+                        "app-ressources/dark/codebase-copyright-symbol.svg"
+                    );
+                }
+            
+            }
+            &.light{
+                &::after{
+                    background-image: url(
+                        "app-ressources/light/codebase-copyright-symbol.svg"
+                    );
+                }
+
             }
         }
     }
     &#feedback-info{
         h1{
-            &::after{
-                background-image: url(
-                    "app-ressources/light/feedback-symbol.svg"
-                );
+            &.dark{
+                &::after{
+                    background-image: url(
+                        "app-ressources/dark/feedback-symbol.svg"
+                    );
+                }
+            
+            }
+            &.light{
+                &::after{
+                    background-image: url(
+                        "app-ressources/light/feedback-symbol.svg"
+                    );
+                }
+
             }
         }
     }
     &#contact-info{
         h1{
-            &::after{
-                background-image: url(
-                    "app-ressources/light/contact-symbol.svg"
-                );
+            &.dark{
+                &::after{
+                    background-image: url(
+                        "app-ressources/dark/contact-symbol.svg"
+                    );
+                }
+            }
+            &.light{
+                &::after{
+                    background-image: url(
+                        "app-ressources/light/contact-symbol.svg"
+                    );
+                }
             }
         }
     }

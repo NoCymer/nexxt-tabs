@@ -14,11 +14,15 @@
     <title>New Tab</title>
 </head>
 <body>
-    <div id="veil"></div>
+    <div class="background-crossfade-wrapper">
+        <img class="cb cb-1" id="cb-1-img"/>
+        <img class="cb cb-2" id="cb-2-img"/>
+        <video muted autoplay loop class="cb cb-1" id="cb-1-video"></video>  
+        <video muted autoplay loop class="cb cb-2" id="cb-2-video"></video>  
+    </div>
+    <div id="particles"></div>
     <div id="popup-target"></div>
     <div id="react-target"></div>
-    <img id="crossfade"/>
-    <img id="background"/>
-    <div id="particles"></div>
+    <div id="veil"></div>
 </body>
 </html>

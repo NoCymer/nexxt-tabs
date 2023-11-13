@@ -93,14 +93,19 @@ const init = async () => {
         appManager.getSetting("main-accent").value
     );
 
-    // Awaits for background loading then hides the veil
-    $("#background").get(0).addEventListener("load", () => {
-        Veil.hideVeil();
-        $("#background").get(0).removeEventListener("load", this);
-    });
 
     // Initialising Backgrounds Manager
     await BackgroundsManager.instance.init();
+
+    // Awaits for background loading then hides the veil
+    $(".cb.active").get(0).addEventListener("load", (e) => {
+        Veil.hideVeil();
+        e.target.removeEventListener("load", this);
+    });
+    $(".cb.active").get(0).addEventListener("canplay", (e) => {
+        Veil.hideVeil();
+        e.target.removeEventListener("canplay", this);
+    });
     
     // Loading modules
     for(let module in modulesJSON) 

@@ -21,19 +21,19 @@ export const InfoTab = () => {
                 <h1>{t("info-tab-title")}</h1>
                 <span className="separator thick"/>
                 <section className="info-section" id="backgrounds-info">
-                    <h1>{t("backgrounds-rights-section")}</h1>
-                    <p>{t("backgrounds-rights-section-p1")}</p>
-                    <p>{t("backgrounds-rights-section-p2")}</p>
+                    <h1 className={`${theme}`}>{t("backgrounds-rights-section")}</h1>
+                    <p className={`${theme}`}>{t("backgrounds-rights-section-p1")}</p>
+                    <p className={`${theme}`}>{t("backgrounds-rights-section-p2")}</p>
                 </section>
                 <span className="separator thin"/>
                 <section className="info-section" id="icons-info">
-                    <h1>{t("icons-rights-section")}</h1>
-                    <p>{t("icons-rights-section-p1")}</p>
+                    <h1 className={`${theme}`}>{t("icons-rights-section")}</h1>
+                    <p className={`${theme}`}>{t("icons-rights-section-p1")}</p>
                 </section>
                 <span className="separator thin"/>
                 <section className="info-section" id="codebase-info">
-                    <h1>{t("codebase-rights-section")}</h1>
-                    <p>{t("codebase-rights-section-p1")}</p>
+                    <h1 className={`${theme}`}>{t("codebase-rights-section")}</h1>
+                    <p className={`${theme}`}>{t("codebase-rights-section-p1")}</p>
                     <ButtonContainer 
                         direction='inline'
                     >
@@ -51,8 +51,8 @@ export const InfoTab = () => {
                 </section>
                 <span className="separator thin"/>
                 <section className="info-section" id="feedback-info">
-                    <h1>{t("feedback-section")}</h1>
-                    <p>{t("feedback-rights-section-p1")}</p>
+                    <h1 className={`${theme}`}>{t("feedback-section")}</h1>
+                    <p className={`${theme}`}>{t("feedback-rights-section-p1")}</p>
                     <ButtonContainer 
                         direction='stacked'
                     >
@@ -82,8 +82,8 @@ export const InfoTab = () => {
                 </section>
                 <span className="separator thin"/>
                 <section className="info-section" id="contact-info">
-                    <h1>{t("contact")}</h1>
-                    <p>{t("contact-section-p1")}</p>
+                    <h1 className={`${theme}`}>{t("contact")}</h1>
+                    <p className={`${theme}`}>{t("contact-section-p1")}</p>
                     <ButtonContainer 
                         direction='inline'
                     >

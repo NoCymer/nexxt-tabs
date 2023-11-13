@@ -30,17 +30,48 @@ class BackgroundsDatabase extends Dexie {
             {id: backgroundID, blob: backgroundBlob}
         );
     }
-
     /**
      * Returns a blob of a background stored in the database
      * that has a given id
      * @param backgroundID Id of the background
      * @returns BLOB Corresponding to the background
      */
-    public async fetchBackground(backgroundID: ID): Promise<any> {
-        return (
-            (await this.table("backgrounds").get({id: backgroundID}))["blob"]
-        )
+    public fetchBackground(backgroundID: ID): Promise<any> {
+        const headersTypes = {
+            "image/png" : ["89504e47"],
+            "image/gif" : ["47494638"],
+            "image/jpg" : ["ffd8ffe0","ffd8ffe1","ffd8ffe2","ffd8ffe3","ffd8ffe8"],
+            "video/mp4" : ["66747970"]
+        }
+        return new Promise((resolve,reject) => {
+            this.table("backgrounds").get({id: backgroundID}).then(background => {
+                let fr = new FileReader();
+    
+                fr.onloadend = function(e) {
+                    // Extracts the first bytes of the blob
+                    let arr = (new Uint8Array(e.target.result as ArrayBuffer)).subarray(0, 8);
+                    let fileHeader = "";
+                    for(let i = 0; i < arr.length; i++) {
+                        fileHeader += arr[i].toString(16);
+                    }
+
+                    // Compares the extracted bytes to predefined headers
+                    let fileType = "";
+                    Object.keys(headersTypes).forEach(headerType => {
+                        headersTypes[headerType].forEach(header => {
+                            if(fileHeader.includes(header)) fileType = headerType;
+                        }) 
+                    });
+
+                    // Fallback value
+                    if(fileType.length == 0) fileType = background['blob']['type'];
+                    
+                    resolve(background["blob"].slice(0, background["blob"].size, fileType));
+                };
+                fr.readAsArrayBuffer(background['blob']);
+            });
+        })
+        
     }
 
     /**
