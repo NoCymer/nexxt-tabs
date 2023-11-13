@@ -24,8 +24,8 @@ const DateTimeField = ({
         onInput && onInput(newValue.getTime());
     }
 
-    const ISOtoValue = (ISO: string) => {
-        return ISO.substring(0,19);
+    const formatDate = (date: Date) => {
+        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
     } 
 
     return (
@@ -33,7 +33,7 @@ const DateTimeField = ({
             className="input-field"
             type="date"
             onInput={handleInput}
-            value={ISOtoValue(value.toString())}
+            value={formatDate(value)}
         />
     )
 }

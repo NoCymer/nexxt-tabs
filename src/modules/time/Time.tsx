@@ -229,7 +229,7 @@ const Countdown = ({position}: ICountdown) => {
         const now = new Date();
         const eventDate = new Date(datetime);
         const remTime = eventDate.getTime() - now.getTime();
-        let s = Math.floor(remTime / 1000);
+        let s = Math.ceil(remTime / 1000);
         let m = Math.floor(s / 60);
         let h = Math.floor(m / 60);
         let d = Math.floor(h / 24);
