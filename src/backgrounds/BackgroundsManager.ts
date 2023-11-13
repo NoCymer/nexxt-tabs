@@ -1,5 +1,5 @@
 import $ from "jquery"
-import appManager from "./AppManager";
+import appManager from "../AppManager";
 import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
 import backgroundsDB from "./BackgroundsDatabase";
 

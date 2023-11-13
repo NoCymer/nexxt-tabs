@@ -3,7 +3,7 @@ import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
 jest.useFakeTimers();
 
 const BackgroundsManager = () => {
-    return require("../src/BackgroundsManager").default;
+    return require("../src/backgrounds/BackgroundsManager").default;
 }
 
 const appManager = () => {

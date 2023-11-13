@@ -7,9 +7,9 @@ import NumberField from '@Components/basic/NumberField';
 import React, { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import appManager from '../../AppManager';
-import { Backgrounds } from "../../Background";
-import backgroundsDB from "../../BackgroundsDatabase";
-import BackgroundsManager from '../../BackgroundsManager';
+import { Backgrounds } from "../../backgrounds/Background";
+import backgroundsDB from "../../backgrounds/BackgroundsDatabase";
+import BackgroundsManager from '../../backgrounds/BackgroundsManager';
 import { usePopup } from '@Hooks/usePopup';
 import $ from "jquery";
 import { resolve } from 'path';

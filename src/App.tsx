@@ -9,7 +9,7 @@ import $ from "jquery";
 import modulesJSON from "@Modules/modules.json";
 import { ModulesManager } from "@Modules/base/ModulesManager";
 import appManager from "./AppManager";
-import BackgroundsManager from "./BackgroundsManager";
+import BackgroundsManager from "./backgrounds/BackgroundsManager";
 import Veil from "./Veil";
 import UpdatePopup from "@Components/advanced/UpdatePopup";
 import { useTransition, animated } from "@react-spring/web";

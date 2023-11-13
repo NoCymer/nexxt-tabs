@@ -4,7 +4,7 @@ import backgroundsDB from "./BackgroundsDatabase"
 import BackgroundsManager from "./BackgroundsManager"
 import backgroundsJSON from "@Public/backgrounds/backgrounds.json"
 import { Setting } from "@Settings/Setting"
-import appManager from "./AppManager"
+import appManager from "../AppManager"
 import { useSetting } from "@Hooks/useSetting"
 
 interface IBackground {

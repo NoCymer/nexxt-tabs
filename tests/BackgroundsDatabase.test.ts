@@ -1,4 +1,4 @@
-import backgroundsDB from '../src/BackgroundsDatabase';
+import backgroundsDB from '../src/backgrounds/BackgroundsDatabase';
 
 describe("Testing BackgroundDatabase class", () => {
     test("Storing & Fetching", async () => {
