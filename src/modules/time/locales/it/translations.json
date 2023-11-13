@@ -13,6 +13,8 @@
     "countdown-label-desc": "Scegliere una formulazione", 
     "date": "Data ", 
     "countdown-date-desc": "Scegliere una data", 
+    "time": "Ora",
+    "countdown-time-desc": "Scegliere una ora",
     "time-format": "Formato d'ora", 
     "time-format-desc": "Scegliere un formato d'ora", 
     "clock-title": "Impostazioni dell'orologio", 

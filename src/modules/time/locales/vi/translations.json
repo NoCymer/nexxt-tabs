@@ -13,6 +13,8 @@
     "countdown-label-desc": "Nhập tiêu đề sự kiện",
     "date": "Thời gian",
     "countdown-date-desc": "Chọn thời gian diễn ra sự kiện",
+    "time": "Thì giờ",
+    "countdown-time-desc": "Chọn một giờ",
     "time-format": "Định dạng thời gian",
     "time-format-desc": "Chọn định dạng thời gian",
     "clock-title": "Cài đặt đồng hồ",

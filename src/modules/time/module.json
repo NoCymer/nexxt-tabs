@@ -12,6 +12,9 @@
         "countdown-datetime" : {
             "defaultValue" : 0
         },
+        "countdown-time" : {
+            "defaultValue" : "00:00"
+        },
         "countdown-label-string" : {
             "defaultValue" : ""
         },

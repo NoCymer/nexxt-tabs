@@ -1,8 +1,8 @@
 import React, { FormEvent, useState } from "react";
 
-export interface IDateTimeField {
-    onInput?: (newValue?: number) => void
-    defaultValue?: Date
+export interface ITimeField {
+    onInput?: (newValue?: string) => void
+    defaultValue?: string
 }
 
 /**
@@ -11,31 +11,27 @@ export interface IDateTimeField {
  * the input value changes
  * @param defaultValue Value that the input has by default
  */
-const DateTimeField = ({
+const TimeField = ({
         onInput,
-        defaultValue = new Date(Date.now())
-    }: IDateTimeField) => {
+        defaultValue = "00:00"
+    }: ITimeField) => {
         
     const [value, setValue] = useState(defaultValue);
 
     const handleInput = (event: FormEvent) => {
-        let newValue = new Date((event.target as HTMLInputElement).value);
+        let newValue = (event.target as HTMLInputElement).value;
         setValue(newValue);
-        onInput && onInput(newValue.getTime());
+        onInput && onInput(newValue);
     }
-
-    const ISOtoValue = (ISO: string) => {
-        return ISO.substring(0,19);
-    } 
 
     return (
         <input
             className="input-field"
-            type="date"
+            type="time"
             onInput={handleInput}
-            value={ISOtoValue(value.toString())}
+            value={value}
         />
     )
 }
 
-export default DateTimeField;
+export default TimeField;

@@ -13,6 +13,7 @@ import { FeatureField } from "@Components/advanced/Feature";
 import { InlineChoice, InlineChoiceContainer } from "@Components/basic/InlineChoice";
 import appManager from "../../AppManager";
 import { useTheme } from "@Hooks/useTheme";
+import TimeField from "@Components/basic/TimeField";
 
 moduleJSON["settings"]["countdown-datetime"]["defaultValue"] = 
     (new Date(Date.now())).getTime();
@@ -31,6 +32,9 @@ const lowerScreenSetting = TimeModule.getSetting("display-lower-selection");
 const TimeSettingSection = () => {
     const { t } = useTranslation();
     const [theme, setTheme] = useTheme();
+    const [formatSetting, setFormatSetting] = useSetting(
+        appManager.getSetting("time-format-string")
+    );
 
     return (
         <>
@@ -129,6 +133,26 @@ const TimeSettingSection = () => {
                     />
                 }
             />
+            <span className="separator thin no-margin"/>
+            <FeatureField
+                title={t("time")}
+                desc={t("countdown-time-desc")}
+                img={`app-ressources/${theme}/calendar-clock-symbol.svg`}
+                field={
+                    <TimeField 
+                        onInput={(val)=> {
+                            TimeModule.getSetting(
+                                "countdown-time"
+                            ).value = val;
+                        }} 
+                        defaultValue={                            
+                            TimeModule.getSetting(
+                                "countdown-time"
+                            ).value
+                        }
+                    />
+                }
+            />
             <span className="separator medium"/>
             <h2>{t("clock-title")}</h2>
             <h3>{t("clock-desc")}</h3>
@@ -172,9 +196,25 @@ const Countdown = ({position}: ICountdown) => {
         TimeModule.getSetting("countdown-datetime")
     );
 
+    const [countdownTime, setCountdownTime] = useSetting(
+        TimeModule.getSetting("countdown-time")
+    );
+
     const [label, setLabel] = useSetting(
         TimeModule.getSetting("countdown-label-string")
     );
+
+    /**
+     * 
+     * @returns DateTime of the countdown target in ms since epoch
+     */
+    const getDateTime = () => {
+        const dte = new Date(countdownDate);
+        dte.setHours(countdownTime.split(":")[0]);
+        dte.setMinutes(countdownTime.split(":")[1]);
+        dte.setSeconds(0);
+        return dte.getTime();
+    }
 
     const { t } = useTranslation();
 
@@ -218,12 +258,12 @@ const Countdown = ({position}: ICountdown) => {
     }
     
     useEffect(() => {
-        updateTime(countdownDate);
-        let interval = setInterval(() => updateTime(countdownDate), 1000);
+        updateTime(getDateTime());
+        let interval = setInterval(() => updateTime(getDateTime()), 1000);
         return () => {
             clearInterval(interval);
         };
-    }, [countdownDate])
+    }, [getDateTime()])
 
     useEffect(() =>  setCountdownPosition(position), [position])
 

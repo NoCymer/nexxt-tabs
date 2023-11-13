@@ -13,6 +13,8 @@
     "countdown-label-desc": "Choisissez un libell\u00e9",
     "date": "Date",
     "countdown-date-desc": "Choisissez une date",
+    "time": "Heure",
+    "countdown-time-desc": "Choisissez une heure",
     "time-format": "Format d'heure",
     "time-format-desc": "Choisissez un format d'heure",
     "clock-title": "Param\u00e9tre De l'Horloge",

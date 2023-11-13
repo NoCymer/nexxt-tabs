@@ -13,6 +13,8 @@
     "countdown-label-desc": "Elige una etiqueta",
     "date": "Fecha",
     "countdown-date-desc": "Selecciona una fecha",
+    "time": "Hora",
+    "countdown-time-desc": "Selecciona una hora",
     "time-format": "Formato de tiempo",
     "time-format-desc": "Elige un formato de hora",
     "clock-title": "Configuración Del Reloj",

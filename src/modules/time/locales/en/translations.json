@@ -13,6 +13,8 @@
     "countdown-label-desc": "Choose a label",
     "date": "Date",
     "countdown-date-desc": "Pick a date",
+    "time": "Time",
+    "countdown-time-desc": "Pick a Time",
     "time-format": "Time Format",
     "time-format-desc": "Choose a time format",
     "clock-title": "Clock Settings",
