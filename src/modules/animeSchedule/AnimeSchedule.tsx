@@ -167,8 +167,13 @@ const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const AnimeScheduleWeek = () => {
+interface IAnimeScheduleWeek{
+    shouldBeDisplayedSetting: Setting<boolean>
+}
+
+const AnimeScheduleWeek = ({shouldBeDisplayedSetting}: IAnimeScheduleWeek) => {
     const [theme, setTheme] = useTheme();
+    const [shouldBeDisplayed, setShouldBeDisplayed] = useSetting(shouldBeDisplayedSetting);
     
 
     /**
@@ -373,7 +378,9 @@ const AnimeScheduleWeek = () => {
 
         return(
             <>
-            {//Iterates over evey day in the week
+            {
+            shouldBeDisplayed && 
+            //Iterates over evey day in the week
             Object.keys(week).map((day) => {
             return (
             <div 
@@ -390,8 +397,6 @@ const AnimeScheduleWeek = () => {
                     isDayLoaded(day, week) ? <img src={`app-ressources/${theme}/loading-symbol.svg`} className="loading-wheel"/> : getQuarters(week, day, timeFormat)
                 }
             </div>)
-
-                
             })}
             </>
         )
@@ -421,7 +426,7 @@ const AnimeSchedulePanel = () => {
                 key="schedule" 
                 tabID="schedule-tab" 
                 tabIconURL={`app-ressources/${theme}/schedule-symbol.svg`}
-                SmallPane={() => {
+                SmallPane={(largePaneOpenedSetting, smallPaneOpenedSetting) => {
                     return(
                         <PanelTabSmallPane>
                         <h1>{t("schedule")}</h1>
@@ -477,7 +482,7 @@ const AnimeSchedulePanel = () => {
                             </InlineChoiceContainer>
                             <span className="separator thin"/>
                             <div className="side-slider-section">
-                                <AnimeScheduleWeek/>
+                                <AnimeScheduleWeek shouldBeDisplayedSetting={smallPaneOpenedSetting}/>
                             </div>
                         </section> 
                         </PanelTabSmallPane>

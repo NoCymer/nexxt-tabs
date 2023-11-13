@@ -34,11 +34,13 @@ interface IPanelTab {
     navbarIconPosition?: ("bottom");
     /** @param smallPane Content of the small pane of the tab */
     SmallPane?: (
-        largePaneOpened?: Setting<boolean>
+        largePaneOpened?: Setting<boolean>,
+        smallPaneOpened?: Setting<boolean>
         ) => React.ReactElement<ISmallPane>;
     /** @param largePane Content of the large pane of the tab */
     LargePane?: (
-        largePaneOpened?: Setting<boolean>
+        largePaneOpened?: Setting<boolean>,
+        smallPaneOpened?: Setting<boolean>
         ) => React.ReactElement<ILargePane>;
 }
 
@@ -101,6 +103,7 @@ interface IPanel {
 }
 
 let largePaneOpenedStatesSettings: Object = {};
+let smallPaneOpenedStatesSettings: Object = {};
 
 /**
  * A Panel containing tabs that can be displayed on the DOM
@@ -129,24 +132,43 @@ const Panel = ({
         children[0].props.tabID : children.props.tabID;
     });
     
-    const settingName = idPanel + "-large-page-opened-boolean"
+    const largePanelSettingName = idPanel + "-large-page-opened-boolean"
     
     let largePaneOpenedSetting: Setting<boolean>;
 
     
-    if(!largePaneOpenedStatesSettings[settingName]) {
-        largePaneOpenedSetting = new Setting(settingName, false);
-        largePaneOpenedStatesSettings[settingName] = largePaneOpenedSetting;
+    if(!largePaneOpenedStatesSettings[largePanelSettingName]) {
+        largePaneOpenedSetting = new Setting(largePanelSettingName, false);
+        largePaneOpenedStatesSettings[largePanelSettingName] = largePaneOpenedSetting;
     }
     else {
-        largePaneOpenedSetting = largePaneOpenedStatesSettings[settingName];
+        largePaneOpenedSetting = largePaneOpenedStatesSettings[largePanelSettingName];
     }
+
+
+    const smallPanelSettingName = idPanel + "-small-page-opened-boolean"
+    let smallPaneOpenedSetting: Setting<boolean>;
+
+    
+    if(!smallPaneOpenedStatesSettings[smallPanelSettingName]) {
+        smallPaneOpenedSetting = new Setting(smallPanelSettingName, false);
+        smallPaneOpenedStatesSettings[smallPanelSettingName] = smallPaneOpenedSetting;
+    }
+    else {
+        smallPaneOpenedSetting = smallPaneOpenedStatesSettings[smallPanelSettingName];
+    }
+
 
     const [largePaneOpened, setLargePaneOpened] = useSetting(
         largePaneOpenedSetting
     );
 
+    const [smallPaneOpened, setSmallPaneOpened] = useSetting(
+        smallPaneOpenedSetting
+    );
+
     useEffect(() => {
+        setSmallPaneOpened(false);
         setLargePaneOpened(false);
     }, [])
 
@@ -172,6 +194,7 @@ const Panel = ({
      * Displays the Panel in the browser
      */
     const showPanel = () => {
+        setSmallPaneOpened(true);
         $(`#${idPanel}`).addClass("visible");
     }
 
@@ -179,6 +202,7 @@ const Panel = ({
      * Hides the Panel in hte browser
      */
     const hidePanel = () => {
+        setSmallPaneOpened(false);
         $(`#${idPanel}`).removeClass("visible");
     }
 
@@ -255,7 +279,8 @@ const Panel = ({
                             if(panelTab.props.SmallPane)
                                 return React.cloneElement(
                                     panelTab.props.SmallPane(
-                                        largePaneOpenedSetting
+                                        largePaneOpenedSetting,
+                                        smallPaneOpenedSetting
                                     ),
                                     {
                                         className: getClassName(panelTab),
@@ -270,7 +295,10 @@ const Panel = ({
                     (() => {
                         if(children.props.SmallPane)
                         return React.cloneElement(
-                            children.props.SmallPane(largePaneOpenedSetting),
+                            children.props.SmallPane(
+                                largePaneOpenedSetting,
+                                smallPaneOpenedSetting
+                            ),
                             {
                                 className: "active",
                                 tabID: children.props.tabID,
@@ -290,7 +318,8 @@ const Panel = ({
                             if(panelTab.props.LargePane)
                                 return React.cloneElement(
                                     panelTab.props.LargePane(
-                                        largePaneOpenedSetting
+                                        largePaneOpenedSetting,
+                                        smallPaneOpenedSetting
                                     ),
                                     {
                                         className: getClassName(panelTab),
@@ -305,7 +334,10 @@ const Panel = ({
                 (() => {
                     if(children.props.LargePane)
                     return React.cloneElement(
-                        children.props.LargePane(largePaneOpenedSetting),
+                        children.props.LargePane(
+                            largePaneOpenedSetting,
+                            smallPaneOpenedSetting
+                        ),
                         {
                             className: getClassName(children),
                             tabID: "active",

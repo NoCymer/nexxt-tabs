@@ -277,7 +277,7 @@ export const BackgroundsTab = () => {
     <PanelTab
         tabID="backgrounds-tab" 
         tabIconURL={`app-ressources/${theme}/background-symbol.svg`}
-        LargePane={() => 
+        LargePane={(largePaneOpened) => 
             <PanelTabLargePane>
                 <ButtonContainer direction="stacked" fitMode="fit">
                 <Button 
@@ -313,7 +313,7 @@ export const BackgroundsTab = () => {
                     {t("deselect-all")}
                 </Button>
                 </ButtonContainer>
-                <Backgrounds/>
+                <Backgrounds shouldDisplaySetting={largePaneOpened}/>
             </PanelTabLargePane>
         }
         SmallPane={(largePaneOpened) => 

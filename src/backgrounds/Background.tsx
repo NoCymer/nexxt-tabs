@@ -264,12 +264,18 @@ const Background = ({
     
 }
 
+interface IBackgrounds {
+    shouldDisplaySetting: Setting<boolean>
+}
+
 /** Contains all backgrounds that can either be selected or deselected */
-export const Backgrounds = () => {
+export const Backgrounds = ({shouldDisplaySetting}: IBackgrounds) => {
     const [
         backgrounds,
-        setBackgrounds
+        setBackgrounds,
     ] = useState<{url: string, id: string, type: string}[]>([]);
+
+    const [shouldDisplay, setShouldDisplay] = useSetting(shouldDisplaySetting);
 
     useEffect(() => {
         /**
@@ -300,6 +306,7 @@ export const Backgrounds = () => {
     return(
     <div className="backgrounds-container">
         {
+            shouldDisplay &&
             backgrounds.map((background) => {
                     return <Background
                     backgroundID={background.id}
