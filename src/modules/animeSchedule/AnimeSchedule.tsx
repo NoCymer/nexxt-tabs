@@ -115,10 +115,10 @@ const AnimeScheduleEntry = ({anime}: IAnimeScheduleEntry) => {
         // or equal to 0
         anime.id != 0 ?
         <div 
-            className="anime-schedule-entry" 
-            style={{backgroundImage: `url(${anime.thumbnailURL})`}}>
-
-            <div className="veil"></div>
+            className="anime-schedule-entry"
+        >
+            <img src={anime.thumbnailURL} className="bg-img"></img>
+            <div className="veil">i</div>
             <h1 
                 className="broadcast-time" 
                 title={ timeFormat === "24h" ? anime.weeklyReleaseTime24 : anime.weeklyReleaseTime12 }

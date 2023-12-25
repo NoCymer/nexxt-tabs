@@ -9,6 +9,7 @@
     --panel-ternary-color: #535353;
 
     --accent-primary-color: #555555;
+    --drop-shadow-widget: drop-shadow(0px 5px 5px rgba(30,30,30,0.1));
 }
 
 *{
@@ -35,6 +36,7 @@ html{
     --panel-ternary-color : #555969;
     
     --accent-primary-color : #D8D8D8;
+    --drop-shadow-widget: drop-shadow(0px 5px 5px rgba(30,30,30,0.4));
 }
 
 html,body{

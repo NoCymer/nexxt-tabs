@@ -1,6 +1,19 @@
 @import "@Styles/base";
 @import "@Styles/utils";
 
+
+.light{
+    --image-veil-gradient: linear-gradient(
+        180deg, rgba(59, 62, 75, 0) 30%, rgba(39, 40, 44, 0.4) 70%
+    );
+}
+
+html {
+    --image-veil-gradient: linear-gradient(
+        180deg, rgba(59, 62, 75, 0) 30%, rgba(39, 40, 44, 0.6) 70%
+    );
+}
+
 .anime-schedule-entry {
     @include centerNoRepImg(cover);
     background-color: var(--panel-secondary-color);
@@ -13,15 +26,20 @@
     position: relative;
     z-index: 2;
     overflow: hidden;
-    filter: drop-shadow(0px 5px 5px rgba(30,30,30,0.4));
-    
+    filter: var(--drop-shadow-widget);
+    .bg-img{
+        width: 100%;
+        height: 100%;
+        transition: filter 500ms;
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+    }
     .veil{
         position: absolute;
         pointer-events: none;
         transition: top .75s;
-        background: linear-gradient(
-            180deg, rgba(59, 62, 75, 0) 8%, rgba(39, 40, 44, 0.9) 70%
-        );
+        background: var(--image-veil-gradient);
         width: 100%;
         height: 150%;
         top: -10%;
@@ -76,8 +94,8 @@
             height: .13rem;
             background: linear-gradient(
                 90deg,rgba(0,0,0,0) 1%,
-                var(--accent-primary-color)  2%,
-                var(--accent-primary-color)  50%,
+                white 2%,
+                white 50%,
                 rgba(0,0,0,0) 90%
             );
             z-index: 2;
@@ -99,6 +117,9 @@
         bottom: -50%;
     }
     &:hover{
+        .bg-img{
+            filter: blur(0.2rem);
+        }
         .veil{
             top: -40%;
         }
