@@ -1,5 +1,6 @@
 import Anime from "../Anime";
 import DateTimeConverter from "../DateTimeConverter";
+import { isCacheValid, validateCache } from "../AnimeSchedule";
 
 /**
  * Strips spaces from a string and returns it 
@@ -22,6 +23,62 @@ describe("Testing anime class", () => {
         "dummyMalURL",
         dummyDate
     );
+
+    test("Cache invalidation", () => {
+        const dummyShouldBeValid = {
+            "_id": 0,
+            "_title": "",
+            "_synopsis": "",
+            "_thumbnailURL": "",
+            "_malURL": "",
+            "_nextReleaseDate": "",
+            "_quarter": 0
+        }
+        const dummyShouldBeValid1 = {
+            "_id": 56,
+            "_title": "test1",
+            "_synopsis": "test2",
+            "_thumbnailURL": "abc.png",
+            "_malURL": "test3",
+            "_nextReleaseDate": "2019-11-03",
+            "_quarter": 2
+        }
+        const dummyShouldBeInValid = {
+            "_id": 0,
+            "_title": "",
+            "_synopsis": "",
+            "_thumbnailURL": "",
+            "_nextReleaseDate": "",
+            "_quarter": 0
+        }
+        const dummyArrayInvalid = [dummyShouldBeValid, dummyShouldBeInValid];
+        const dummyArrayValid = [dummyShouldBeValid, dummyShouldBeValid1];
+        expect(isCacheValid(dummyArrayInvalid)).toBe(false);
+        expect(isCacheValid(dummyArrayValid)).toBe(true);
+    })
+
+    test ("Cache validation", () => {
+        const dummyShouldBeValid = {
+            "_id": 0,
+            "_title": "",
+            "_synopsis": "",
+            "_thumbnailURL": "",
+            "_malURL": "",
+            "_nextReleaseDate": "",
+            "_quarter": 0
+        }
+        const dummyShouldBeInValid = {
+            "_id": 0,
+            "_title": "",
+            "_synopsis": "",
+            "_thumbnailURL": "",
+            "_nextReleaseDate": "",
+            "_quarter": 0
+        }
+        let dummyArrayInvalid = [dummyShouldBeValid, dummyShouldBeInValid];
+        dummyArrayInvalid = validateCache(dummyArrayInvalid);
+        expect(dummyArrayInvalid).toStrictEqual([{}]);
+    })
 
     test("Quarter calculation", () => {
         expect(dummyAnime.quarter).toBe(3);
