@@ -3,7 +3,6 @@ import { Module } from "@Modules/base/Module";
 import { ModulesManager } from "@Modules/base/ModulesManager";
 import moduleJSON from "./module.json";
 import Clock from "./clock/Clock";
-import "./styles/countdown.scss";
 import DateTimeField from "@Components/basic/DateTimeField";
 import TextField from "@Components/basic/TextField";
 import { useTranslation } from "react-i18next";
@@ -17,8 +16,6 @@ import TimeField from "@Components/basic/TimeField";
 
 moduleJSON["settings"]["countdown-datetime"]["defaultValue"] = 
     (new Date(Date.now())).getTime();
-
-
 
     
 /**

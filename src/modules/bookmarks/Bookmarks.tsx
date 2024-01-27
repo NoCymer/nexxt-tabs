@@ -1,5 +1,4 @@
 import React, {  useRef } from "react";
-import "./styles/bookmark.scss";
 import { Module } from "@Modules/base/Module";
 import { ModulesManager } from "@Modules/base/ModulesManager";
 import moduleJSON from "./module.json";

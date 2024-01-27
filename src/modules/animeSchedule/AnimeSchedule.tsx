@@ -1,4 +1,3 @@
-import "./styles/animeSchedule.scss";
 import React, { useEffect, useState } from "react";
 import { Panel, PanelTab, PanelTabSmallPane } from "@Components/advanced/Panel";
 import { useTranslation } from "react-i18next";

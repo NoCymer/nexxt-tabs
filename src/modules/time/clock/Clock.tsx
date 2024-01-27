@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import appManager from "../../../AppManager";
 import { useSetting } from "@Hooks/useSetting";
-import "../styles/clock.scss";
 
 const dateToString = (date: Date, format: string) => {
     return date.toLocaleTimeString([], (

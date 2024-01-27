@@ -31,7 +31,7 @@
         @include hidden;
         @include centerNoRepImg;
         @include noDragImg;
-        background-image: url("app-ressources/dark/close-symbol.svg");
+        background-image: url("../app-ressources/dark/close-symbol.svg");
         transition: .25s;
         position: absolute;
         width: 1rem;
@@ -126,7 +126,7 @@
             height: 2.5rem;
             left: 1rem;
             @include centerNoRepImg;
-            background-image: url("app-ressources/lens-symbol.svg");
+            background-image: url("../app-ressources/lens-symbol.svg");
         }
         &:hover {
             filter: brightness(0.8);
@@ -186,7 +186,7 @@
             @include centerNoRepImg;
             @include noDragImg;
             @include interactable;
-            background-image: url("app-ressources/dark/close-symbol.svg");
+            background-image: url("../app-ressources/dark/close-symbol.svg");
             transition: .25s;
             position: absolute;
             width: .75rem;

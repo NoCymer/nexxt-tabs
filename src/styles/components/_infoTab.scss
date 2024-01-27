@@ -55,7 +55,7 @@
                 left: 0;
                 top: .08rem;
                 @include centerNoRepImg;
-                background-image: url("app-ressources/light/arrow-right-symbol.svg");
+                background-image: url("../app-ressources/light/arrow-right-symbol.svg");
             }
         }
         &.dark{
@@ -67,7 +67,7 @@
                 left: 0;
                 top: .08rem;
                 @include centerNoRepImg;
-                background-image: url("app-ressources/dark/arrow-right-symbol.svg");
+                background-image: url("../app-ressources/dark/arrow-right-symbol.svg");
             }
         }
         
@@ -81,7 +81,7 @@
             &.dark{
                 &::after{
                     background-image: url(
-                        "app-ressources/dark/background-copyright-symbol.svg"
+                        "../app-ressources/dark/background-copyright-symbol.svg"
                     );
                 }
             
@@ -89,7 +89,7 @@
             &.light{
                 &::after{
                     background-image: url(
-                        "app-ressources/light/background-copyright-symbol.svg"
+                        "../app-ressources/light/background-copyright-symbol.svg"
                     );
                 }
 
@@ -101,7 +101,7 @@
             &.dark{
                 &::after{
                     background-image: url(
-                        "app-ressources/dark/icon-copyright-symbol.svg"
+                        "../app-ressources/dark/icon-copyright-symbol.svg"
                     );
                 }
             
@@ -109,7 +109,7 @@
             &.light{
                 &::after{
                     background-image: url(
-                        "app-ressources/light/icon-copyright-symbol.svg"
+                        "../app-ressources/light/icon-copyright-symbol.svg"
                     );
                 }
 
@@ -121,7 +121,7 @@
             &.dark{
                 &::after{
                     background-image: url(
-                        "app-ressources/dark/codebase-copyright-symbol.svg"
+                        "../app-ressources/dark/codebase-copyright-symbol.svg"
                     );
                 }
             
@@ -129,7 +129,7 @@
             &.light{
                 &::after{
                     background-image: url(
-                        "app-ressources/light/codebase-copyright-symbol.svg"
+                        "../app-ressources/light/codebase-copyright-symbol.svg"
                     );
                 }
 
@@ -141,7 +141,7 @@
             &.dark{
                 &::after{
                     background-image: url(
-                        "app-ressources/dark/feedback-symbol.svg"
+                        "../app-ressources/dark/feedback-symbol.svg"
                     );
                 }
             
@@ -149,7 +149,7 @@
             &.light{
                 &::after{
                     background-image: url(
-                        "app-ressources/light/feedback-symbol.svg"
+                        "../app-ressources/light/feedback-symbol.svg"
                     );
                 }
 
@@ -161,14 +161,14 @@
             &.dark{
                 &::after{
                     background-image: url(
-                        "app-ressources/dark/contact-symbol.svg"
+                        "../app-ressources/dark/contact-symbol.svg"
                     );
                 }
             }
             &.light{
                 &::after{
                     background-image: url(
-                        "app-ressources/light/contact-symbol.svg"
+                        "../app-ressources/light/contact-symbol.svg"
                     );
                 }
             }

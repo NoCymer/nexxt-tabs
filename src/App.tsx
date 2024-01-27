@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import "@Styles/main.scss";
 import { SettingsPanel } from "@Settings/SettingsPanel";
 import { useTranslation } from "react-i18next";
 import "@Public/i18n/config";
