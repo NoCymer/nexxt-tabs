@@ -165,7 +165,7 @@
                     height: 1.2rem;
                     @include centerNoRepImg;
                     background-image: url(
-                        "../app-ressources/arrow-right-symbol.svg"
+                        "../app-ressources/dark/arrow-right-symbol.svg"
                     );
                 }
             }
@@ -219,5 +219,16 @@
                 }
             }
         }
+    }
+}
+
+.light .popup.update-popup {
+    .popup-content>ul li::before{
+        background-image: url(
+            "../app-ressources/light/arrow-right-symbol.svg"
+        );
+    }
+    h1, h2{
+        color: rgb(51, 51, 51);
     }
 }

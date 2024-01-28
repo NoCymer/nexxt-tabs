@@ -1,0 +1,27 @@
+{
+    "title": "V4.0 Patch Notes",
+    "thumbnail" : {
+        "type": "image",
+        "url": "https://i.imgur.com/8RrfqMS.png"
+    },
+    "content": [
+        {
+            "type":"paragraph",
+            "title":"Light update",
+            "content":"In this spring update NEXXT Tabs will rejoice all light theme enjoyers by bringing to life NEXXT Tabs's new light mode theme. But that's not all, if you love live wallpapers, you will love this update as it brings full background video support !"
+        },
+        {
+            "type":"paragraph",
+            "title":"What's new ?"
+        },
+        {
+            "type":"list",
+            "content": [
+                "Light theme",
+                "Video backgrounds",
+                "Various performance optimizations",
+                "Bug fixes"
+            ]
+        }
+    ]
+}
