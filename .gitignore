@@ -1,25 +1,42 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
 /dist
-/*VS*
-/*vs*
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
 /node_modules
-/test/js
-/test/browsertest/js
-/test/fixtures/temp-*
-/test/temp
-/test/ChangesAndRemovals
-/test/**/dev-defaults.webpack.lock
-/benchmark/js
-/benchmark/fixtures
-/examples/**/dist
-/assembly/**/*.wat
-/assembly/**/*.wasm
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
 /coverage
-/.nyc_output
-/.jest-cache
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
 .DS_Store
-*.log
-.idea
-.vscode
-.cache
-.eslintcache
-package-lock.json
+Thumbs.db

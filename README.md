@@ -1,78 +1,59 @@
+# NexxtTabs
 
-# NEXXT Tabs
-![stars](https://img.shields.io/github/stars/NoCymer/nexxt-tabs?labelColor=1a1b26&color=E0979F&style=for-the-badge)
-![forks](https://img.shields.io/github/forks/NoCymer/nexxt-tabs?labelColor=1a1b26&color=E0979F&style=for-the-badge)
-![rating](https://img.shields.io/chrome-web-store/rating/dbocanalfbkfdbpjpnbjmipaidlogbmi?color=%23E0979F&style=for-the-badge&labelColor=1a1b26)
-![users](https://img.shields.io/chrome-web-store/users/dbocanalfbkfdbpjpnbjmipaidlogbmi?color=%23E0979F&style=for-the-badge&labelColor=1a1b26)
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
-NEXXT-Tabs is an open source browser extension which changes the browser's new tabs appearance and gives it a modern look with plethora of customizable features.
+## Development server
 
-## Table of contents
+To start a local development server, run:
 
-- [Table of contents](#table-of-contents)
-- [Browser Availability](#browser-availability)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [Building](#building)
-- [Licenses](#licenses)
+```bash
+ng serve
+```
 
-## Browser Availability
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/main/src/edge/edge_48x48.png) |
---- | --- | --- |
-![version](https://img.shields.io/chrome-web-store/v/dbocanalfbkfdbpjpnbjmipaidlogbmi?style=for-the-badge&labelColor=1a1b26&color=E0979F) | ![version](https://img.shields.io/amo/v/nexxt-tabs?style=for-the-badge&labelColor=1a1b26&color=E0979F) | ![version](https://img.shields.io/badge/edge-V3.3.1-pink?style=for-the-badge&label=%20Edge%20Add-ons&labelColor=1a1b26&color=E0979F) |
+## Code scaffolding
 
-- [Chrome web store](https://chrome.google.com/webstore/detail/nexxt-tabs/dbocanalfbkfdbpjpnbjmipaidlogbmi)
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-- [Mozzila addons](https://addons.mozilla.org/en-US/firefox/addon/nexxt-tabs/)
-  
-- [Edge addons](https://microsoftedge.microsoft.com/addons/detail/nexxt-tabs/bjnibpcdibagoeedomnaafeinlooabhk)
+```bash
+ng generate component component-name
+```
 
-## Screenshots
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-![Screenshot3](/screenshots/screenshot3.png)
-![Screenshot2](/screenshots/screenshot2.png)
-
-## Contributing
-If you want to contribute please read the [documentation](https://github.com/NoCymer/NEXXT-Tabs/wiki)
+```bash
+ng generate --help
+```
 
 ## Building
 
-### Installing Dependencies
+To build the project run:
 
-```bash 
-npm install
+```bash
+ng build
 ```
 
-### Developement Build
-Build is platform dependent, possible values are either firefox or chrome for the BROWSER field
-```bash 
-npm run dev BROWSER
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
 ```
 
-### Production Build
-Build is platform dependent, possible values are either firefox or chrome for the BROWSER field
-```bash 
-npm run build BROWSER
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
 ```
 
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Licenses
+## Additional Resources
 
-### Backgrounds
-NEXXT Tabs is not proprietary of any of the backgrounds used in the project, and claims no rights on any them.<br>
-Huge thanks to [@polart_graph](https://www.instagram.com/polart_graph) for providing the beautiful backgrounds used in the project.
-
-### Code
-
-NEXXT-Tabs is licensed under the **MIT License**. See [LICENSE](https://github.com/NoCymer/nexxt-tabs/blob/main/LICENSE) for more information.
-
-### Open source licenses
-
-See [Licenses](docs/LICENSES.MD).
-
-### Icons
-All icons present in the project are **made-in** and are licensed under a **Creative Commons Attribution 4.0 International License**
-
-
-
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
