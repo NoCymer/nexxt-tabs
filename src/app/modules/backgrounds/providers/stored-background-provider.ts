@@ -1,8 +1,7 @@
-import { Injectable } from "@angular/core";
-import { db } from "./background-database";
+import { db } from "../background-database";
+import { AbstractBackgroundProvider } from "./abstract-background-provider";
 
-@Injectable({ providedIn: 'root' })
-export default class BackgroundDispenserService {
+export class StoredBackgroundProvider extends AbstractBackgroundProvider {
     private _currentFrame: HTMLImageElement = new Image();
 
     private _sourcesIds: number[] = [];
@@ -16,6 +15,7 @@ export default class BackgroundDispenserService {
     private _lastSourceSwitchTimestamp: number = 0;
 
     constructor() {
+        super();
         this.fetchSourcesIds();
     }
 
@@ -42,3 +42,5 @@ export default class BackgroundDispenserService {
         this._sourcesIds = (await db.backgrounds.toArray()).map(entity => entity.id!);
     }
 }
+
+export const storedBackgroundProvider = new StoredBackgroundProvider();

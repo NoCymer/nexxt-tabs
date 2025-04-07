@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import BackgroundDispenserService from '../../background-dispenser-service';
+import { AbstractBackgroundProvider } from '../../providers/abstract-background-provider';
+import { storedBackgroundProvider } from '../../providers/stored-background-provider';
+import { urlBackgroundProvider } from '../../providers/url-background-provider';
 
 @Component({
     selector: 'app-background-dispenser',
@@ -14,11 +16,11 @@ export class BackgroundDispenserComponent implements OnInit, AfterViewInit {
     private _ctx!: CanvasRenderingContext2D;
     private _canvas!: HTMLCanvasElement;
 
-    constructor(
-        private _bgDispenser: BackgroundDispenserService
-    ) { }
+    private provider!: AbstractBackgroundProvider;
 
     ngOnInit(): void {
+        this.provider = storedBackgroundProvider;
+        this.provider = urlBackgroundProvider;
     }
 
     ngAfterViewInit(): void {
@@ -37,16 +39,14 @@ export class BackgroundDispenserComponent implements OnInit, AfterViewInit {
         this.fitCanvasToScreenSize();
     }
 
-    private update() {
-        this.renderScene();
-        requestAnimationFrame(() => this.update());
+    private async update() {
+        await this.renderScene();
+        requestAnimationFrame(async () => await this.update());
     }
 
-    private renderScene() {
+    private async renderScene() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
-        var img = new Image();
-        img.src = 'a.jpg';
-        this.drawImageFit(img);
+        this.drawImageFit(await this.provider.nextFrame());
     }
 
     private drawImageFit(img: HTMLImageElement) {
