@@ -1,7 +1,14 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { AbstractBackgroundProvider } from '../../providers/abstract-background-provider';
-import { storedBackgroundProvider } from '../../providers/stored-background-provider';
-import { urlBackgroundProvider } from '../../providers/url-background-provider';
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    HostListener,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
+import { AbstractBackgroundProvider } from '../../providers/abstract-background-provider-service';
+import { StoredBackgroundProviderService } from '../../providers/stored-background-provider-service';
+import UrlBackgroundProviderService from '../../providers/url-background-provider-service';
 
 @Component({
     selector: 'app-background-dispenser',
@@ -9,23 +16,25 @@ import { urlBackgroundProvider } from '../../providers/url-background-provider';
     templateUrl: './background-dispenser.component.html',
     styleUrl: './background-dispenser.component.scss',
 })
-export class BackgroundDispenserComponent implements OnInit, AfterViewInit {
+export class BackgroundDispenserComponent implements AfterViewInit {
     @ViewChild('backgroundTarget')
     private _backgroundTarget!: ElementRef<HTMLCanvasElement>;
 
     private _ctx!: CanvasRenderingContext2D;
     private _canvas!: HTMLCanvasElement;
 
-    private provider!: AbstractBackgroundProvider;
+    private activeProvider!: AbstractBackgroundProvider;
 
-    ngOnInit(): void {
-        this.provider = storedBackgroundProvider;
-        this.provider = urlBackgroundProvider;
+    constructor(
+        private _storedBackgroundProvider: StoredBackgroundProviderService,
+        private _urlBackgroundProvider: UrlBackgroundProviderService
+    ) {
+        this.activeProvider = this._urlBackgroundProvider;
     }
 
     ngAfterViewInit(): void {
         let canvas = this._backgroundTarget.nativeElement;
-        let ctx = canvas.getContext("2d");
+        let ctx = canvas.getContext('2d');
         if (!ctx || !canvas) return;
         this._ctx = ctx;
         this._canvas = canvas;
@@ -46,15 +55,18 @@ export class BackgroundDispenserComponent implements OnInit, AfterViewInit {
 
     private async renderScene() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
-        this.drawImageFit(await this.provider.nextFrame());
+        this.drawImageFit(await this.activeProvider.nextFrame());
     }
 
     private drawImageFit(img: HTMLImageElement) {
-        let factor = Math.max(this._canvas.width / img.width, this._canvas.height / img.height);
+        let factor = Math.max(
+            this._canvas.width / img.width,
+            this._canvas.height / img.height
+        );
         let scaledWidth = img.width * factor;
         let scaledHeight = img.height * factor;
-        let x = (this._canvas.width / 2) - (scaledWidth / 2);
-        let y = (this._canvas.height / 2) - (scaledHeight / 2);
+        let x = this._canvas.width / 2 - scaledWidth / 2;
+        let y = this._canvas.height / 2 - scaledHeight / 2;
         this._ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
     }
 
